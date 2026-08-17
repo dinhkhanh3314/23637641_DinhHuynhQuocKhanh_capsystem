@@ -59,124 +59,55 @@ Công ty ABC cần xây dựng hệ thống CAB mới để khắc phục nhữn
 
 ## 2. Stakeholder metrics
 ```mermaid
-flowchart LR 
-    subgraph KH["Khách hàng"] 
-        KH_S["Khách hàng"] 
-        KH_P1["Quản lý tài khoản"] 
-        KH_P2["Đặt xe"] 
-        KH_P3["Theo dõi chuyến đi"] 
-        KH_P4["Xem lịch sử chuyến đi"] 
-        KH_P5["Tính cước"] 
-        KH_P6["Thanh toán"] 
-        KH_P7["Nhận thông báo"] 
-        KH_P8["Đánh giá tài xế"] 
-        KH_M["Chưa xác định metric trong case study"] 
+flowchart LR
 
-        KH_S --> KH_P1 
-        KH_S --> KH_P2 
-        KH_S --> KH_P3 
-        KH_S --> KH_P4 
-        KH_S --> KH_P5 
-        KH_S --> KH_P6 
-        KH_S --> KH_P7 
-        KH_S --> KH_P8 
-        KH_P1 --> KH_M 
-        KH_P2 --> KH_M 
-        KH_P3 --> KH_M 
-        KH_P4 --> KH_M 
-        KH_P5 --> KH_M 
-        KH_P6 --> KH_M 
-        KH_P7 --> KH_M 
-        KH_P8 --> KH_M 
-    end 
+    KH["Khách hàng"]
+    TX["Tài xế"]
+    VH["Nhân viên vận hành"]
+    LD["Ban lãnh đạo / Ban giám đốc"]
+    NTTT["Nhà cung cấp thanh toán bên ngoài"]
+    BA["Business Analyst"]
 
-    subgraph TX["Tài xế"] 
-        TX_S["Tài xế"] 
-        TX_P1["Quản lý tài khoản"] 
-        TX_P2["Tìm kiếm và phân công tài xế"] 
-        TX_P3["Thực hiện chuyến đi"] 
-        TX_P4["Gửi thông báo"] 
-        TX_M["Chưa xác định metric trong case study"] 
+    KH --> KH_P1["Quản lý tài khoản"]
+    KH --> KH_P2["Đặt xe"]
+    KH --> KH_P3["Theo dõi chuyến đi"]
+    KH --> KH_P4["Xem lịch sử chuyến đi"]
+    KH --> KH_P5["Tính cước"]
+    KH --> KH_P6["Thanh toán"]
+    KH --> KH_P7["Nhận thông báo"]
+    KH --> KH_P8["Đánh giá tài xế"]
 
-        TX_S --> TX_P1 
-        TX_S --> TX_P2 
-        TX_S --> TX_P3 
-        TX_S --> TX_P4 
-        TX_P1 --> TX_M 
-        TX_P2 --> TX_M 
-        TX_P3 --> TX_M 
-        TX_P4 --> TX_M 
-    end 
+    TX --> TX_P1["Quản lý tài khoản"]
+    TX --> TX_P2["Nhận và xử lý yêu cầu chuyến"]
+    TX --> TX_P3["Thực hiện chuyến đi"]
+    TX --> TX_P4["Cập nhật trạng thái và vị trí"]
 
-    subgraph VH["Nhân viên vận hành"] 
-        VH_S["Nhân viên vận hành"] 
-        VH_P1["Quản lý khách hàng"] 
-        VH_P2["Quản lý tài xế"] 
-        VH_P3["Quản lý phương tiện"] 
-        VH_P4["Quản lý chuyến đi"] 
-        VH_P5["Xử lý chuyến bị lỗi"] 
-        VH_P6["Tra cứu lịch sử giao dịch"] 
-        VH_P7["Quản lý phân quyền"] 
-        VH_M["Chưa xác định metric trong case study"] 
+    VH --> VH_P1["Quản lý khách hàng"]
+    VH --> VH_P2["Quản lý tài xế"]
+    VH --> VH_P3["Quản lý phương tiện"]
+    VH --> VH_P4["Quản lý chuyến đi"]
+    VH --> VH_P5["Xử lý chuyến bị lỗi"]
+    VH --> VH_P6["Tra cứu lịch sử giao dịch"]
+    VH --> VH_P7["Quản lý phân quyền"]
 
-        VH_S --> VH_P1 
-        VH_S --> VH_P2 
-        VH_S --> VH_P3 
-        VH_S --> VH_P4 
-        VH_S --> VH_P5 
-        VH_S --> VH_P6 
-        VH_S --> VH_P7 
-        VH_P1 --> VH_M 
-        VH_P2 --> VH_M 
-        VH_P3 --> VH_M 
-        VH_P4 --> VH_M 
-        VH_P5 --> VH_M 
-        VH_P6 --> VH_M 
-        VH_P7 --> VH_M 
-    end 
+    LD --> LD_P["Báo cáo hoạt động"]
+    LD_P --> LD_M1["Số lượng chuyến"]
+    LD_P --> LD_M2["Doanh thu"]
+    LD_P --> LD_M3["Tỷ lệ chuyến hoàn thành"]
+    LD_P --> LD_M4["Tỷ lệ hủy"]
+    LD_P --> LD_M5["Hiệu quả hoạt động của tài xế"]
 
-    subgraph LD["Ban lãnh đạo / Ban giám đốc"] 
-        LD_S["Ban lãnh đạo / Ban giám đốc"] 
-        LD_P["Báo cáo hoạt động"] 
-        LD_M1["Số lượng chuyến"] 
-        LD_M2["Doanh thu"] 
-        LD_M3["Tỷ lệ chuyến hoàn thành"] 
-        LD_M4["Tỷ lệ hủy"] 
-        LD_M5["Hiệu quả hoạt động của tài xế"] 
+    NTTT --> NTTT_P["Thanh toán"]
+    BA --> BA_P["Phân tích và làm rõ yêu cầu"]
 
-        LD_S --> LD_P 
-        LD_P --> LD_M1 
-        LD_P --> LD_M2 
-        LD_P --> LD_M3 
-        LD_P --> LD_M4 
-        LD_P --> LD_M5 
-    end 
+    classDef stakeholder fill:#eef2ff,stroke:#818cf8
+    classDef process fill:#f0fdfa,stroke:#2dd4bf
+    classDef metric fill:#fff7ed,stroke:#fb923c
 
-    subgraph NTTT["Nhà cung cấp thanh toán bên ngoài"] 
-        NTTT_S["Nhà cung cấp thanh toán bên ngoài"] 
-        NTTT_P["Thanh toán"] 
-        NTTT_M["Chưa xác định metric trong case study"] 
-
-        NTTT_S --> NTTT_P 
-        NTTT_P --> NTTT_M 
-    end 
-
-    subgraph BA["Business Analyst"] 
-        BA_S["Business Analyst"] 
-        BA_P["Phân tích và làm rõ yêu cầu"] 
-        BA_M["Chưa xác định metric trong case study"] 
-
-        BA_S --> BA_P 
-        BA_P --> BA_M 
-    end 
-
-    classDef stakeholder stroke:#818cf8,fill:#eef2ff 
-    classDef process stroke:#2dd4bf,fill:#f0fdfa 
-    classDef metric stroke:#fb923c,fill:#fff7ed 
-    classDef noMetric stroke:#f87171,fill:#fef2f2 
-
-    class KH_S,TX_S,VH_S,LD_S,NTTT_S,BA_S stakeholder 
-    class KH_P1,KH_P2,KH_P3,KH_P4,KH_P5,KH_P6,KH_P7,KH_P8,TX_P1,TX_P2,TX_P3,TX_P4,VH_P1,VH_P2,VH_P3,VH_P4,VH_P5,VH_P6,VH_P7,LD_P,NTTT_P,BA_P process 
-    class LD_M1,LD_M2,LD_M3,LD_M4,LD_M5 metric 
-    class KH_M,TX_M,VH_M,NTTT_M,BA_M noMetric
+    class KH,TX,VH,LD,NTTT,BA stakeholder
+    class KH_P1,KH_P2,KH_P3,KH_P4,KH_P5,KH_P6,KH_P7,KH_P8 process
+    class TX_P1,TX_P2,TX_P3,TX_P4 process
+    class VH_P1,VH_P2,VH_P3,VH_P4,VH_P5,VH_P6,VH_P7 process
+    class LD_P,NTTT_P,BA_P process
+    class LD_M1,LD_M2,LD_M3,LD_M4,LD_M5 metric
 ```
