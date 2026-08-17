@@ -313,3 +313,65 @@ quadrantChart
 - Hệ thống phải có khả năng bổ sung các phương thức thanh toán mới.
 - Hệ thống phải có khả năng bổ sung các nhà cung cấp thông báo mới.
 - Hệ thống phải cho phép thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng.
+## Bước 6. Yêu cầu chức năng 
+
+### 6.1. Khách hàng
+
+- Đăng ký tài khoản.
+- Đăng nhập.
+- Cập nhật thông tin cá nhân.
+- Nhập điểm đón và điểm đến.
+- Lựa chọn loại xe.
+- Đặt xe.
+- Theo dõi trạng thái tìm tài xế.
+- Xem thông tin tài xế đã nhận chuyến.
+- Xem thời gian dự kiến tài xế đến.
+- Theo dõi trạng thái chuyến đi.
+- Xem số tiền phải trả.
+- Thanh toán bằng tiền mặt.
+- Thanh toán điện tử.
+- Xem kết quả thanh toán.
+- Xem lịch sử chuyến đi.
+- Đánh giá tài xế.
+
+### 6.2. Tài xế
+
+- Đăng ký tài khoản.
+- Đăng nhập.
+- Cập nhật hồ sơ.
+- Cập nhật thông tin phương tiện.
+- Cập nhật trạng thái hoạt động.
+- Chuyển sang trạng thái sẵn sàng nhận chuyến.
+- Xem yêu cầu chuyến.
+- Chấp nhận chuyến.
+- Từ chối chuyến.
+- Cập nhật trạng thái chuyến đi.
+- Cập nhật vị trí.
+- Xem các thông báo liên quan đến chuyến đi.
+
+### 6.3. Nhân viên vận hành
+
+- Đăng nhập hệ thống quản trị.
+- Quản lý khách hàng.
+- Quản lý tài xế.
+- Quản lý phương tiện.
+- Quản lý chuyến đi.
+- Xem các chuyến đang diễn ra.
+- Kiểm tra trạng thái tài xế.
+- Xử lý các trường hợp chuyến bị lỗi.
+- Tra cứu lịch sử giao dịch.
+- Quản lý phân quyền.
+
+### 6.4. Ban lãnh đạo / Ban giám đốc
+
+- Xem báo cáo số lượng chuyến.
+- Xem báo cáo doanh thu.
+- Xem báo cáo tỷ lệ chuyến hoàn thành.
+- Xem báo cáo tỷ lệ hủy.
+- Xem báo cáo hiệu quả hoạt động của tài xế.
+
+### 6.5. Nhà cung cấp thanh toán bên ngoài
+
+- Tiếp nhận yêu cầu thanh toán từ hệ thống CAB.
+- Xử lý giao dịch thanh toán.
+- Trả kết quả giao dịch về hệ thống CAB.
