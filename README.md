@@ -58,56 +58,34 @@ Công ty ABC cần xây dựng hệ thống CAB mới để khắc phục nhữn
 | **Nhà cung cấp thanh toán bên ngoài** | Cung cấp dịch vụ thanh toán điện tử | Tích hợp với CAB để xử lý giao dịch thanh toán điện tử và trả kết quả giao dịch về hệ thống |
 
 ## 2. Stakeholder metrics
+## Stakeholder Matrix
+
+Stakeholder Matrix được sử dụng để phân loại các bên liên quan dựa trên hai tiêu chí: **mức độ quan tâm (Interest)** và **mức độ quyền lực/ảnh hưởng (Power)** đối với hệ thống CAB.
+
 ```mermaid
-flowchart LR
+quadrantChart
+    title Stakeholder Matrix - CAB System
+    x-axis Interest Thấp --> Interest Cao
+    y-axis Power Thấp --> Power Cao
+    quadrant-1 Manage Closely
+    quadrant-2 Keep Satisfied
+    quadrant-3 Monitor
+    quadrant-4 Keep Informed
 
-    KH["Khách hàng"]
-    TX["Tài xế"]
-    VH["Nhân viên vận hành"]
-    LD["Ban lãnh đạo / Ban giám đốc"]
-    NTTT["Nhà cung cấp thanh toán bên ngoài"]
-    BA["Business Analyst"]
-
-    KH --> KH_P1["Quản lý tài khoản"]
-    KH --> KH_P2["Đặt xe"]
-    KH --> KH_P3["Theo dõi chuyến đi"]
-    KH --> KH_P4["Xem lịch sử chuyến đi"]
-    KH --> KH_P5["Tính cước"]
-    KH --> KH_P6["Thanh toán"]
-    KH --> KH_P7["Nhận thông báo"]
-    KH --> KH_P8["Đánh giá tài xế"]
-
-    TX --> TX_P1["Quản lý tài khoản"]
-    TX --> TX_P2["Nhận và xử lý yêu cầu chuyến"]
-    TX --> TX_P3["Thực hiện chuyến đi"]
-    TX --> TX_P4["Cập nhật trạng thái và vị trí"]
-
-    VH --> VH_P1["Quản lý khách hàng"]
-    VH --> VH_P2["Quản lý tài xế"]
-    VH --> VH_P3["Quản lý phương tiện"]
-    VH --> VH_P4["Quản lý chuyến đi"]
-    VH --> VH_P5["Xử lý chuyến bị lỗi"]
-    VH --> VH_P6["Tra cứu lịch sử giao dịch"]
-    VH --> VH_P7["Quản lý phân quyền"]
-
-    LD --> LD_P["Báo cáo hoạt động"]
-    LD_P --> LD_M1["Số lượng chuyến"]
-    LD_P --> LD_M2["Doanh thu"]
-    LD_P --> LD_M3["Tỷ lệ chuyến hoàn thành"]
-    LD_P --> LD_M4["Tỷ lệ hủy"]
-    LD_P --> LD_M5["Hiệu quả hoạt động của tài xế"]
-
-    NTTT --> NTTT_P["Thanh toán"]
-    BA --> BA_P["Phân tích và làm rõ yêu cầu"]
-
-    classDef stakeholder fill:#eef2ff,stroke:#818cf8
-    classDef process fill:#f0fdfa,stroke:#2dd4bf
-    classDef metric fill:#fff7ed,stroke:#fb923c
-
-    class KH,TX,VH,LD,NTTT,BA stakeholder
-    class KH_P1,KH_P2,KH_P3,KH_P4,KH_P5,KH_P6,KH_P7,KH_P8 process
-    class TX_P1,TX_P2,TX_P3,TX_P4 process
-    class VH_P1,VH_P2,VH_P3,VH_P4,VH_P5,VH_P6,VH_P7 process
-    class LD_P,NTTT_P,BA_P process
-    class LD_M1,LD_M2,LD_M3,LD_M4,LD_M5 metric
+    "Ban lãnh đạo / Ban giám đốc": [0.85, 0.85]
+    "Nhân viên vận hành": [0.80, 0.75]
+    "Khách hàng": [0.80, 0.25]
+    "Tài xế": [0.75, 0.20]
+    "Nhà cung cấp thanh toán bên ngoài": [0.20, 0.20]
+    "Business Analyst": [0.75, 0.20]
 ```
+
+### Phân loại Stakeholder
+| Stakeholder | Power | Interest | Nhóm |
+|---|---|---|---|
+| Ban lãnh đạo / Ban giám đốc | Cao | Cao | Manage Closely |
+| Nhân viên vận hành | Cao | Cao | Manage Closely |
+| Khách hàng | Thấp | Cao | Keep Informed |
+| Tài xế | Thấp | Cao | Keep Informed |
+| Business Analyst | Thấp | Cao | Keep Informed |
+| Nhà cung cấp thanh toán bên ngoài | Thấp | Thấp | Monitor |
