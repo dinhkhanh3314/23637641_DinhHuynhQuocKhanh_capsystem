@@ -102,7 +102,7 @@ quadrantChart
 - Bảo vệ thông tin cá nhân, dữ liệu vị trí và dữ liệu giao dịch, đồng thời lưu vết các thao tác quan trọng.
 - Cho phép triển khai các chức năng mới từng phần với hạn chế ảnh hưởng đến các chức năng đang hoạt động.
 
-## Bước 4 4. Phạm vi dự án
+## Bước 4. Phạm vi dự án
 - Xây dựng nền tảng CAB hỗ trợ **khách hàng, tài xế và nhân viên vận hành**.
 - Quản lý tài khoản khách hàng và tài xế.
 - Đặt xe: nhập điểm đón, điểm đến, lựa chọn loại xe và gửi yêu cầu đặt xe.
