@@ -101,3 +101,25 @@ quadrantChart
 - Tạo nền tảng có khả năng mở rộng để bổ sung dịch vụ, phương thức thanh toán và kênh thông báo mới.
 - Bảo vệ thông tin cá nhân, dữ liệu vị trí và dữ liệu giao dịch, đồng thời lưu vết các thao tác quan trọng.
 - Cho phép triển khai các chức năng mới từng phần với hạn chế ảnh hưởng đến các chức năng đang hoạt động.
+
+## Bước 4 4. Phạm vi dự án
+- Xây dựng nền tảng CAB hỗ trợ **khách hàng, tài xế và nhân viên vận hành**.
+- Quản lý tài khoản khách hàng và tài xế.
+- Đặt xe: nhập điểm đón, điểm đến, lựa chọn loại xe và gửi yêu cầu đặt xe.
+- Tìm kiếm và phân công tài xế dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành.
+- Theo dõi trạng thái chuyến đi, tài xế nhận chuyến và thời gian dự kiến tài xế đến.
+- Quản lý và cập nhật trạng thái chuyến đi.
+- Quản lý vị trí tài xế để hỗ trợ tìm tài xế phù hợp.
+- Tính cước dựa trên loại dịch vụ và thông tin chuyến đi.
+- Thanh toán bằng tiền mặt và phương thức thanh toán điện tử.
+- Tích hợp với nhà cung cấp thanh toán bên ngoài.
+- Xử lý và thông báo kết quả thanh toán.
+- Gửi thông báo cho khách hàng và tài xế về các sự kiện liên quan đến chuyến đi.
+- Quản lý khách hàng, tài xế, phương tiện và chuyến đi.
+- Hỗ trợ nhân viên vận hành xem chuyến đang diễn ra, kiểm tra trạng thái tài xế và xử lý chuyến bị lỗi.
+- Tra cứu lịch sử giao dịch.
+- Phân quyền các chức năng quản trị.
+- Cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế.
+- Xác thực người dùng và bảo vệ thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch.
+- Lưu vết các thao tác quan trọng.
+- Đảm bảo khả năng mở rộng của hệ thống khi tải tăng.
