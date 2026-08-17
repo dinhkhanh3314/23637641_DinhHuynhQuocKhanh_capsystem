@@ -1,6 +1,10 @@
 # CAB System – Phân tích yêu cầu
 
-## 1. Các vấn đề hiện hữu
+## 1. Tại sao cần hệ thống?
+
+Công ty ABC cần xây dựng hệ thống CAB mới để khắc phục những hạn chế của hệ thống hiện tại, đặc biệt là việc phân công tài xế còn thủ công, khách hàng khó theo dõi trạng thái chuyến đi, thông tin thanh toán chưa được quản lý tập trung và bộ phận vận hành gặp khó khăn khi mở rộng hệ thống. Hệ thống mới sẽ giúp tự động hóa quy trình đặt xe và tìm kiếm tài xế, quản lý tập trung dữ liệu, nâng cao trải nghiệm khách hàng và hiệu quả vận hành. Đồng thời, hệ thống được định hướng xây dựng như một nền tảng có khả năng phục vụ số lượng lớn khách hàng và tài xế, cũng như hỗ trợ mở rộng thêm các dịch vụ và tính năng trong tương lai.
+
+## 2. Các vấn đề hiện hữu
 
 - Việc phân công tài xế chủ yếu được thực hiện thủ công.
 - Khách hàng khó theo dõi trạng thái chuyến đi.
@@ -9,7 +13,7 @@
 - Hệ thống cần có khả năng phục vụ số lượng lớn khách hàng và tài xế.
 - Hệ thống hiện tại còn hạn chế trong việc phát triển thêm các tính năng trong tương lai.
 
-## 2. Ai sẽ tham gia vào hệ thống?
+## 3. Ai sẽ tham gia vào hệ thống?
 
 - **Khách hàng**
   - Đặt xe và theo dõi chuyến đi.
@@ -32,7 +36,7 @@
 - **Nhà cung cấp thanh toán bên ngoài**
   - Xử lý các giao dịch thanh toán điện tử.
 
-## 3. Giá trị kinh doanh của hệ thống mới
+## 4. Giá trị kinh doanh của hệ thống mới
 
 - Tự động hóa việc tìm kiếm và phân công tài xế.
 - Nâng cao trải nghiệm khách hàng thông qua khả năng theo dõi chuyến đi.
@@ -42,7 +46,7 @@
 - Đáp ứng số lượng lớn khách hàng và tài xế khi nhu cầu tăng cao.
 - Tạo nền tảng có khả năng mở rộng và phát triển thêm các tính năng trong tương lai.
 
-## 4. Stakeholder
+## 5. Stakeholder
 
 | Stakeholder | Vai trò | Tương tác với hệ thống |
 |---|---|---|
