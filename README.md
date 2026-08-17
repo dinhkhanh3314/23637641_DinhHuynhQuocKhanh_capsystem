@@ -103,23 +103,85 @@ quadrantChart
 - Cho phép triển khai các chức năng mới từng phần với hạn chế ảnh hưởng đến các chức năng đang hoạt động.
 
 ## Bước 4. Phạm vi dự án
-- Xây dựng nền tảng CAB hỗ trợ **khách hàng, tài xế và nhân viên vận hành**.
-- Quản lý tài khoản khách hàng và tài xế.
-- Đặt xe: nhập điểm đón, điểm đến, lựa chọn loại xe và gửi yêu cầu đặt xe.
-- Tìm kiếm và phân công tài xế dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành.
-- Theo dõi trạng thái chuyến đi, tài xế nhận chuyến và thời gian dự kiến tài xế đến.
-- Quản lý và cập nhật trạng thái chuyến đi.
-- Quản lý vị trí tài xế để hỗ trợ tìm tài xế phù hợp.
+
+### 4.1. Quản lý tài khoản
+
+- Khách hàng đăng ký, đăng nhập và cập nhật thông tin cá nhân.
+- Tài xế đăng ký hoặc được nhân viên vận hành tạo tài khoản.
+- Tài xế cập nhật hồ sơ và thông tin phương tiện.
+- Xác thực khách hàng và tài xế trước khi sử dụng các chức năng yêu cầu tài khoản.
+
+### 4.2. Đặt xe
+
+- Khách hàng nhập điểm đón và điểm đến.
+- Khách hàng lựa chọn loại xe.
+- Khách hàng gửi yêu cầu đặt xe.
+- Hệ thống tiếp nhận và xử lý yêu cầu đặt xe.
+- Khách hàng nhận thông báo về trạng thái yêu cầu.
+
+### 4.3. Tìm kiếm và phân công tài xế
+
+- Hệ thống xác định tài xế phù hợp dựa trên vị trí và trạng thái sẵn sàng.
+- Ưu tiên tài xế phù hợp và gần khách hàng.
+- Gửi yêu cầu chuyến đến tài xế phù hợp.
+- Tài xế có thể chấp nhận hoặc từ chối chuyến.
+- Hệ thống tiếp tục tìm tài xế khác khi tài xế không phản hồi hoặc từ chối.
+- Thông báo cho khách hàng khi không tìm được tài xế.
+- Lưu thông tin vị trí của tài xế để hỗ trợ tìm kiếm.
+
+### 4.4. Thực hiện và theo dõi chuyến đi
+
+- Tài xế cập nhật trạng thái:
+  - Đã đến điểm đón.
+  - Đã đón khách.
+  - Đang di chuyển.
+  - Hoàn thành chuyến.
+- Khách hàng theo dõi trạng thái chuyến đi.
+- Khách hàng xem tài xế đã nhận chuyến.
+- Khách hàng xem thời gian dự kiến tài xế đến.
+- Nhân viên vận hành xem các chuyến đang diễn ra.
+- Nhân viên vận hành kiểm tra trạng thái tài xế.
+- Nhân viên vận hành hỗ trợ xử lý các trường hợp chuyến bị lỗi.
+- Lưu lịch sử chuyến đi.
+
+### 4.5. Tính cước và thanh toán
+
+- Tính số tiền phải trả sau khi chuyến hoàn thành.
 - Tính cước dựa trên loại dịch vụ và thông tin chuyến đi.
-- Thanh toán bằng tiền mặt và phương thức thanh toán điện tử.
-- Tích hợp với nhà cung cấp thanh toán bên ngoài.
-- Xử lý và thông báo kết quả thanh toán.
-- Gửi thông báo cho khách hàng và tài xế về các sự kiện liên quan đến chuyến đi.
-- Quản lý khách hàng, tài xế, phương tiện và chuyến đi.
-- Hỗ trợ nhân viên vận hành xem chuyến đang diễn ra, kiểm tra trạng thái tài xế và xử lý chuyến bị lỗi.
-- Tra cứu lịch sử giao dịch.
+- Hỗ trợ thanh toán tiền mặt.
+- Hỗ trợ một phương thức thanh toán điện tử được lựa chọn cho phiên bản đầu.
+- Tích hợp với một nhà cung cấp thanh toán bên ngoài.
+- Không lưu trực tiếp thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán.
+- Thông báo kết quả thanh toán cho khách hàng.
+- Xử lý trường hợp thanh toán điện tử thất bại theo chính sách được thống nhất.
+- Nhân viên vận hành có thể tra cứu lịch sử giao dịch.
+
+### 4.6. Thông báo
+
+- Thông báo cho khách hàng khi yêu cầu đặt xe được tiếp nhận.
+- Thông báo khi tài xế nhận chuyến.
+- Thông báo khi tài xế đến điểm đón.
+- Thông báo khi chuyến hoàn thành.
+- Thông báo kết quả thanh toán.
+- Thông báo cho tài xế khi có chuyến mới.
+- Thông báo cho tài xế về các thay đổi liên quan đến chuyến đang thực hiện.
+- Triển khai một kênh thông báo chính cho phiên bản đầu nhưng thiết kế để có thể mở rộng thêm kênh sau này.
+
+### 4.7. Quản trị và vận hành
+
+- Nhân viên vận hành quản lý khách hàng.
+- Nhân viên vận hành quản lý tài xế.
+- Nhân viên vận hành quản lý phương tiện.
+- Nhân viên vận hành quản lý chuyến đi.
+- Nhân viên vận hành tra cứu lịch sử giao dịch.
 - Phân quyền các chức năng quản trị.
-- Cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ chuyến hoàn thành, tỷ lệ hủy và hiệu quả hoạt động của tài xế.
-- Xác thực người dùng và bảo vệ thông tin cá nhân, thông tin phương tiện, dữ liệu vị trí và dữ liệu giao dịch.
-- Lưu vết các thao tác quan trọng.
-- Đảm bảo khả năng mở rộng của hệ thống khi tải tăng.
+- Hạn chế nhân viên thông thường thực hiện các thao tác nhạy cảm.
+
+### 4.8. Báo cáo cơ bản
+
+- Báo cáo số lượng chuyến.
+- Báo cáo doanh thu.
+- Báo cáo tỷ lệ chuyến hoàn thành.
+- Báo cáo tỷ lệ hủy.
+- Báo cáo hiệu quả hoạt động của tài xế.
+
