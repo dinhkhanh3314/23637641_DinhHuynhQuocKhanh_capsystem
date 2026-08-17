@@ -185,3 +185,131 @@ quadrantChart
 - Báo cáo tỷ lệ hủy.
 - Báo cáo hiệu quả hoạt động của tài xế.
 
+## Bước 5. Yêu cầu nghiệp vụ
+
+### 5.1. Quản lý tài khoản
+
+- Hệ thống phải hỗ trợ khách hàng đăng ký tài khoản.
+- Hệ thống phải hỗ trợ khách hàng đăng nhập.
+- Hệ thống phải cho phép khách hàng cập nhật thông tin cá nhân.
+- Hệ thống phải hỗ trợ tài xế đăng ký tài khoản hoặc cho phép nhân viên vận hành tạo tài khoản cho tài xế.
+- Hệ thống phải cho phép tài xế cập nhật hồ sơ cá nhân.
+- Hệ thống phải cho phép tài xế cập nhật thông tin phương tiện.
+- Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản.
+
+### 5.2. Đặt xe
+
+- Hệ thống phải cho phép khách hàng nhập điểm đón.
+- Hệ thống phải cho phép khách hàng nhập điểm đến.
+- Hệ thống phải cho phép khách hàng lựa chọn loại xe.
+- Hệ thống phải cho phép khách hàng gửi yêu cầu đặt xe.
+- Hệ thống phải thông báo cho khách hàng khi yêu cầu đặt xe được tiếp nhận.
+- Hệ thống phải hiển thị trạng thái xử lý yêu cầu đặt xe.
+- Hệ thống phải thông báo rõ ràng cho khách hàng khi không tìm được tài xế.
+
+### 5.3. Tìm kiếm và phân công tài xế
+
+- Hệ thống phải tự động xác định các tài xế phù hợp với yêu cầu chuyến đi.
+- Việc lựa chọn tài xế phải dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành được doanh nghiệp xác định.
+- Hệ thống phải ưu tiên tài xế phù hợp và gần khách hàng.
+- Hệ thống phải gửi yêu cầu chuyến đến tài xế phù hợp.
+- Tài xế phải có khả năng chấp nhận hoặc từ chối chuyến.
+- Hệ thống phải tiếp tục tìm tài xế khác nếu tài xế được đề xuất không phản hồi.
+- Hệ thống phải tiếp tục tìm tài xế khác nếu tài xế được đề xuất từ chối chuyến.
+- Khách hàng không phải tạo lại yêu cầu khi việc phân công tài xế trước đó không thành công.
+- Hệ thống phải lưu thông tin vị trí của tài xế để hỗ trợ quá trình tìm kiếm.
+
+### 5.4. Thực hiện chuyến đi
+
+- Tài xế phải có khả năng chuyển sang trạng thái sẵn sàng nhận chuyến.
+- Tài xế phải nhận được thông báo khi có yêu cầu chuyến phù hợp.
+- Tài xế phải có khả năng cập nhật trạng thái chuyến đi.
+- Các trạng thái chuyến đi bao gồm:
+  - Đã đến điểm đón.
+  - Đã đón khách.
+  - Đang di chuyển.
+  - Hoàn thành chuyến.
+- Hệ thống phải lưu thông tin vị trí của tài xế trong quá trình hoạt động.
+- Khách hàng phải có thể xem tài xế đã nhận chuyến.
+- Khách hàng phải có thể xem thời gian dự kiến tài xế đến.
+- Khách hàng phải có thể theo dõi trạng thái hiện tại của chuyến đi.
+
+### 5.5. Tính cước
+
+- Hệ thống phải xác định số tiền khách hàng phải trả sau khi chuyến đi hoàn thành.
+- Số tiền phải trả phải được xác định dựa trên loại dịch vụ và thông tin chuyến đi.
+- Số tiền phải trả phải được cung cấp cho khách hàng.
+- Các quy tắc tính cước cụ thể phải được xác định với các bên liên quan trước khi triển khai.
+
+### 5.6. Thanh toán
+
+- Hệ thống phải hỗ trợ thanh toán bằng tiền mặt.
+- Hệ thống phải hỗ trợ thanh toán điện tử.
+- Hệ thống phải tích hợp với nhà cung cấp thanh toán bên ngoài.
+- Hệ thống không được lưu trực tiếp thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán.
+- Hệ thống phải thông báo cho khách hàng về kết quả thanh toán.
+- Hệ thống phải xử lý trường hợp thanh toán điện tử thất bại.
+- Hệ thống phải cho phép xử lý lại giao dịch thanh toán thất bại theo chính sách của doanh nghiệp.
+- Hệ thống phải lưu thông tin giao dịch để phục vụ tra cứu lịch sử.
+
+### 5.7. Thông báo
+
+- Hệ thống phải thông báo cho khách hàng khi yêu cầu đặt xe được tiếp nhận.
+- Hệ thống phải thông báo cho khách hàng khi tài xế nhận chuyến.
+- Hệ thống phải thông báo cho khách hàng khi tài xế đến điểm đón.
+- Hệ thống phải thông báo cho khách hàng khi chuyến đi hoàn thành.
+- Hệ thống phải thông báo cho khách hàng về kết quả thanh toán.
+- Hệ thống phải thông báo cho tài xế khi có chuyến mới.
+- Hệ thống phải thông báo cho tài xế về những thay đổi liên quan đến chuyến đang thực hiện.
+- Hệ thống phải có khả năng mở rộng để bổ sung các kênh thông báo trong tương lai.
+
+### 5.8. Quản lý vận hành
+
+- Nhân viên vận hành phải có giao diện quản trị để quản lý hoạt động của hệ thống.
+- Nhân viên vận hành phải có khả năng quản lý khách hàng.
+- Nhân viên vận hành phải có khả năng quản lý tài xế.
+- Nhân viên vận hành phải có khả năng quản lý phương tiện.
+- Nhân viên vận hành phải có khả năng quản lý chuyến đi.
+- Nhân viên vận hành phải có khả năng xem các chuyến đang diễn ra.
+- Nhân viên vận hành phải có khả năng kiểm tra trạng thái tài xế.
+- Nhân viên vận hành phải có khả năng hỗ trợ xử lý các trường hợp chuyến bị lỗi.
+- Nhân viên vận hành phải có khả năng tra cứu lịch sử giao dịch.
+- Các chức năng quản trị phải được phân quyền.
+- Nhân viên thông thường không được thực hiện các thao tác quản trị nhạy cảm.
+
+### 5.9. Lịch sử và đánh giá
+
+- Hệ thống phải lưu lịch sử chuyến đi.
+- Khách hàng phải có thể xem lịch sử chuyến đi.
+- Khách hàng phải có thể xem số tiền phải trả của các chuyến đi.
+- Khách hàng phải có thể đánh giá tài xế sau khi chuyến đi hoàn thành.
+
+### 5.10. Báo cáo hoạt động
+
+- Hệ thống phải cung cấp báo cáo về số lượng chuyến.
+- Hệ thống phải cung cấp báo cáo về doanh thu.
+- Hệ thống phải cung cấp báo cáo về tỷ lệ chuyến hoàn thành.
+- Hệ thống phải cung cấp báo cáo về tỷ lệ hủy.
+- Hệ thống phải cung cấp báo cáo về hiệu quả hoạt động của tài xế.
+
+### 5.11. Bảo mật và kiểm soát dữ liệu
+
+- Hệ thống phải kiểm soát quyền truy cập đối với các chức năng quản trị.
+- Hệ thống phải bảo vệ thông tin cá nhân của khách hàng và tài xế.
+- Hệ thống phải bảo vệ thông tin phương tiện.
+- Hệ thống phải bảo vệ dữ liệu vị trí của tài xế.
+- Hệ thống phải bảo vệ dữ liệu giao dịch.
+- Hệ thống phải lưu vết các thao tác quan trọng để phục vụ kiểm tra khi có sự cố.
+
+### 5.12. Khả năng mở rộng và phát triển
+
+- Hệ thống phải có khả năng phục vụ số lượng lớn khách hàng và tài xế.
+- Hệ thống phải hoạt động ổn định trong thời điểm nhu cầu tăng cao.
+- Các thành phần của hệ thống phải có khả năng mở rộng độc lập khi tải tăng.
+- Lỗi tại chức năng thanh toán không được làm toàn bộ hệ thống đặt xe ngừng hoạt động.
+- Lỗi tại chức năng thông báo không được làm toàn bộ hệ thống đặt xe ngừng hoạt động.
+- Các chức năng mới phải có khả năng được triển khai từng phần với hạn chế ảnh hưởng đến các chức năng đang hoạt động.
+- Hệ thống phải có khả năng bổ sung các loại dịch vụ mới trong tương lai.
+- Hệ thống phải có khả năng bổ sung các phương thức thanh toán mới.
+- Hệ thống phải có khả năng bổ sung các nhà cung cấp thông báo mới.
+- Hệ thống phải cho phép thay đổi một số thành phần kỹ thuật mà không phải xây dựng lại toàn bộ ứng dụng.
