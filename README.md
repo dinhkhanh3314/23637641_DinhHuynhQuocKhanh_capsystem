@@ -1,50 +1,71 @@
 # CAB System – Phân tích yêu cầu
-## Bước 1: Hiểu rõ hệ thống
-## 1. Tại sao cần hệ thống?
+# Bước 1: Hiểu rõ hệ thống
 
-Công ty ABC cần xây dựng hệ thống CAB mới để khắc phục những hạn chế của hệ thống hiện tại, đặc biệt là việc phân công tài xế còn thủ công, khách hàng khó theo dõi trạng thái chuyến đi, thông tin thanh toán chưa được quản lý tập trung và bộ phận vận hành gặp khó khăn khi mở rộng hệ thống. Hệ thống mới sẽ giúp tự động hóa quy trình đặt xe và tìm kiếm tài xế, quản lý tập trung dữ liệu, nâng cao trải nghiệm khách hàng và hiệu quả vận hành. Đồng thời, hệ thống được định hướng xây dựng như một nền tảng có khả năng phục vụ số lượng lớn khách hàng và tài xế, cũng như hỗ trợ mở rộng thêm các dịch vụ và tính năng trong tương lai.
+## 1. Bối cảnh nghiệp vụ và lý do hệ thống cũ không đáp ứng được
 
-## 2. Các vấn đề hiện hữu
+Công ty ABC là một doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến. Hiện tại khách hàng có thể liên hệ với tổng đài hoặc sử dụng một ứng dụng đơn giản để yêu cầu xe.
+
+Hệ thống hiện tại còn một số hạn chế:
 
 - Việc phân công tài xế chủ yếu được thực hiện thủ công.
 - Khách hàng khó theo dõi trạng thái chuyến đi.
 - Thông tin thanh toán chưa được quản lý tập trung.
 - Bộ phận vận hành gặp khó khăn khi muốn mở rộng hệ thống.
-- Hệ thống cần có khả năng phục vụ số lượng lớn khách hàng và tài xế.
-- Hệ thống hiện tại còn hạn chế trong việc phát triển thêm các tính năng trong tương lai.
+- Hệ thống hiện tại khó đáp ứng khi số lượng khách hàng và tài xế tăng.
 
-## 3. Ai sẽ tham gia vào hệ thống?
+Những hạn chế này ảnh hưởng đến quá trình vận hành dịch vụ, trải nghiệm của khách hàng và khả năng mở rộng của doanh nghiệp.
 
-- **Khách hàng**
-  - Đặt xe và theo dõi chuyến đi.
-  - Xem lịch sử chuyến đi.
-  - Thanh toán và đánh giá tài xế.
+## 2. Giải pháp mới và hệ thống mới
 
-- **Tài xế**
-  - Nhận và thực hiện chuyến đi.
-  - Cập nhật trạng thái chuyến đi.
-  - Cập nhật vị trí.
+Công ty ABC mong muốn xây dựng **CAB System – Nền tảng đặt xe** nhằm hỗ trợ quy trình đặt xe từ khi khách hàng tạo yêu cầu cho đến khi chuyến đi hoàn thành.
 
-- **Nhân viên vận hành**
-  - Quản lý khách hàng, tài xế, phương tiện và chuyến đi.
-  - Theo dõi chuyến đi và trạng thái tài xế.
-  - Hỗ trợ xử lý các trường hợp chuyến bị lỗi.
+Hệ thống mới hỗ trợ các hoạt động chính:
 
-- **Ban lãnh đạo**
-  - Theo dõi các báo cáo về hoạt động kinh doanh.
+- Khách hàng đăng ký tài khoản, đăng nhập và cập nhật thông tin cá nhân.
+- Khách hàng nhập điểm đón, điểm đến và lựa chọn loại xe.
+- Khách hàng gửi yêu cầu đặt xe.
+- Hệ thống xác định các tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và một số tiêu chí vận hành khác.
+- Hệ thống ưu tiên tài xế phù hợp và gần khách hàng.
+- Tài xế nhận được thông báo và có thể chấp nhận hoặc từ chối chuyến.
+- Nếu tài xế được đề xuất không phản hồi hoặc từ chối, hệ thống tiếp tục tìm tài xế khác mà không yêu cầu khách hàng tạo lại yêu cầu.
+- Nếu không tìm được tài xế, khách hàng được thông báo rõ ràng.
+- Khách hàng biết tài xế nào đã nhận chuyến và thời gian dự kiến tài xế đến.
+- Tài xế cập nhật trạng thái chuyến gồm đã đến điểm đón, đã đón khách, đang di chuyển và hoàn thành chuyến.
+- Khách hàng theo dõi được trạng thái hiện tại của chuyến đi.
+- Sau khi chuyến đi hoàn thành, hệ thống xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi.
+- Khách hàng có thể thanh toán bằng tiền mặt hoặc phương thức thanh toán điện tử.
+- Thanh toán điện tử được thực hiện thông qua nhà cung cấp thanh toán bên ngoài.
+- Hệ thống CAB không lưu trực tiếp thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán.
+- Khách hàng nhận được thông báo khi yêu cầu đặt xe được tiếp nhận, khi có tài xế nhận chuyến, khi tài xế đến điểm đón, khi chuyến hoàn thành và khi thanh toán có kết quả.
+- Tài xế nhận được thông báo về các chuyến mới hoặc những thay đổi liên quan đến chuyến đang thực hiện.
+- Khách hàng có thể xem lịch sử chuyến đi, số tiền phải trả và đánh giá tài xế sau khi hoàn thành chuyến.
+- Nhân viên vận hành có thể quản lý khách hàng, tài xế, phương tiện và chuyến đi.
+- Nhân viên vận hành có thể xem các chuyến đang diễn ra, kiểm tra trạng thái tài xế, hỗ trợ xử lý các trường hợp chuyến bị lỗi và tra cứu lịch sử giao dịch.
 
-- **Nhà cung cấp thanh toán bên ngoài**
-  - Xử lý các giao dịch thanh toán điện tử.
+Quy trình cốt lõi của hệ thống:
+
+**Đặt xe → Tìm tài xế → Nhận chuyến → Thực hiện chuyến → Hoàn thành chuyến → Tính cước → Thanh toán → Đánh giá**
+
+## 3. Các đối tượng tham gia hệ thống
+
+| Đối tượng | Vai trò |
+|---|---|
+| Khách hàng | Đăng ký, đăng nhập, đặt xe, theo dõi chuyến đi, thanh toán và đánh giá tài xế |
+| Tài xế | Quản lý hồ sơ, thông tin phương tiện, nhận hoặc từ chối chuyến và thực hiện chuyến |
+| Nhân viên vận hành | Quản lý khách hàng, tài xế, phương tiện, chuyến đi và hỗ trợ xử lý các trường hợp chuyến bị lỗi |
+| Nhà cung cấp thanh toán bên ngoài | Xử lý các giao dịch thanh toán điện tử |
+| Nhà cung cấp dịch vụ thông báo | Hỗ trợ gửi thông báo đến khách hàng và tài xế |
 
 ## 4. Giá trị kinh doanh của hệ thống mới
 
-- Tự động hóa việc tìm kiếm và phân công tài xế.
-- Nâng cao trải nghiệm khách hàng thông qua khả năng theo dõi chuyến đi.
-- Quản lý tập trung thông tin khách hàng, tài xế, phương tiện, chuyến đi và giao dịch.
-- Nâng cao hiệu quả hoạt động của bộ phận vận hành.
-- Hỗ trợ quản lý hoạt động kinh doanh thông qua các báo cáo.
-- Đáp ứng số lượng lớn khách hàng và tài xế khi nhu cầu tăng cao.
-- Tạo nền tảng có khả năng mở rộng và phát triển thêm các tính năng trong tương lai.
+| Đối tượng | Giá trị kinh doanh |
+|---|---|
+| Khách hàng | Đặt xe thuận tiện hơn, theo dõi được trạng thái chuyến đi, biết thông tin tài xế, thanh toán và đánh giá tài xế |
+| Tài xế | Nhận yêu cầu chuyến, chủ động chấp nhận hoặc từ chối chuyến và cập nhật trạng thái chuyến |
+| Nhân viên vận hành | Quản lý tập trung khách hàng, tài xế, phương tiện và chuyến đi; theo dõi và hỗ trợ xử lý các chuyến |
+| Doanh nghiệp | Giảm sự phụ thuộc vào phân công tài xế thủ công, hỗ trợ tự động hóa việc tìm và phân công tài xế, cải thiện trải nghiệm khách hàng và hỗ trợ phục vụ số lượng lớn khách hàng và tài xế |
+
+Giá trị cốt lõi của hệ thống là hỗ trợ Công ty ABC vận hành quy trình đặt xe từ khi khách hàng tạo yêu cầu, hệ thống tìm và phân công tài xế, tài xế thực hiện chuyến, chuyến hoàn thành, tính cước, thanh toán đến đánh giá tài xế.
 
 ## Bước 2. Stakeholder
 
