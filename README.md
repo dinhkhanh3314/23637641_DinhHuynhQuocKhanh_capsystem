@@ -288,3 +288,81 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 - Cung cấp dịch vụ gửi thông báo
 - Trả trạng thái gửi thông báo
+
+# Bước 7: Vẽ Use Case Diagram
+
+```mermaid
+flowchart LR
+
+    KH["Khách hàng"]
+    TX["Tài xế"]
+    NV["Nhân viên vận hành"]
+    BGD["Ban giám đốc"]
+    TT["Nhà cung cấp thanh toán"]
+    TB["Nhà cung cấp dịch vụ thông báo"]
+
+    subgraph CAB["CAB System"]
+        UC1(["Quản lý tài khoản"])
+        UC2(["Đặt xe"])
+        UC3(["Theo dõi chuyến đi"])
+        UC4(["Thanh toán"])
+        UC5(["Xem lịch sử chuyến đi"])
+        UC6(["Đánh giá tài xế"])
+
+        UC7(["Quản lý phương tiện"])
+        UC8(["Quản lý trạng thái hoạt động"])
+        UC9(["Quản lý chuyến được phân công"])
+        UC10(["Cập nhật trạng thái chuyến"])
+        UC11(["Xem lịch sử chuyến"])
+
+        UC12(["Quản lý khách hàng"])
+        UC13(["Quản lý tài xế"])
+        UC14(["Quản lý chuyến đi"])
+        UC15(["Theo dõi hoạt động tài xế"])
+        UC16(["Quản lý giao dịch"])
+        UC17(["Xử lý chuyến có vấn đề"])
+        UC18(["Quản lý quyền truy cập"])
+
+        UC19(["Theo dõi hoạt động kinh doanh"])
+        UC20(["Xem báo cáo hoạt động"])
+
+        UC21(["Tìm và phân công tài xế"])
+        UC22(["Tính cước"])
+        UC23(["Gửi thông báo"])
+    end
+
+    KH --- UC1
+    KH --- UC2
+    KH --- UC3
+    KH --- UC4
+    KH --- UC5
+    KH --- UC6
+
+    TX --- UC1
+    TX --- UC7
+    TX --- UC8
+    TX --- UC9
+    TX --- UC10
+    TX --- UC11
+
+    NV --- UC12
+    NV --- UC13
+    NV --- UC7
+    NV --- UC14
+    NV --- UC15
+    NV --- UC16
+    NV --- UC17
+    NV --- UC18
+
+    BGD --- UC19
+    BGD --- UC20
+
+    TT --- UC4
+    TB --- UC23
+
+    UC2 -.->|include| UC21
+    UC4 -.->|include| UC22
+    UC2 -.->|include| UC23
+    UC3 -.->|include| UC23
+    UC4 -.->|include| UC23
+```
