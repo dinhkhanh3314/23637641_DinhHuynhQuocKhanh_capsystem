@@ -308,16 +308,8 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 ```mermaid
 flowchart LR
 
-%% =====================================================
-%% ACTOR BÊN TRÁI
-%% =====================================================
-
 KH["👤 Khách hàng"]
 TX["👤 Tài xế"]
-
-%% =====================================================
-%% HỆ THỐNG
-%% =====================================================
 
 subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
     direction TB
@@ -363,34 +355,24 @@ subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
     UC35(["Theo dõi tỷ lệ hủy chuyến"])
     UC36(["Theo dõi hiệu quả hoạt động của tài xế"])
 
-    %% Include
-    UC30 -.->|«include»| UC32
-    UC30 -.->|«include»| UC33
-    UC30 -.->|«include»| UC34
-    UC30 -.->|«include»| UC35
-    UC30 -.->|«include»| UC36
+    UC30 -.->|include| UC32
+    UC30 -.->|include| UC33
+    UC30 -.->|include| UC34
+    UC30 -.->|include| UC35
+    UC30 -.->|include| UC36
 
-    UC31 -.->|«include»| UC32
-    UC31 -.->|«include»| UC33
-    UC31 -.->|«include»| UC34
-    UC31 -.->|«include»| UC35
-    UC31 -.->|«include»| UC36
+    UC31 -.->|include| UC32
+    UC31 -.->|include| UC33
+    UC31 -.->|include| UC34
+    UC31 -.->|include| UC35
+    UC31 -.->|include| UC36
 
-    %% Extend
-    UC12 -.->|«extend»| UC10
-    UC28 -.->|«extend»| UC23
+    UC12 -.->|extend| UC10
+    UC28 -.->|extend| UC23
 end
-
-%% =====================================================
-%% ACTOR BÊN PHẢI
-%% =====================================================
 
 VH["👤 Nhân viên vận hành"]
 BGD["👤 Ban giám đốc"]
-
-%% =====================================================
-%% KẾT NỐI ACTOR
-%% =====================================================
 
 KH --- UC01
 KH --- UC02
@@ -444,22 +426,10 @@ BGD --- UC34
 BGD --- UC35
 BGD --- UC36
 
-%% =====================================================
-%% ÉP ACTOR VỀ HAI PHÍA
-%% =====================================================
-
-KH ~~~ TX
-VH ~~~ BGD
-
-%% =====================================================
-%% STYLE
-%% =====================================================
-
-classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px,color:#111827
-classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px,color:#111827
+classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px
+classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px
 
 class KH,TX,VH,BGD actor
-
 class UC01,UC02,UC03,UC04,UC05,UC06,UC07,UC08,UC09,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29,UC30,UC31,UC32,UC33,UC34,UC35,UC36 usecase
 ```
 # Bước 8: Đặc tả Use Case
