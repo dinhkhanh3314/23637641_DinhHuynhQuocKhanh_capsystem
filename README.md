@@ -303,192 +303,163 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Theo dõi tỷ lệ hủy chuyến
 - Theo dõi hiệu quả hoạt động của tài xế
 
-# Bước 7: Vẽ Use Case Diagram
-# Bước 7. Use Case Diagram
+## Bước 7. Use Case Diagram
 
-Sơ đồ Use Case của CAB System – Nền tảng đặt xe:
+```mermaid
+flowchart LR
 
-```plantuml
-@startuml
-left to right direction
+%% =====================================================
+%% ACTOR BÊN TRÁI
+%% =====================================================
 
-skinparam packageStyle rectangle
-skinparam actorStyle awesome
-skinparam usecase {
-    BackgroundColor White
-    BorderColor #2563EB
-}
+KH["👤 Khách hàng"]
+TX["👤 Tài xế"]
 
-' =====================================================
-' ACTOR
-' =====================================================
+%% =====================================================
+%% HỆ THỐNG
+%% =====================================================
 
-actor "Khách hàng" as KH
-actor "Tài xế" as TX
+subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
+    direction TB
 
-actor "Nhân viên vận hành" as VH
-actor "Ban giám đốc" as BGD
+    UC01(["Đăng ký tài khoản"])
+    UC02(["Đăng nhập"])
+    UC03(["Đăng xuất"])
+    UC04(["Quên mật khẩu"])
+    UC05(["Quản lý thông tin cá nhân"])
 
-' =====================================================
-' CAB SYSTEM
-' =====================================================
+    UC06(["Đặt xe"])
+    UC07(["Theo dõi chuyến đi"])
+    UC08(["Hủy chuyến"])
+    UC09(["Thanh toán"])
+    UC10(["Xem lịch sử chuyến đi"])
+    UC11(["Xem chi tiết chuyến đi"])
+    UC12(["Đánh giá tài xế"])
 
-rectangle "CAB SYSTEM – NỀN TẢNG ĐẶT XE" {
+    UC13(["Quản lý phương tiện"])
+    UC14(["Quản lý trạng thái hoạt động"])
+    UC15(["Xem chuyến được phân công"])
+    UC16(["Cập nhật trạng thái chuyến"])
+    UC17(["Xem lịch sử chuyến"])
 
-    ' =========================
-    ' XÁC THỰC
-    ' =========================
+    UC18(["Quản lý khách hàng"])
+    UC19(["Xem thông tin khách hàng"])
+    UC20(["Quản lý tài xế"])
+    UC21(["Xem thông tin tài xế"])
+    UC22(["Quản lý phương tiện"])
+    UC23(["Quản lý chuyến đi"])
+    UC24(["Xem chi tiết chuyến đi"])
+    UC25(["Theo dõi hoạt động tài xế"])
+    UC26(["Quản lý giao dịch"])
+    UC27(["Xem chi tiết giao dịch"])
+    UC28(["Xử lý chuyến có vấn đề"])
+    UC29(["Quản lý quyền truy cập"])
 
-    usecase "Đăng ký tài khoản" as UC01
-    usecase "Đăng nhập" as UC02
-    usecase "Đăng xuất" as UC03
-    usecase "Quên mật khẩu" as UC04
-    usecase "Quản lý thông tin cá nhân" as UC05
+    UC30(["Theo dõi hoạt động kinh doanh"])
+    UC31(["Xem báo cáo hoạt động"])
+    UC32(["Theo dõi doanh thu"])
+    UC33(["Theo dõi số lượng chuyến"])
+    UC34(["Theo dõi tỷ lệ hoàn thành chuyến"])
+    UC35(["Theo dõi tỷ lệ hủy chuyến"])
+    UC36(["Theo dõi hiệu quả hoạt động của tài xế"])
 
-    ' =========================
-    ' KHÁCH HÀNG
-    ' =========================
+    %% Include
+    UC30 -.->|«include»| UC32
+    UC30 -.->|«include»| UC33
+    UC30 -.->|«include»| UC34
+    UC30 -.->|«include»| UC35
+    UC30 -.->|«include»| UC36
 
-    usecase "Đặt xe" as UC06
-    usecase "Theo dõi chuyến đi" as UC07
-    usecase "Hủy chuyến" as UC08
-    usecase "Thanh toán" as UC09
-    usecase "Xem lịch sử chuyến đi" as UC10
-    usecase "Xem chi tiết chuyến đi" as UC11
-    usecase "Đánh giá tài xế" as UC12
+    UC31 -.->|«include»| UC32
+    UC31 -.->|«include»| UC33
+    UC31 -.->|«include»| UC34
+    UC31 -.->|«include»| UC35
+    UC31 -.->|«include»| UC36
 
-    ' =========================
-    ' TÀI XẾ
-    ' =========================
+    %% Extend
+    UC12 -.->|«extend»| UC10
+    UC28 -.->|«extend»| UC23
+end
 
-    usecase "Quản lý phương tiện" as UC13
-    usecase "Quản lý trạng thái hoạt động" as UC14
-    usecase "Xem chuyến được phân công" as UC15
-    usecase "Cập nhật trạng thái chuyến" as UC16
-    usecase "Xem lịch sử chuyến" as UC17
+%% =====================================================
+%% ACTOR BÊN PHẢI
+%% =====================================================
 
-    ' =========================
-    ' NHÂN VIÊN VẬN HÀNH
-    ' =========================
+VH["👤 Nhân viên vận hành"]
+BGD["👤 Ban giám đốc"]
 
-    usecase "Quản lý khách hàng" as UC18
-    usecase "Xem thông tin khách hàng" as UC19
-    usecase "Quản lý tài xế" as UC20
-    usecase "Xem thông tin tài xế" as UC21
-    usecase "Quản lý phương tiện" as UC22
-    usecase "Quản lý chuyến đi" as UC23
-    usecase "Xem chi tiết chuyến đi" as UC24
-    usecase "Theo dõi hoạt động tài xế" as UC25
-    usecase "Quản lý giao dịch" as UC26
-    usecase "Xem chi tiết giao dịch" as UC27
-    usecase "Xử lý chuyến có vấn đề" as UC28
-    usecase "Quản lý quyền truy cập" as UC29
+%% =====================================================
+%% KẾT NỐI ACTOR
+%% =====================================================
 
-    ' =========================
-    ' BAN GIÁM ĐỐC
-    ' =========================
+KH --- UC01
+KH --- UC02
+KH --- UC03
+KH --- UC04
+KH --- UC05
+KH --- UC06
+KH --- UC07
+KH --- UC08
+KH --- UC09
+KH --- UC10
+KH --- UC11
+KH --- UC12
 
-    usecase "Theo dõi hoạt động kinh doanh" as UC30
-    usecase "Xem báo cáo hoạt động" as UC31
-    usecase "Theo dõi doanh thu" as UC32
-    usecase "Theo dõi số lượng chuyến" as UC33
-    usecase "Theo dõi tỷ lệ hoàn thành chuyến" as UC34
-    usecase "Theo dõi tỷ lệ hủy chuyến" as UC35
-    usecase "Theo dõi hiệu quả hoạt động của tài xế" as UC36
-}
+TX --- UC02
+TX --- UC03
+TX --- UC04
+TX --- UC05
+TX --- UC13
+TX --- UC14
+TX --- UC15
+TX --- UC16
+TX --- UC17
 
-' =====================================================
-' KHÁCH HÀNG
-' =====================================================
+VH --- UC02
+VH --- UC03
+VH --- UC04
+VH --- UC05
+VH --- UC18
+VH --- UC19
+VH --- UC20
+VH --- UC21
+VH --- UC22
+VH --- UC23
+VH --- UC24
+VH --- UC25
+VH --- UC26
+VH --- UC27
+VH --- UC28
+VH --- UC29
 
-KH --> UC01
-KH --> UC02
-KH --> UC03
-KH --> UC04
-KH --> UC05
-KH --> UC06
-KH --> UC07
-KH --> UC08
-KH --> UC09
-KH --> UC10
-KH --> UC11
-KH --> UC12
+BGD --- UC02
+BGD --- UC03
+BGD --- UC04
+BGD --- UC05
+BGD --- UC30
+BGD --- UC31
+BGD --- UC32
+BGD --- UC33
+BGD --- UC34
+BGD --- UC35
+BGD --- UC36
 
-' =====================================================
-' TÀI XẾ
-' =====================================================
+%% =====================================================
+%% ÉP ACTOR VỀ HAI PHÍA
+%% =====================================================
 
-TX --> UC02
-TX --> UC03
-TX --> UC04
-TX --> UC05
-TX --> UC13
-TX --> UC14
-TX --> UC15
-TX --> UC16
-TX --> UC17
+KH ~~~ TX
+VH ~~~ BGD
 
-' =====================================================
-' NHÂN VIÊN VẬN HÀNH
-' =====================================================
+%% =====================================================
+%% STYLE
+%% =====================================================
 
-VH --> UC02
-VH --> UC03
-VH --> UC04
-VH --> UC05
-VH --> UC18
-VH --> UC19
-VH --> UC20
-VH --> UC21
-VH --> UC22
-VH --> UC23
-VH --> UC24
-VH --> UC25
-VH --> UC26
-VH --> UC27
-VH --> UC28
-VH --> UC29
+classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px,color:#111827
+classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px,color:#111827
 
-' =====================================================
-' BAN GIÁM ĐỐC
-' =====================================================
+class KH,TX,VH,BGD actor
 
-BGD --> UC02
-BGD --> UC03
-BGD --> UC04
-BGD --> UC05
-BGD --> UC30
-BGD --> UC31
-BGD --> UC32
-BGD --> UC33
-BGD --> UC34
-BGD --> UC35
-BGD --> UC36
-
-' =====================================================
-' INCLUDE
-' =====================================================
-
-UC30 ..> UC32 : <<include>>
-UC30 ..> UC33 : <<include>>
-UC30 ..> UC34 : <<include>>
-UC30 ..> UC35 : <<include>>
-UC30 ..> UC36 : <<include>>
-
-UC31 ..> UC32 : <<include>>
-UC31 ..> UC33 : <<include>>
-UC31 ..> UC34 : <<include>>
-UC31 ..> UC35 : <<include>>
-UC31 ..> UC36 : <<include>>
-
-' =====================================================
-' EXTEND
-' =====================================================
-
-UC12 ..> UC10 : <<extend>>
-UC28 ..> UC23 : <<extend>>
-
-@enduml
-```
+class UC01,UC02,UC03,UC04,UC05,UC06,UC07,UC08,UC09,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29,UC30,UC31,UC32,UC33,UC34,UC35,UC36 usecase
 # Bước 8: Đặc tả Use Case
 
