@@ -294,413 +294,144 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 ```mermaid
 flowchart LR
 
-    KH["Khách hàng"]
-    TX["Tài xế"]
-    NV["Nhân viên vận hành"]
-    BGD["Ban giám đốc"]
-    TT["Nhà cung cấp thanh toán"]
-    TB["Nhà cung cấp dịch vụ thông báo"]
+subgraph KH["Khách hàng"]
+    KH1["Quản lý tài khoản"]
+    KH2["Đặt xe"]
+    KH3["Theo dõi chuyến đi"]
+    KH4["Thanh toán"]
+    KH5["Xem lịch sử chuyến đi"]
+    KH6["Đánh giá tài xế"]
+end
 
-    subgraph CAB["CAB System"]
-        UC1(["Quản lý tài khoản"])
-        UC2(["Đặt xe"])
-        UC3(["Theo dõi chuyến đi"])
-        UC4(["Thanh toán"])
-        UC5(["Xem lịch sử chuyến đi"])
-        UC6(["Đánh giá tài xế"])
+subgraph TX["Tài xế"]
+    TX1["Quản lý tài khoản"]
+    TX2["Quản lý phương tiện"]
+    TX3["Quản lý trạng thái hoạt động"]
+    TX4["Quản lý chuyến được phân công"]
+    TX5["Cập nhật trạng thái chuyến"]
+    TX6["Xem lịch sử chuyến"]
+end
 
-        UC7(["Quản lý phương tiện"])
-        UC8(["Quản lý trạng thái hoạt động"])
-        UC9(["Quản lý chuyến được phân công"])
-        UC10(["Cập nhật trạng thái chuyến"])
-        UC11(["Xem lịch sử chuyến"])
+subgraph VH["Nhân viên vận hành"]
+    VH1["Quản lý khách hàng"]
+    VH2["Quản lý tài xế"]
+    VH3["Quản lý phương tiện"]
+    VH4["Quản lý chuyến đi"]
+    VH5["Theo dõi hoạt động tài xế"]
+    VH6["Quản lý giao dịch"]
+    VH7["Xử lý chuyến có vấn đề"]
+    VH8["Quản lý quyền truy cập"]
+end
 
-        UC12(["Quản lý khách hàng"])
-        UC13(["Quản lý tài xế"])
-        UC14(["Quản lý chuyến đi"])
-        UC15(["Theo dõi hoạt động tài xế"])
-        UC16(["Quản lý giao dịch"])
-        UC17(["Xử lý chuyến có vấn đề"])
-        UC18(["Quản lý quyền truy cập"])
+subgraph BGD["Ban giám đốc"]
+    BGD1["Theo dõi hoạt động kinh doanh"]
+    BGD2["Xem báo cáo hoạt động"]
+    BGD3["Theo dõi doanh thu"]
+    BGD4["Theo dõi số lượng chuyến"]
+    BGD5["Theo dõi tỷ lệ hoàn thành chuyến"]
+    BGD6["Theo dõi tỷ lệ hủy chuyến"]
+    BGD7["Theo dõi hiệu quả hoạt động của tài xế"]
+end
 
-        UC19(["Theo dõi hoạt động kinh doanh"])
-        UC20(["Xem báo cáo hoạt động"])
+subgraph CAB["CAB System – Nền tảng đặt xe"]
+    UC1(["Quản lý tài khoản"])
+    UC2(["Đặt xe"])
+    UC3(["Theo dõi chuyến đi"])
+    UC4(["Thanh toán"])
+    UC5(["Xem lịch sử chuyến đi"])
+    UC6(["Đánh giá tài xế"])
 
-        UC21(["Tìm và phân công tài xế"])
-        UC22(["Tính cước"])
-        UC23(["Gửi thông báo"])
-    end
+    UC7(["Quản lý phương tiện"])
+    UC8(["Quản lý trạng thái hoạt động"])
+    UC9(["Quản lý chuyến được phân công"])
+    UC10(["Cập nhật trạng thái chuyến"])
+    UC11(["Xem lịch sử chuyến"])
 
-    KH --- UC1
-    KH --- UC2
-    KH --- UC3
-    KH --- UC4
-    KH --- UC5
-    KH --- UC6
+    UC12(["Quản lý khách hàng"])
+    UC13(["Quản lý tài xế"])
+    UC14(["Quản lý chuyến đi"])
+    UC15(["Theo dõi hoạt động tài xế"])
+    UC16(["Quản lý giao dịch"])
+    UC17(["Xử lý chuyến có vấn đề"])
+    UC18(["Quản lý quyền truy cập"])
 
-    TX --- UC1
-    TX --- UC7
-    TX --- UC8
-    TX --- UC9
-    TX --- UC10
-    TX --- UC11
+    UC19(["Theo dõi hoạt động kinh doanh"])
+    UC20(["Xem báo cáo hoạt động"])
+    UC21(["Theo dõi doanh thu"])
+    UC22(["Theo dõi số lượng chuyến"])
+    UC23(["Theo dõi tỷ lệ hoàn thành chuyến"])
+    UC24(["Theo dõi tỷ lệ hủy chuyến"])
+    UC25(["Theo dõi hiệu quả hoạt động của tài xế"])
 
-    NV --- UC12
-    NV --- UC13
-    NV --- UC7
-    NV --- UC14
-    NV --- UC15
-    NV --- UC16
-    NV --- UC17
-    NV --- UC18
+    UC26(["Xử lý thanh toán điện tử"])
+    UC27(["Trả kết quả giao dịch"])
+    UC28(["Gửi thông báo"])
+    UC29(["Trả trạng thái gửi thông báo"])
 
-    BGD --- UC19
-    BGD --- UC20
+    H1(["Tìm và phân công tài xế"])
+    H2(["Tính cước"])
+    H3(["Quản lý thanh toán"])
+end
 
-    TT --- UC4
-    TB --- UC23
+P["Nhà cung cấp thanh toán"] --- UC26
+N["Nhà cung cấp dịch vụ thông báo"] --- UC28
+N --- UC29
 
-    UC2 -.->|include| UC21
-    UC4 -.->|include| UC22
-    UC2 -.->|include| UC23
-    UC3 -.->|include| UC23
-    UC4 -.->|include| UC23
+KH1 --- UC1
+KH2 --- UC2
+KH3 --- UC3
+KH4 --- UC4
+KH5 --- UC5
+KH6 --- UC6
+
+TX1 --- UC1
+TX2 --- UC7
+TX3 --- UC8
+TX4 --- UC9
+TX5 --- UC10
+TX6 --- UC11
+
+VH1 --- UC12
+VH2 --- UC13
+VH3 --- UC7
+VH4 --- UC14
+VH5 --- UC15
+VH6 --- UC16
+VH7 --- UC17
+VH8 --- UC18
+
+BGD1 --- UC19
+BGD2 --- UC20
+BGD3 --- UC21
+BGD4 --- UC22
+BGD5 --- UC23
+BGD6 --- UC24
+BGD7 --- UC25
+
+UC2 -.->|include| H1
+UC4 -.->|include| H2
+UC4 -.->|include| H3
+UC4 -.->|include| UC26
+UC26 -.->|include| UC27
+UC2 -.->|include| UC28
+UC3 -.->|include| UC28
+UC5 -.->|include| UC28
+UC9 -.->|include| UC28
+UC10 -.->|include| UC28
+UC26 -.->|include| UC28
+UC28 -.->|include| UC29
+
+classDef actor fill:#f5f3ff,stroke:#7c3aed,color:#111827
+classDef usecase fill:#ffffff,stroke:#374151,color:#111827
+classDef support fill:#f0fdfa,stroke:#0f766e,color:#111827
+classDef external fill:#fff7ed,stroke:#c2410c,color:#111827
+
+class KH1,KH2,KH3,KH4,KH5,KH6,TX1,TX2,TX3,TX4,TX5,TX6,VH1,VH2,VH3,VH4,VH5,VH6,VH7,VH8,BGD1,BGD2,BGD3,BGD4,BGD5,BGD6,BGD7 actor
+class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29 usecase
+class H1,H2,H3 support
+class P,N external
 ```
 # Bước 8: Đặc tả Use Case của tất cả chức năng
 
 # Bước 8: Đặc tả Use Case
 
-> **Lưu ý:** Actor trong đặc tả Use Case là các đối tượng trực tiếp sử dụng hoặc tương tác với CAB System. Trong phạm vi MLP gồm: **Khách hàng, Tài xế, Nhân viên vận hành, Ban giám đốc, Nhà cung cấp thanh toán và Nhà cung cấp dịch vụ thông báo**.  
-> Các chức năng nội bộ như tìm tài xế, tính cước, quản lý dữ liệu không được xem là Actor.
-
----
-
-# 1. Khách hàng
-
-## UC01 – Quản lý tài khoản
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Khách hàng |
-| Mục tiêu | Cho phép khách hàng đăng ký, đăng nhập và quản lý thông tin tài khoản |
-| Tiền điều kiện | Khách hàng chưa đăng nhập khi đăng ký hoặc đăng nhập; đã có tài khoản khi cập nhật thông tin |
-| Hậu điều kiện | Tài khoản được tạo, đăng nhập thành công hoặc thông tin cá nhân được cập nhật |
-| Luồng chính | 1. Khách hàng truy cập chức năng quản lý tài khoản. <br> 2. Khách hàng đăng ký hoặc đăng nhập. <br> 3. Hệ thống xác thực thông tin. <br> 4. Khách hàng xem thông tin tài khoản. <br> 5. Khách hàng cập nhật thông tin nếu cần. <br> 6. Hệ thống lưu thông tin thay đổi. |
-| Luồng ngoại lệ | Thông tin đăng ký không hợp lệ; tài khoản đã tồn tại; thông tin đăng nhập không chính xác; thông tin cập nhật không hợp lệ. |
-
-## UC02 – Đặt xe
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Khách hàng |
-| Mục tiêu | Tạo yêu cầu đặt xe |
-| Tiền điều kiện | Khách hàng đã đăng nhập |
-| Hậu điều kiện | Yêu cầu đặt xe được tạo và chuyển sang trạng thái tìm tài xế |
-| Luồng chính | 1. Khách hàng chọn chức năng đặt xe. <br> 2. Nhập điểm đón. <br> 3. Nhập điểm đến. <br> 4. Chọn loại xe. <br> 5. Xác nhận yêu cầu. <br> 6. Hệ thống kiểm tra thông tin. <br> 7. Hệ thống tạo yêu cầu đặt xe. <br> 8. Hệ thống bắt đầu tìm tài xế phù hợp. |
-| Luồng ngoại lệ | Thiếu điểm đón hoặc điểm đến; loại xe không khả dụng; thông tin không hợp lệ; hệ thống không thể tiếp nhận yêu cầu. |
-
-## UC03 – Theo dõi chuyến đi
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Khách hàng |
-| Mục tiêu | Theo dõi tình trạng chuyến đi từ khi tìm được tài xế đến khi hoàn thành |
-| Tiền điều kiện | Khách hàng có yêu cầu đặt xe hoặc chuyến đang diễn ra |
-| Hậu điều kiện | Khách hàng nhận được trạng thái mới nhất của chuyến |
-| Luồng chính | 1. Khách hàng mở chuyến đang thực hiện. <br> 2. Hệ thống hiển thị thông tin tài xế. <br> 3. Hệ thống hiển thị trạng thái chuyến. <br> 4. Hệ thống hiển thị thời gian dự kiến tài xế đến. <br> 5. Khách hàng theo dõi các thay đổi của chuyến. |
-| Luồng ngoại lệ | Không có chuyến đang thực hiện; dữ liệu trạng thái chưa được cập nhật; mất kết nối tạm thời. |
-
-## UC04 – Thanh toán
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Khách hàng |
-| Actor phụ | Nhà cung cấp thanh toán |
-| Mục tiêu | Thanh toán chi phí chuyến đi |
-| Tiền điều kiện | Chuyến đi đã hoàn thành và hệ thống đã xác định số tiền phải trả |
-| Hậu điều kiện | Kết quả thanh toán được ghi nhận |
-| Luồng chính | 1. Khách hàng xem số tiền phải trả. <br> 2. Khách hàng lựa chọn phương thức thanh toán. <br> 3. Nếu chọn tiền mặt, hệ thống ghi nhận phương thức thanh toán. <br> 4. Nếu chọn thanh toán điện tử, hệ thống chuyển yêu cầu đến nhà cung cấp thanh toán. <br> 5. Nhà cung cấp xử lý giao dịch. <br> 6. Hệ thống nhận kết quả. <br> 7. Hệ thống cập nhật trạng thái thanh toán. <br> 8. Khách hàng nhận thông báo kết quả. |
-| Luồng ngoại lệ | Giao dịch bị từ chối; giao dịch thất bại; nhà cung cấp thanh toán không phản hồi; khách hàng cần thực hiện lại giao dịch theo chính sách. |
-
-## UC05 – Xem lịch sử chuyến đi
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Khách hàng |
-| Mục tiêu | Tra cứu các chuyến đi đã thực hiện |
-| Tiền điều kiện | Khách hàng đã đăng nhập |
-| Hậu điều kiện | Thông tin lịch sử chuyến được hiển thị |
-| Luồng chính | 1. Khách hàng mở lịch sử chuyến đi. <br> 2. Hệ thống hiển thị danh sách chuyến. <br> 3. Khách hàng chọn một chuyến. <br> 4. Hệ thống hiển thị thông tin chi tiết và số tiền phải trả. |
-| Luồng ngoại lệ | Không có chuyến đã hoàn thành. |
-
-## UC06 – Đánh giá tài xế
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Khách hàng |
-| Mục tiêu | Đánh giá tài xế sau khi hoàn thành chuyến |
-| Tiền điều kiện | Chuyến đi đã hoàn thành và khách hàng chưa đánh giá chuyến đó |
-| Hậu điều kiện | Đánh giá được lưu vào hệ thống |
-| Luồng chính | 1. Khách hàng mở chuyến đã hoàn thành. <br> 2. Chọn chức năng đánh giá. <br> 3. Nhập mức đánh giá. <br> 4. Gửi đánh giá. <br> 5. Hệ thống kiểm tra và lưu đánh giá. |
-| Luồng ngoại lệ | Chuyến chưa hoàn thành; khách hàng đã đánh giá; dữ liệu đánh giá không hợp lệ. |
-
----
-
-# 2. Tài xế
-
-## UC07 – Quản lý tài khoản
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Tài xế |
-| Mục tiêu | Quản lý tài khoản và thông tin cá nhân |
-| Tiền điều kiện | Tài xế đã được tạo tài khoản |
-| Hậu điều kiện | Thông tin tài khoản được cập nhật |
-| Luồng chính | 1. Tài xế đăng nhập. <br> 2. Mở thông tin tài khoản. <br> 3. Xem thông tin cá nhân. <br> 4. Cập nhật thông tin. <br> 5. Hệ thống kiểm tra và lưu thay đổi. |
-| Luồng ngoại lệ | Thông tin đăng nhập không chính xác; thông tin cập nhật không hợp lệ. |
-
-## UC08 – Quản lý phương tiện
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Tài xế, Nhân viên vận hành |
-| Mục tiêu | Quản lý thông tin phương tiện được sử dụng để cung cấp dịch vụ |
-| Tiền điều kiện | Người sử dụng đã đăng nhập và có quyền phù hợp |
-| Hậu điều kiện | Thông tin phương tiện được tạo hoặc cập nhật |
-| Luồng chính | 1. Actor mở thông tin phương tiện. <br> 2. Xem thông tin hiện tại. <br> 3. Nhập hoặc cập nhật thông tin. <br> 4. Hệ thống kiểm tra dữ liệu. <br> 5. Hệ thống lưu thông tin. |
-| Luồng ngoại lệ | Thông tin phương tiện không hợp lệ; actor không có quyền thực hiện thao tác. |
-
-## UC09 – Quản lý trạng thái hoạt động
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Tài xế |
-| Mục tiêu | Cho phép tài xế xác định trạng thái có thể nhận chuyến |
-| Tiền điều kiện | Tài xế đã đăng nhập và đủ điều kiện hoạt động |
-| Hậu điều kiện | Trạng thái hoạt động của tài xế được cập nhật |
-| Luồng chính | 1. Tài xế mở trạng thái hoạt động. <br> 2. Chọn trạng thái phù hợp. <br> 3. Hệ thống kiểm tra điều kiện. <br> 4. Hệ thống cập nhật trạng thái. |
-| Luồng ngoại lệ | Tài xế không đủ điều kiện hoạt động; trạng thái không thể cập nhật. |
-
-## UC10 – Quản lý chuyến được phân công
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Tài xế |
-| Mục tiêu | Tiếp nhận và quản lý các yêu cầu chuyến được gửi đến |
-| Tiền điều kiện | Tài xế đang ở trạng thái sẵn sàng |
-| Hậu điều kiện | Chuyến được tài xế nhận hoặc được chuyển sang tài xế khác |
-| Luồng chính | 1. Tài xế nhận thông báo chuyến mới. <br> 2. Xem thông tin chuyến. <br> 3. Chọn chấp nhận hoặc từ chối. <br> 4. Hệ thống ghi nhận phản hồi. <br> 5. Nếu chấp nhận, chuyến được phân công cho tài xế. |
-| Luồng ngoại lệ | Tài xế từ chối; tài xế không phản hồi; chuyến đã được tài xế khác nhận. |
-
-## UC11 – Cập nhật trạng thái chuyến
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Tài xế |
-| Mục tiêu | Cập nhật tình trạng thực tế của chuyến |
-| Tiền điều kiện | Tài xế đã nhận chuyến |
-| Hậu điều kiện | Trạng thái chuyến được cập nhật |
-| Luồng chính | 1. Tài xế mở chuyến. <br> 2. Chọn trạng thái mới. <br> 3. Hệ thống kiểm tra trạng thái hợp lệ. <br> 4. Hệ thống lưu trạng thái. <br> 5. Hệ thống cập nhật thông tin cho khách hàng. |
-| Luồng ngoại lệ | Trạng thái không hợp lệ; trạng thái mới không phù hợp với trạng thái hiện tại; mất kết nối. |
-
-## UC12 – Xem lịch sử chuyến
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Tài xế |
-| Mục tiêu | Xem các chuyến đã thực hiện |
-| Tiền điều kiện | Tài xế đã đăng nhập |
-| Hậu điều kiện | Danh sách lịch sử chuyến được hiển thị |
-| Luồng chính | 1. Tài xế mở lịch sử chuyến. <br> 2. Hệ thống hiển thị danh sách. <br> 3. Tài xế chọn chuyến. <br> 4. Hệ thống hiển thị chi tiết chuyến. |
-| Luồng ngoại lệ | Không có lịch sử chuyến. |
-
----
-
-# 3. Nhân viên vận hành
-
-## UC13 – Quản lý khách hàng
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Quản lý và tra cứu thông tin khách hàng |
-| Tiền điều kiện | Nhân viên đã đăng nhập và có quyền phù hợp |
-| Hậu điều kiện | Thông tin khách hàng được hiển thị hoặc cập nhật |
-| Luồng chính | 1. Nhân viên truy cập quản lý khách hàng. <br> 2. Tìm kiếm khách hàng. <br> 3. Xem thông tin. <br> 4. Thực hiện thao tác được cấp quyền. <br> 5. Hệ thống lưu thay đổi nếu có. |
-| Luồng ngoại lệ | Không tìm thấy khách hàng; không đủ quyền. |
-
-## UC14 – Quản lý tài xế
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Quản lý thông tin và tài khoản tài xế |
-| Tiền điều kiện | Nhân viên đã đăng nhập và có quyền phù hợp |
-| Hậu điều kiện | Thông tin tài xế được tạo hoặc cập nhật |
-| Luồng chính | 1. Truy cập quản lý tài xế. <br> 2. Tìm kiếm hoặc tạo tài khoản tài xế. <br> 3. Nhập thông tin. <br> 4. Hệ thống kiểm tra dữ liệu. <br> 5. Hệ thống lưu thông tin. |
-| Luồng ngoại lệ | Dữ liệu không hợp lệ; tài khoản đã tồn tại; không đủ quyền. |
-
-## UC15 – Quản lý phương tiện
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Quản lý thông tin phương tiện |
-| Tiền điều kiện | Nhân viên đã đăng nhập và có quyền phù hợp |
-| Hậu điều kiện | Thông tin phương tiện được lưu hoặc cập nhật |
-| Luồng chính | 1. Truy cập quản lý phương tiện. <br> 2. Tìm kiếm hoặc tạo thông tin phương tiện. <br> 3. Nhập thông tin. <br> 4. Kiểm tra dữ liệu. <br> 5. Lưu thông tin. |
-| Luồng ngoại lệ | Thông tin không hợp lệ; phương tiện đã tồn tại; không đủ quyền. |
-
-## UC16 – Quản lý chuyến đi
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Theo dõi và tra cứu các chuyến đi |
-| Tiền điều kiện | Nhân viên đã đăng nhập |
-| Hậu điều kiện | Thông tin chuyến được hiển thị |
-| Luồng chính | 1. Nhân viên mở danh sách chuyến. <br> 2. Tìm kiếm hoặc lọc chuyến. <br> 3. Chọn chuyến. <br> 4. Xem thông tin khách hàng, tài xế và trạng thái chuyến. |
-| Luồng ngoại lệ | Không tìm thấy chuyến. |
-
-## UC17 – Theo dõi hoạt động tài xế
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Theo dõi trạng thái hoạt động và vị trí tài xế |
-| Tiền điều kiện | Nhân viên đã đăng nhập |
-| Hậu điều kiện | Thông tin hoạt động tài xế được hiển thị |
-| Luồng chính | 1. Mở danh sách tài xế. <br> 2. Xem trạng thái hoạt động. <br> 3. Chọn tài xế. <br> 4. Xem thông tin vị trí và chuyến liên quan nếu có. |
-| Luồng ngoại lệ | Không có dữ liệu vị trí mới; tài xế mất kết nối. |
-
-## UC18 – Quản lý giao dịch
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Tra cứu và kiểm tra các giao dịch |
-| Tiền điều kiện | Nhân viên đã đăng nhập và có quyền phù hợp |
-| Hậu điều kiện | Thông tin giao dịch được hiển thị |
-| Luồng chính | 1. Truy cập giao dịch. <br> 2. Tìm kiếm giao dịch. <br> 3. Xem thông tin giao dịch. <br> 4. Kiểm tra trạng thái giao dịch. |
-| Luồng ngoại lệ | Không tìm thấy giao dịch; không đủ quyền. |
-
-## UC19 – Xử lý chuyến có vấn đề
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành |
-| Mục tiêu | Hỗ trợ xử lý các trường hợp chuyến bị lỗi |
-| Tiền điều kiện | Có chuyến phát sinh vấn đề và nhân viên có quyền xử lý |
-| Hậu điều kiện | Vấn đề được ghi nhận và xử lý theo chính sách |
-| Luồng chính | 1. Nhân viên xác định chuyến có vấn đề. <br> 2. Xem thông tin chuyến. <br> 3. Xác định vấn đề. <br> 4. Thực hiện thao tác hỗ trợ phù hợp. <br> 5. Ghi nhận kết quả xử lý. |
-| Luồng ngoại lệ | Không đủ quyền; không thể xử lý theo chính sách hiện tại. |
-
-## UC20 – Quản lý quyền truy cập
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhân viên vận hành có quyền quản trị |
-| Mục tiêu | Kiểm soát quyền truy cập của nhân viên |
-| Tiền điều kiện | Người thực hiện có quyền quản trị |
-| Hậu điều kiện | Quyền truy cập được cập nhật |
-| Luồng chính | 1. Xem tài khoản nhân viên. <br> 2. Chọn tài khoản. <br> 3. Thiết lập quyền. <br> 4. Xác nhận. <br> 5. Hệ thống lưu quyền. |
-| Luồng ngoại lệ | Không đủ quyền; quyền không hợp lệ. |
-
----
-
-# 4. Ban giám đốc
-
-## UC21 – Theo dõi hoạt động kinh doanh
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Ban giám đốc |
-| Mục tiêu | Theo dõi tình hình hoạt động của dịch vụ |
-| Tiền điều kiện | Ban giám đốc có quyền truy cập |
-| Hậu điều kiện | Các chỉ số hoạt động được hiển thị |
-| Luồng chính | 1. Đăng nhập hệ thống. <br> 2. Truy cập khu vực theo dõi hoạt động. <br> 3. Chọn khoảng thời gian. <br> 4. Xem số lượng chuyến, doanh thu, tỷ lệ hoàn thành và tỷ lệ hủy. |
-| Luồng ngoại lệ | Không có dữ liệu trong khoảng thời gian được chọn. |
-
-## UC22 – Xem báo cáo hoạt động
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Ban giám đốc |
-| Mục tiêu | Xem báo cáo phục vụ việc theo dõi và đánh giá hoạt động |
-| Tiền điều kiện | Ban giám đốc có quyền truy cập |
-| Hậu điều kiện | Báo cáo được hiển thị |
-| Luồng chính | 1. Chọn loại báo cáo. <br> 2. Chọn khoảng thời gian. <br> 3. Hệ thống tổng hợp dữ liệu. <br> 4. Hiển thị báo cáo. |
-| Ngoại lệ | Không có dữ liệu; dữ liệu chưa được cập nhật. |
-
----
-
-# 5. Nhà cung cấp thanh toán
-
-## UC23 – Xử lý thanh toán điện tử
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhà cung cấp thanh toán |
-| Mục tiêu | Xử lý giao dịch thanh toán điện tử từ CAB System |
-| Tiền điều kiện | CAB System gửi yêu cầu thanh toán hợp lệ |
-| Hậu điều kiện | Giao dịch có kết quả xử lý |
-| Luồng chính | 1. Nhà cung cấp nhận yêu cầu thanh toán. <br> 2. Xử lý giao dịch. <br> 3. Xác định kết quả. <br> 4. Trả kết quả về CAB System. |
-| Luồng ngoại lệ | Giao dịch bị từ chối; giao dịch thất bại; dịch vụ thanh toán không khả dụng. |
-
-## UC24 – Trả kết quả giao dịch
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhà cung cấp thanh toán |
-| Mục tiêu | Cung cấp kết quả giao dịch cho CAB System |
-| Tiền điều kiện | Giao dịch đã được xử lý |
-| Hậu điều kiện | CAB System nhận được trạng thái giao dịch |
-| Luồng chính | 1. Nhà cung cấp xác định kết quả. <br> 2. Gửi trạng thái giao dịch. <br> 3. CAB System tiếp nhận kết quả. |
-| Luồng ngoại lệ | Không thể gửi kết quả; kết nối giữa hai hệ thống bị gián đoạn. |
-
----
-
-# 6. Nhà cung cấp dịch vụ thông báo
-
-## UC25 – Gửi thông báo
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhà cung cấp dịch vụ thông báo |
-| Mục tiêu | Gửi thông báo do CAB System yêu cầu |
-| Tiền điều kiện | CAB System gửi yêu cầu thông báo hợp lệ |
-| Hậu điều kiện | Thông báo được gửi hoặc trạng thái thất bại được trả về |
-| Luồng chính | 1. Nhà cung cấp nhận yêu cầu. <br> 2. Kiểm tra yêu cầu. <br> 3. Gửi thông báo đến người nhận. <br> 4. Trả trạng thái gửi về CAB System. |
-| Luồng ngoại lệ | Địa chỉ người nhận không hợp lệ; dịch vụ thông báo không khả dụng; gửi thất bại. |
-
-## UC26 – Trả trạng thái gửi thông báo
-
-| Thành phần | Nội dung |
-|---|---|
-| Actor | Nhà cung cấp dịch vụ thông báo |
-| Mục tiêu | Cung cấp trạng thái gửi thông báo cho CAB System |
-| Tiền điều kiện | Yêu cầu gửi thông báo đã được tiếp nhận |
-| Hậu điều kiện | CAB System nhận được trạng thái gửi |
-| Luồng chính | 1. Xác định trạng thái gửi. <br> 2. Trả trạng thái về CAB System. <br> 3. CAB System cập nhật trạng thái. |
-| Luồng ngoại lệ | Không thể trả trạng thái; kết nối bị gián đoạn. |
-
----
-
-# 7. Ghi chú về các chức năng hệ thống hỗ trợ
-
-Các chức năng dưới đây **không tạo Actor riêng** vì chúng là khả năng xử lý bên trong CAB System và được thực hiện trong quá trình các Actor sử dụng chức năng chính:
-
-- Tìm và phân công tài xế
-- Tính cước
-- Quản lý dữ liệu chuyến đi
-- Quản lý trạng thái thanh toán
-- Gửi thông báo
-
-Các chức năng này được sử dụng như một phần của các Use Case chính, thay vì xem **CAB System** là một Actor.
-
-Ví dụ:
-
-- **Đặt xe** sử dụng chức năng **Tìm và phân công tài xế**.
-- **Thanh toán** sử dụng chức năng **Tính cước** và **Quản lý trạng thái thanh toán**.
-- **Theo dõi chuyến đi** sử dụng dữ liệu trạng thái chuyến.
-- Các sự kiện quan trọng trong **Đặt xe**, **Theo dõi chuyến đi** và **Thanh toán** có thể sử dụng chức năng **Gửi thông báo**.
