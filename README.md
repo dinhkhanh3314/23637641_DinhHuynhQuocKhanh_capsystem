@@ -240,122 +240,51 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 # Bước 6: Yêu cầu chức năng
 
-## Module 1: Quản lý tài khoản
+## Khách hàng
 
-### Khách hàng
-- Đăng ký tài khoản.
-- Đăng nhập.
-- Cập nhật thông tin cá nhân.
-- Xem thông tin tài khoản.
+- Quản lý tài khoản
+- Đặt xe
+- Theo dõi chuyến đi
+- Thanh toán
+- Xem lịch sử chuyến đi
+- Đánh giá tài xế
 
-### Tài xế
-- Đăng nhập.
-- Cập nhật thông tin cá nhân.
-- Cập nhật thông tin phương tiện.
-- Cập nhật trạng thái hoạt động.
+## Tài xế
 
-### Nhân viên vận hành
-- Tạo và quản lý tài khoản tài xế.
-- Quản lý thông tin khách hàng.
-- Quản lý thông tin tài xế.
-- Quản lý thông tin phương tiện.
+- Quản lý tài khoản
+- Quản lý phương tiện
+- Quản lý trạng thái hoạt động
+- Quản lý chuyến được phân công
+- Cập nhật trạng thái chuyến
+- Xem lịch sử chuyến
 
-## Module 2: Đặt xe
+## Nhân viên vận hành
 
-### Khách hàng
-- Nhập điểm đón.
-- Nhập điểm đến.
-- Lựa chọn loại xe.
-- Gửi yêu cầu đặt xe.
-- Xem trạng thái yêu cầu đặt xe.
+- Quản lý khách hàng
+- Quản lý tài xế
+- Quản lý phương tiện
+- Quản lý chuyến đi
+- Theo dõi hoạt động tài xế
+- Quản lý giao dịch
+- Xử lý chuyến có vấn đề
+- Quản lý quyền truy cập
 
-### Hệ thống
-- Tiếp nhận yêu cầu đặt xe.
-- Tạo chuyến đi từ yêu cầu đặt xe.
-- Xác định trạng thái của yêu cầu đặt xe.
+## Ban giám đốc
 
-## Module 3: Tìm và phân công tài xế
+- Theo dõi hoạt động kinh doanh
+- Xem báo cáo hoạt động
+- Theo dõi doanh thu
+- Theo dõi số lượng chuyến
+- Theo dõi tỷ lệ hoàn thành chuyến
+- Theo dõi tỷ lệ hủy chuyến
+- Theo dõi hiệu quả hoạt động của tài xế
 
-### Hệ thống
-- Xác định các tài xế đang sẵn sàng nhận chuyến.
-- Xác định tài xế phù hợp với yêu cầu.
-- Ưu tiên tài xế phù hợp và gần khách hàng.
-- Gửi yêu cầu chuyến đến tài xế.
-- Ghi nhận phản hồi của tài xế.
-- Tiếp tục tìm tài xế khác khi tài xế từ chối hoặc không phản hồi.
-- Thông báo cho khách hàng khi tìm được tài xế.
-- Thông báo cho khách hàng khi không tìm được tài xế.
+## Nhà cung cấp thanh toán
 
-### Tài xế
-- Nhận thông báo về chuyến mới.
-- Xem thông tin chuyến.
-- Chấp nhận chuyến.
-- Từ chối chuyến.
+- Xử lý thanh toán điện tử
+- Trả kết quả giao dịch
 
-## Module 4: Quản lý chuyến đi
+## Nhà cung cấp dịch vụ thông báo
 
-### Tài xế
-- Xem chuyến đã nhận.
-- Cập nhật trạng thái đã đến điểm đón.
-- Cập nhật trạng thái đã đón khách.
-- Cập nhật trạng thái đang di chuyển.
-- Cập nhật trạng thái hoàn thành chuyến.
-
-### Khách hàng
-- Xem thông tin tài xế đã nhận chuyến.
-- Theo dõi trạng thái chuyến.
-- Xem thời gian dự kiến tài xế đến.
-- Xem thông tin chuyến sau khi hoàn thành.
-
-### Nhân viên vận hành
-- Xem danh sách chuyến đang diễn ra.
-- Xem trạng thái chuyến.
-- Xem thông tin tài xế và khách hàng của chuyến.
-- Hỗ trợ xử lý chuyến bị lỗi.
-
-## Module 5: Tính cước và thanh toán
-
-### Hệ thống
-- Tính số tiền khách hàng phải trả sau khi chuyến hoàn thành.
-- Ghi nhận phương thức thanh toán.
-- Gửi yêu cầu thanh toán điện tử đến nhà cung cấp bên ngoài.
-- Nhận kết quả giao dịch.
-- Cập nhật trạng thái thanh toán.
-- Thông báo kết quả thanh toán cho khách hàng.
-- Xử lý trường hợp thanh toán điện tử thất bại.
-
-### Khách hàng
-- Xem số tiền phải trả.
-- Chọn thanh toán bằng tiền mặt hoặc thanh toán điện tử.
-- Xem kết quả thanh toán.
-
-## Module 6: Thông báo
-
-### Hệ thống
-- Gửi thông báo khi yêu cầu đặt xe được tiếp nhận.
-- Gửi thông báo khi tài xế nhận chuyến.
-- Gửi thông báo khi tài xế đến điểm đón.
-- Gửi thông báo khi chuyến hoàn thành.
-- Gửi thông báo khi thanh toán có kết quả.
-- Gửi thông báo chuyến mới đến tài xế.
-- Gửi thông báo khi có thay đổi liên quan đến chuyến đang thực hiện.
-
-## Module 7: Lịch sử và đánh giá
-
-### Khách hàng
-- Xem lịch sử chuyến đi.
-- Xem thông tin từng chuyến.
-- Xem số tiền phải trả.
-- Đánh giá tài xế sau khi chuyến hoàn thành.
-
-## Module 8: Quản lý vận hành
-
-### Nhân viên vận hành
-- Xem danh sách khách hàng.
-- Xem danh sách tài xế.
-- Xem danh sách phương tiện.
-- Xem danh sách chuyến đi.
-- Theo dõi các chuyến đang diễn ra.
-- Kiểm tra trạng thái tài xế.
-- Tra cứu lịch sử giao dịch.
-- Hỗ trợ xử lý các trường hợp chuyến bị lỗi.
+- Cung cấp dịch vụ gửi thông báo
+- Trả trạng thái gửi thông báo
