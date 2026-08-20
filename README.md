@@ -238,65 +238,124 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 | Đảm bảo tính ổn định | Hệ thống phải hạn chế việc lỗi tại một thành phần như thanh toán hoặc thông báo làm dừng toàn bộ quy trình đặt xe. |
 | Hỗ trợ khả năng mở rộng | Hệ thống phải có khả năng mở rộng khi số lượng khách hàng và tài xế tăng và hỗ trợ bổ sung các chức năng mới trong tương lai. |
 
-## Bước 6. Yêu cầu chức năng 
+# Bước 6: Yêu cầu chức năng
 
-### 6.1. Khách hàng
+## Module 1: Quản lý tài khoản
 
+### Khách hàng
 - Đăng ký tài khoản.
 - Đăng nhập.
 - Cập nhật thông tin cá nhân.
-- Nhập điểm đón và điểm đến.
-- Lựa chọn loại xe.
-- Đặt xe.
-- Theo dõi trạng thái tìm tài xế.
-- Xem thông tin tài xế đã nhận chuyến.
-- Xem thời gian dự kiến tài xế đến.
-- Theo dõi trạng thái chuyến đi.
-- Xem số tiền phải trả.
-- Thanh toán bằng tiền mặt.
-- Thanh toán điện tử.
-- Xem kết quả thanh toán.
-- Xem lịch sử chuyến đi.
-- Đánh giá tài xế.
+- Xem thông tin tài khoản.
 
-### 6.2. Tài xế
-
-- Đăng ký tài khoản.
+### Tài xế
 - Đăng nhập.
-- Cập nhật hồ sơ.
+- Cập nhật thông tin cá nhân.
 - Cập nhật thông tin phương tiện.
 - Cập nhật trạng thái hoạt động.
-- Chuyển sang trạng thái sẵn sàng nhận chuyến.
-- Xem yêu cầu chuyến.
+
+### Nhân viên vận hành
+- Tạo và quản lý tài khoản tài xế.
+- Quản lý thông tin khách hàng.
+- Quản lý thông tin tài xế.
+- Quản lý thông tin phương tiện.
+
+## Module 2: Đặt xe
+
+### Khách hàng
+- Nhập điểm đón.
+- Nhập điểm đến.
+- Lựa chọn loại xe.
+- Gửi yêu cầu đặt xe.
+- Xem trạng thái yêu cầu đặt xe.
+
+### Hệ thống
+- Tiếp nhận yêu cầu đặt xe.
+- Tạo chuyến đi từ yêu cầu đặt xe.
+- Xác định trạng thái của yêu cầu đặt xe.
+
+## Module 3: Tìm và phân công tài xế
+
+### Hệ thống
+- Xác định các tài xế đang sẵn sàng nhận chuyến.
+- Xác định tài xế phù hợp với yêu cầu.
+- Ưu tiên tài xế phù hợp và gần khách hàng.
+- Gửi yêu cầu chuyến đến tài xế.
+- Ghi nhận phản hồi của tài xế.
+- Tiếp tục tìm tài xế khác khi tài xế từ chối hoặc không phản hồi.
+- Thông báo cho khách hàng khi tìm được tài xế.
+- Thông báo cho khách hàng khi không tìm được tài xế.
+
+### Tài xế
+- Nhận thông báo về chuyến mới.
+- Xem thông tin chuyến.
 - Chấp nhận chuyến.
 - Từ chối chuyến.
-- Cập nhật trạng thái chuyến đi.
-- Cập nhật vị trí.
-- Xem các thông báo liên quan đến chuyến đi.
 
-### 6.3. Nhân viên vận hành
+## Module 4: Quản lý chuyến đi
 
-- Đăng nhập hệ thống quản trị.
-- Quản lý khách hàng.
-- Quản lý tài xế.
-- Quản lý phương tiện.
-- Quản lý chuyến đi.
-- Xem các chuyến đang diễn ra.
+### Tài xế
+- Xem chuyến đã nhận.
+- Cập nhật trạng thái đã đến điểm đón.
+- Cập nhật trạng thái đã đón khách.
+- Cập nhật trạng thái đang di chuyển.
+- Cập nhật trạng thái hoàn thành chuyến.
+
+### Khách hàng
+- Xem thông tin tài xế đã nhận chuyến.
+- Theo dõi trạng thái chuyến.
+- Xem thời gian dự kiến tài xế đến.
+- Xem thông tin chuyến sau khi hoàn thành.
+
+### Nhân viên vận hành
+- Xem danh sách chuyến đang diễn ra.
+- Xem trạng thái chuyến.
+- Xem thông tin tài xế và khách hàng của chuyến.
+- Hỗ trợ xử lý chuyến bị lỗi.
+
+## Module 5: Tính cước và thanh toán
+
+### Hệ thống
+- Tính số tiền khách hàng phải trả sau khi chuyến hoàn thành.
+- Ghi nhận phương thức thanh toán.
+- Gửi yêu cầu thanh toán điện tử đến nhà cung cấp bên ngoài.
+- Nhận kết quả giao dịch.
+- Cập nhật trạng thái thanh toán.
+- Thông báo kết quả thanh toán cho khách hàng.
+- Xử lý trường hợp thanh toán điện tử thất bại.
+
+### Khách hàng
+- Xem số tiền phải trả.
+- Chọn thanh toán bằng tiền mặt hoặc thanh toán điện tử.
+- Xem kết quả thanh toán.
+
+## Module 6: Thông báo
+
+### Hệ thống
+- Gửi thông báo khi yêu cầu đặt xe được tiếp nhận.
+- Gửi thông báo khi tài xế nhận chuyến.
+- Gửi thông báo khi tài xế đến điểm đón.
+- Gửi thông báo khi chuyến hoàn thành.
+- Gửi thông báo khi thanh toán có kết quả.
+- Gửi thông báo chuyến mới đến tài xế.
+- Gửi thông báo khi có thay đổi liên quan đến chuyến đang thực hiện.
+
+## Module 7: Lịch sử và đánh giá
+
+### Khách hàng
+- Xem lịch sử chuyến đi.
+- Xem thông tin từng chuyến.
+- Xem số tiền phải trả.
+- Đánh giá tài xế sau khi chuyến hoàn thành.
+
+## Module 8: Quản lý vận hành
+
+### Nhân viên vận hành
+- Xem danh sách khách hàng.
+- Xem danh sách tài xế.
+- Xem danh sách phương tiện.
+- Xem danh sách chuyến đi.
+- Theo dõi các chuyến đang diễn ra.
 - Kiểm tra trạng thái tài xế.
-- Xử lý các trường hợp chuyến bị lỗi.
 - Tra cứu lịch sử giao dịch.
-- Quản lý phân quyền.
-
-### 6.4. Ban lãnh đạo / Ban giám đốc
-
-- Xem báo cáo số lượng chuyến.
-- Xem báo cáo doanh thu.
-- Xem báo cáo tỷ lệ chuyến hoàn thành.
-- Xem báo cáo tỷ lệ hủy.
-- Xem báo cáo hiệu quả hoạt động của tài xế.
-
-### 6.5. Nhà cung cấp thanh toán bên ngoài
-
-- Tiếp nhận yêu cầu thanh toán từ hệ thống CAB.
-- Xử lý giao dịch thanh toán.
-- Trả kết quả giao dịch về hệ thống CAB.
+- Hỗ trợ xử lý các trường hợp chuyến bị lỗi.
