@@ -290,50 +290,27 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Trả trạng thái gửi thông báo
 
 # Bước 7: Vẽ Use Case Diagram
-
 ```mermaid
 flowchart LR
 
-subgraph KH["Khách hàng"]
-    KH1["Quản lý tài khoản"]
-    KH2["Đặt xe"]
-    KH3["Theo dõi chuyến đi"]
-    KH4["Thanh toán"]
-    KH5["Xem lịch sử chuyến đi"]
-    KH6["Đánh giá tài xế"]
-end
+%% =========================
+%% ACTORS
+%% =========================
 
-subgraph TX["Tài xế"]
-    TX1["Quản lý tài khoản"]
-    TX2["Quản lý phương tiện"]
-    TX3["Quản lý trạng thái hoạt động"]
-    TX4["Quản lý chuyến được phân công"]
-    TX5["Cập nhật trạng thái chuyến"]
-    TX6["Xem lịch sử chuyến"]
-end
+KH["👤 Khách hàng"]
+TX["👤 Tài xế"]
+VH["👤 Nhân viên vận hành"]
+BGD["👤 Ban giám đốc"]
+TT["👤 Nhà cung cấp thanh toán"]
+TB["👤 Nhà cung cấp dịch vụ thông báo"]
 
-subgraph VH["Nhân viên vận hành"]
-    VH1["Quản lý khách hàng"]
-    VH2["Quản lý tài xế"]
-    VH3["Quản lý phương tiện"]
-    VH4["Quản lý chuyến đi"]
-    VH5["Theo dõi hoạt động tài xế"]
-    VH6["Quản lý giao dịch"]
-    VH7["Xử lý chuyến có vấn đề"]
-    VH8["Quản lý quyền truy cập"]
-end
+%% =========================
+%% CAB SYSTEM
+%% =========================
 
-subgraph BGD["Ban giám đốc"]
-    BGD1["Theo dõi hoạt động kinh doanh"]
-    BGD2["Xem báo cáo hoạt động"]
-    BGD3["Theo dõi doanh thu"]
-    BGD4["Theo dõi số lượng chuyến"]
-    BGD5["Theo dõi tỷ lệ hoàn thành chuyến"]
-    BGD6["Theo dõi tỷ lệ hủy chuyến"]
-    BGD7["Theo dõi hiệu quả hoạt động của tài xế"]
-end
+subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
 
-subgraph CAB["CAB System – Nền tảng đặt xe"]
+    %% Khách hàng
     UC1(["Quản lý tài khoản"])
     UC2(["Đặt xe"])
     UC3(["Theo dõi chuyến đi"])
@@ -341,97 +318,78 @@ subgraph CAB["CAB System – Nền tảng đặt xe"]
     UC5(["Xem lịch sử chuyến đi"])
     UC6(["Đánh giá tài xế"])
 
+    %% Tài xế
     UC7(["Quản lý phương tiện"])
     UC8(["Quản lý trạng thái hoạt động"])
     UC9(["Quản lý chuyến được phân công"])
     UC10(["Cập nhật trạng thái chuyến"])
     UC11(["Xem lịch sử chuyến"])
 
+    %% Nhân viên vận hành
     UC12(["Quản lý khách hàng"])
     UC13(["Quản lý tài xế"])
-    UC14(["Quản lý chuyến đi"])
-    UC15(["Theo dõi hoạt động tài xế"])
-    UC16(["Quản lý giao dịch"])
-    UC17(["Xử lý chuyến có vấn đề"])
-    UC18(["Quản lý quyền truy cập"])
+    UC14(["Quản lý phương tiện"])
+    UC15(["Quản lý chuyến đi"])
+    UC16(["Theo dõi hoạt động tài xế"])
+    UC17(["Quản lý giao dịch"])
+    UC18(["Xử lý chuyến có vấn đề"])
+    UC19(["Quản lý quyền truy cập"])
 
-    UC19(["Theo dõi hoạt động kinh doanh"])
-    UC20(["Xem báo cáo hoạt động"])
-    UC21(["Theo dõi doanh thu"])
-    UC22(["Theo dõi số lượng chuyến"])
-    UC23(["Theo dõi tỷ lệ hoàn thành chuyến"])
-    UC24(["Theo dõi tỷ lệ hủy chuyến"])
-    UC25(["Theo dõi hiệu quả hoạt động của tài xế"])
+    %% Ban giám đốc
+    UC20(["Theo dõi hoạt động kinh doanh"])
+    UC21(["Xem báo cáo hoạt động"])
+    UC22(["Theo dõi doanh thu"])
+    UC23(["Theo dõi số lượng chuyến"])
+    UC24(["Theo dõi tỷ lệ hoàn thành chuyến"])
+    UC25(["Theo dõi tỷ lệ hủy chuyến"])
+    UC26(["Theo dõi hiệu quả hoạt động của tài xế"])
 
-    UC26(["Xử lý thanh toán điện tử"])
-    UC27(["Trả kết quả giao dịch"])
-    UC28(["Gửi thông báo"])
-    UC29(["Trả trạng thái gửi thông báo"])
-
-    H1(["Tìm và phân công tài xế"])
-    H2(["Tính cước"])
-    H3(["Quản lý thanh toán"])
 end
 
-P["Nhà cung cấp thanh toán"] --- UC26
-N["Nhà cung cấp dịch vụ thông báo"] --- UC28
-N --- UC29
+%% =========================
+%% ACTOR - USE CASE
+%% =========================
 
-KH1 --- UC1
-KH2 --- UC2
-KH3 --- UC3
-KH4 --- UC4
-KH5 --- UC5
-KH6 --- UC6
+KH --- UC1
+KH --- UC2
+KH --- UC3
+KH --- UC4
+KH --- UC5
+KH --- UC6
 
-TX1 --- UC1
-TX2 --- UC7
-TX3 --- UC8
-TX4 --- UC9
-TX5 --- UC10
-TX6 --- UC11
+TX --- UC1
+TX --- UC7
+TX --- UC8
+TX --- UC9
+TX --- UC10
+TX --- UC11
 
-VH1 --- UC12
-VH2 --- UC13
-VH3 --- UC7
-VH4 --- UC14
-VH5 --- UC15
-VH6 --- UC16
-VH7 --- UC17
-VH8 --- UC18
+VH --- UC12
+VH --- UC13
+VH --- UC14
+VH --- UC15
+VH --- UC16
+VH --- UC17
+VH --- UC18
+VH --- UC19
 
-BGD1 --- UC19
-BGD2 --- UC20
-BGD3 --- UC21
-BGD4 --- UC22
-BGD5 --- UC23
-BGD6 --- UC24
-BGD7 --- UC25
+BGD --- UC20
+BGD --- UC21
+BGD --- UC22
+BGD --- UC23
+BGD --- UC24
+BGD --- UC25
+BGD --- UC26
 
-UC2 -.->|include| H1
-UC4 -.->|include| H2
-UC4 -.->|include| H3
-UC4 -.->|include| UC26
-UC26 -.->|include| UC27
-UC2 -.->|include| UC28
-UC3 -.->|include| UC28
-UC5 -.->|include| UC28
-UC9 -.->|include| UC28
-UC10 -.->|include| UC28
-UC26 -.->|include| UC28
-UC28 -.->|include| UC29
+%% =========================
+%% STYLE
+%% =========================
 
-classDef actor fill:#f5f3ff,stroke:#7c3aed,color:#111827
-classDef usecase fill:#ffffff,stroke:#374151,color:#111827
-classDef support fill:#f0fdfa,stroke:#0f766e,color:#111827
-classDef external fill:#fff7ed,stroke:#c2410c,color:#111827
+classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px,color:#111827
+classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px,color:#111827
 
-class KH1,KH2,KH3,KH4,KH5,KH6,TX1,TX2,TX3,TX4,TX5,TX6,VH1,VH2,VH3,VH4,VH5,VH6,VH7,VH8,BGD1,BGD2,BGD3,BGD4,BGD5,BGD6,BGD7 actor
-class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29 usecase
-class H1,H2,H3 support
-class P,N external
+class KH,TX,VH,BGD,TT,TB actor
+class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26 usecase
 ```
-# Bước 8: Đặc tả Use Case của tất cả chức năng
-
 # Bước 8: Đặc tả Use Case
 
