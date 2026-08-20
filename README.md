@@ -764,3 +764,507 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 | **Điều kiện sau** | Các chỉ số hiệu quả hoạt động của tài xế được hiển thị |
 | **Luồng chính** | 1. Ban giám đốc chọn **Theo dõi hiệu quả hoạt động của tài xế**.<br>2. Hệ thống truy xuất dữ liệu hoạt động của tài xế.<br>3. Hệ thống tổng hợp các chỉ số liên quan đến hoạt động tài xế.<br>4. Hệ thống hiển thị kết quả theo từng tài xế hoặc toàn bộ đội ngũ.<br>5. Ban giám đốc lựa chọn khoảng thời gian hoặc tài xế cần theo dõi.<br>6. Hệ thống cập nhật dữ liệu theo điều kiện được chọn.<br>7. Ban giám đốc xem và đánh giá hiệu quả hoạt động. |
 | **Luồng thay thế / Ngoại lệ** | - Không có dữ liệu tài xế → Hệ thống thông báo chưa có dữ liệu.<br>- Tài xế chưa có hoạt động trong khoảng thời gian → Hệ thống hiển thị trạng thái không có dữ liệu hoạt động. |
+
+#Bước 9. Phân tích quy trình nghiệp vụ
+
+Các quy trình nghiệp vụ của CAB System được xây dựng dựa trên bối cảnh và yêu cầu của đề bài, tập trung vào hoạt động đặt xe, phân công tài xế, thực hiện chuyến, thanh toán và quản lý vận hành.
+
+---
+
+## 9.1. Quy trình đăng ký tài khoản
+
+**Actor chính:** Khách hàng
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Khách hàng | Truy cập hệ thống | Hiển thị giao diện đăng nhập/đăng ký |
+| 2 | Khách hàng | Chọn Đăng ký tài khoản | Hiển thị biểu mẫu đăng ký |
+| 3 | Khách hàng | Nhập thông tin đăng ký | Tiếp nhận thông tin |
+| 4 | Khách hàng | Gửi thông tin đăng ký | Kiểm tra dữ liệu |
+| 5 | Hệ thống | Kiểm tra thông tin | Xác định thông tin hợp lệ |
+| 6 | Hệ thống | Kiểm tra tài khoản | Xác định tài khoản đã tồn tại hay chưa |
+| 7 | Hệ thống | Tạo tài khoản | Lưu thông tin tài khoản |
+| 8 | Hệ thống | Hoàn tất đăng ký | Thông báo đăng ký thành công |
+
+---
+
+## 9.2. Quy trình đăng nhập
+
+**Actor:** Khách hàng, Tài xế, Nhân viên vận hành, Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Người dùng | Truy cập trang đăng nhập | Hiển thị biểu mẫu đăng nhập |
+| 2 | Người dùng | Nhập thông tin đăng nhập | Tiếp nhận thông tin |
+| 3 | Người dùng | Gửi thông tin | Xác thực tài khoản |
+| 4 | Hệ thống | Kiểm tra thông tin | Xác định thông tin đúng hoặc sai |
+| 5 | Hệ thống | Xác định vai trò | Xác định quyền người dùng |
+| 6 | Hệ thống | Đăng nhập thành công | Chuyển đến giao diện phù hợp |
+
+---
+
+## 9.3. Quy trình đặt xe
+
+**Actor chính:** Khách hàng
+
+**Actor liên quan:** Nhân viên vận hành, Tài xế
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Khách hàng | Đăng nhập | Xác thực tài khoản |
+| 2 | Khách hàng | Chọn Đặt xe | Hiển thị chức năng đặt xe |
+| 3 | Khách hàng | Nhập điểm đón | Tiếp nhận điểm đón |
+| 4 | Khách hàng | Nhập điểm đến | Tiếp nhận điểm đến |
+| 5 | Khách hàng | Chọn loại phương tiện | Ghi nhận loại phương tiện |
+| 6 | Khách hàng | Gửi yêu cầu đặt xe | Kiểm tra thông tin |
+| 7 | Hệ thống | Kiểm tra yêu cầu | Xác định yêu cầu hợp lệ |
+| 8 | Hệ thống | Tạo yêu cầu đặt xe | Lưu thông tin yêu cầu |
+| 9 | Hệ thống | Cập nhật trạng thái | Chuyển sang trạng thái chờ phân công |
+| 10 | Nhân viên vận hành | Tiếp nhận yêu cầu | Xem yêu cầu cần phân công |
+| 11 | Nhân viên vận hành | Phân công tài xế | Chọn tài xế phù hợp |
+| 12 | Hệ thống | Ghi nhận tài xế | Liên kết tài xế với chuyến |
+| 13 | Hệ thống | Cập nhật trạng thái | Cập nhật thông tin chuyến |
+| 14 | Khách hàng | Theo dõi chuyến | Xem thông tin và trạng thái chuyến |
+
+**Kết quả:**
+
+- Yêu cầu đặt xe được tạo.
+- Tài xế được phân công.
+- Chuyến được ghi nhận trên hệ thống.
+- Khách hàng có thể theo dõi trạng thái chuyến.
+
+---
+
+## 9.4. Quy trình phân công tài xế
+
+**Actor chính:** Nhân viên vận hành
+
+**Actor liên quan:** Khách hàng, Tài xế
+
+Quy trình này giải quyết vấn đề **phân công tài xế thủ công** được đề cập trong đề bài.
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Hệ thống | Tiếp nhận yêu cầu đặt xe | Tạo yêu cầu cần phân công |
+| 2 | Nhân viên vận hành | Xem danh sách yêu cầu | Hiển thị các yêu cầu |
+| 3 | Nhân viên vận hành | Chọn yêu cầu | Hiển thị chi tiết yêu cầu |
+| 4 | Nhân viên vận hành | Kiểm tra thông tin chuyến | Hiển thị điểm đón, điểm đến và loại xe |
+| 5 | Nhân viên vận hành | Kiểm tra tài xế | Hiển thị thông tin tài xế |
+| 6 | Nhân viên vận hành | Chọn tài xế | Ghi nhận lựa chọn |
+| 7 | Hệ thống | Phân công tài xế | Liên kết tài xế với chuyến |
+| 8 | Hệ thống | Cập nhật chuyến | Cập nhật thông tin tài xế |
+| 9 | Hệ thống | Thông báo | Tài xế nhận thông tin chuyến |
+| 10 | Hệ thống | Cập nhật trạng thái | Khách hàng biết chuyến đã được phân công |
+
+---
+
+## 9.5. Quy trình tài xế xem chuyến được phân công
+
+**Actor:** Tài xế
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Tài xế | Đăng nhập | Xác thực tài khoản |
+| 2 | Tài xế | Truy cập danh sách chuyến | Hiển thị các chuyến được phân công |
+| 3 | Tài xế | Chọn chuyến | Hiển thị chi tiết chuyến |
+| 4 | Tài xế | Xem thông tin khách hàng | Hiển thị thông tin liên quan |
+| 5 | Tài xế | Xem điểm đón và điểm đến | Hiển thị thông tin chuyến |
+| 6 | Tài xế | Xem thông tin phương tiện | Hiển thị phương tiện liên quan |
+
+---
+
+## 9.6. Quy trình thực hiện chuyến
+
+**Actor chính:** Tài xế
+
+**Actor liên quan:** Khách hàng, Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Tài xế | Xem chuyến được phân công | Hiển thị chuyến |
+| 2 | Tài xế | Chọn chuyến cần thực hiện | Hiển thị chi tiết |
+| 3 | Tài xế | Cập nhật trạng thái chuyến | Ghi nhận trạng thái |
+| 4 | Tài xế | Di chuyển đến điểm đón | Chuyến tiếp tục được theo dõi |
+| 5 | Tài xế | Cập nhật trạng thái | Cập nhật trạng thái mới |
+| 6 | Tài xế | Đón khách | Ghi nhận quá trình chuyến |
+| 7 | Tài xế | Cập nhật trạng thái | Khách hàng nhìn thấy trạng thái mới |
+| 8 | Tài xế | Thực hiện chuyến | Duy trì thông tin chuyến |
+| 9 | Tài xế | Cập nhật trạng thái hoàn thành | Ghi nhận chuyến hoàn thành |
+| 10 | Hệ thống | Lưu thông tin chuyến | Lưu chuyến vào lịch sử |
+
+---
+
+## 9.7. Quy trình theo dõi trạng thái chuyến
+
+**Actor chính:** Khách hàng
+
+**Actor liên quan:** Tài xế, Nhân viên vận hành
+
+Quy trình này giải quyết vấn đề khách hàng **khó theo dõi trạng thái chuyến** trong hệ thống hiện tại.
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Khách hàng | Truy cập chuyến đang thực hiện | Lấy thông tin chuyến |
+| 2 | Hệ thống | Hiển thị thông tin chuyến | Hiển thị trạng thái hiện tại |
+| 3 | Tài xế | Cập nhật trạng thái | Nhận trạng thái mới |
+| 4 | Hệ thống | Cập nhật thông tin chuyến | Lưu trạng thái mới |
+| 5 | Khách hàng | Xem lại chuyến | Hiển thị trạng thái mới |
+| 6 | Nhân viên vận hành | Theo dõi chuyến khi cần | Hiển thị trạng thái hiện tại |
+| 7 | Hệ thống | Cập nhật trạng thái hoàn thành | Ghi nhận chuyến hoàn thành |
+
+---
+
+## 9.8. Quy trình hủy chuyến
+
+**Actor chính:** Khách hàng
+
+**Actor liên quan:** Tài xế, Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Khách hàng | Chọn chuyến cần hủy | Hiển thị thông tin chuyến |
+| 2 | Khách hàng | Chọn Hủy chuyến | Kiểm tra trạng thái |
+| 3 | Hệ thống | Kiểm tra khả năng hủy | Xác định chuyến có thể hủy |
+| 4 | Khách hàng | Xác nhận hủy | Tiếp nhận yêu cầu |
+| 5 | Hệ thống | Cập nhật trạng thái | Chuyển chuyến sang trạng thái hủy |
+| 6 | Hệ thống | Lưu thông tin hủy | Ghi nhận lịch sử |
+| 7 | Hệ thống | Cập nhật thông tin liên quan | Các bên liên quan biết chuyến đã hủy |
+
+---
+
+## 9.9. Quy trình thanh toán
+
+**Actor chính:** Khách hàng
+
+**Actor liên quan:** Nhân viên vận hành
+
+Quy trình này giải quyết vấn đề **thông tin thanh toán chưa được tập trung**.
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Khách hàng | Hoàn thành chuyến | Ghi nhận chuyến hoàn thành |
+| 2 | Hệ thống | Hiển thị thông tin thanh toán | Cung cấp thông tin cần thanh toán |
+| 3 | Khách hàng | Thực hiện thanh toán | Tiếp nhận giao dịch |
+| 4 | Hệ thống | Xử lý giao dịch | Xác định trạng thái giao dịch |
+| 5 | Hệ thống | Ghi nhận giao dịch | Lưu thông tin giao dịch |
+| 6 | Hệ thống | Cập nhật trạng thái thanh toán | Liên kết giao dịch với chuyến |
+| 7 | Nhân viên vận hành | Xem giao dịch | Hiển thị thông tin giao dịch |
+
+---
+
+## 9.10. Quy trình xem lịch sử và chi tiết chuyến đi
+
+**Actor:** Khách hàng, Tài xế, Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Người dùng | Truy cập lịch sử chuyến | Lấy dữ liệu chuyến |
+| 2 | Hệ thống | Hiển thị danh sách | Hiển thị các chuyến liên quan |
+| 3 | Người dùng | Chọn một chuyến | Lấy thông tin chi tiết |
+| 4 | Hệ thống | Hiển thị chi tiết | Hiển thị thông tin chuyến |
+| 5 | Người dùng | Xem thông tin | Có thể kiểm tra lại lịch sử |
+
+**Thông tin chi tiết chuyến có thể bao gồm:**
+
+- Thông tin khách hàng.
+- Thông tin tài xế.
+- Thông tin phương tiện.
+- Điểm đón.
+- Điểm đến.
+- Trạng thái chuyến.
+- Thông tin giao dịch liên quan.
+
+---
+
+## 9.11. Quy trình đánh giá tài xế
+
+**Actor:** Khách hàng
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Khách hàng | Xem chuyến đã hoàn thành | Hiển thị thông tin chuyến |
+| 2 | Khách hàng | Chọn Đánh giá tài xế | Hiển thị biểu mẫu đánh giá |
+| 3 | Khách hàng | Nhập đánh giá | Tiếp nhận dữ liệu |
+| 4 | Khách hàng | Gửi đánh giá | Kiểm tra dữ liệu |
+| 5 | Hệ thống | Lưu đánh giá | Liên kết đánh giá với chuyến và tài xế |
+| 6 | Hệ thống | Hoàn tất | Thông báo đánh giá đã được ghi nhận |
+
+---
+
+## 9.12. Quy trình quản lý khách hàng
+
+**Actor:** Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Quản lý khách hàng | Hiển thị danh sách khách hàng |
+| 2 | Nhân viên vận hành | Tìm kiếm khách hàng | Lọc dữ liệu |
+| 3 | Nhân viên vận hành | Chọn khách hàng | Hiển thị thông tin |
+| 4 | Nhân viên vận hành | Xem thông tin khách hàng | Cung cấp dữ liệu |
+| 5 | Nhân viên vận hành | Thực hiện thao tác quản lý | Kiểm tra quyền |
+| 6 | Hệ thống | Lưu thay đổi | Cập nhật thông tin khách hàng |
+
+---
+
+## 9.13. Quy trình quản lý tài xế
+
+**Actor:** Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Quản lý tài xế | Hiển thị danh sách tài xế |
+| 2 | Nhân viên vận hành | Tìm kiếm tài xế | Lọc danh sách |
+| 3 | Nhân viên vận hành | Chọn tài xế | Hiển thị thông tin |
+| 4 | Nhân viên vận hành | Xem thông tin tài xế | Cung cấp dữ liệu |
+| 5 | Nhân viên vận hành | Thực hiện thao tác quản lý | Kiểm tra quyền |
+| 6 | Hệ thống | Lưu thay đổi | Cập nhật thông tin tài xế |
+
+---
+
+## 9.14. Quy trình quản lý phương tiện
+
+**Actor:** Nhân viên vận hành, Tài xế
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Quản lý phương tiện | Hiển thị danh sách |
+| 2 | Nhân viên vận hành | Tìm kiếm phương tiện | Lọc dữ liệu |
+| 3 | Nhân viên vận hành | Chọn phương tiện | Hiển thị thông tin |
+| 4 | Nhân viên vận hành | Quản lý thông tin phương tiện | Kiểm tra dữ liệu |
+| 5 | Hệ thống | Lưu thay đổi | Cập nhật thông tin |
+| 6 | Tài xế | Xem phương tiện được liên kết | Hiển thị thông tin phương tiện |
+
+---
+
+## 9.15. Quy trình quản lý chuyến đi
+
+**Actor:** Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Quản lý chuyến đi | Hiển thị danh sách chuyến |
+| 2 | Nhân viên vận hành | Tìm kiếm hoặc lọc chuyến | Lọc dữ liệu |
+| 3 | Nhân viên vận hành | Chọn chuyến | Hiển thị chi tiết |
+| 4 | Nhân viên vận hành | Xem thông tin khách hàng | Hiển thị dữ liệu |
+| 5 | Nhân viên vận hành | Xem thông tin tài xế | Hiển thị dữ liệu |
+| 6 | Nhân viên vận hành | Xem trạng thái chuyến | Hiển thị trạng thái |
+| 7 | Nhân viên vận hành | Kiểm tra chuyến | Xác định chuyến bình thường hoặc có vấn đề |
+| 8 | Nhân viên vận hành | Xử lý khi cần | Ghi nhận thao tác |
+
+---
+
+## 9.16. Quy trình theo dõi hoạt động tài xế
+
+**Actor:** Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Theo dõi hoạt động tài xế | Lấy dữ liệu hoạt động |
+| 2 | Hệ thống | Hiển thị danh sách tài xế | Cung cấp trạng thái hoạt động |
+| 3 | Nhân viên vận hành | Tìm kiếm hoặc lọc tài xế | Lọc dữ liệu |
+| 4 | Nhân viên vận hành | Chọn tài xế | Hiển thị thông tin |
+| 5 | Nhân viên vận hành | Theo dõi hoạt động | Cung cấp trạng thái hiện tại |
+| 6 | Nhân viên vận hành | Phát hiện vấn đề nếu có | Chuyển sang xử lý chuyến có vấn đề |
+
+---
+
+## 9.17. Quy trình xử lý chuyến có vấn đề
+
+**Actor:** Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Phát hiện hoặc tiếp nhận chuyến có vấn đề | Ghi nhận yêu cầu xử lý |
+| 2 | Nhân viên vận hành | Chọn chuyến | Hiển thị chi tiết |
+| 3 | Nhân viên vận hành | Kiểm tra thông tin chuyến | Hiển thị thông tin liên quan |
+| 4 | Nhân viên vận hành | Kiểm tra khách hàng | Hiển thị thông tin khách hàng |
+| 5 | Nhân viên vận hành | Kiểm tra tài xế | Hiển thị thông tin tài xế |
+| 6 | Nhân viên vận hành | Kiểm tra giao dịch nếu liên quan | Hiển thị thông tin giao dịch |
+| 7 | Nhân viên vận hành | Xác định vấn đề | Xác định hướng xử lý |
+| 8 | Nhân viên vận hành | Thực hiện xử lý | Ghi nhận thao tác |
+| 9 | Hệ thống | Cập nhật thông tin | Lưu kết quả xử lý |
+| 10 | Nhân viên vận hành | Kiểm tra lại | Xác nhận kết quả xử lý |
+
+---
+
+## 9.18. Quy trình quản lý giao dịch
+
+**Actor:** Nhân viên vận hành
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Quản lý giao dịch | Hiển thị danh sách |
+| 2 | Nhân viên vận hành | Tìm kiếm giao dịch | Lọc dữ liệu |
+| 3 | Nhân viên vận hành | Chọn giao dịch | Hiển thị chi tiết |
+| 4 | Nhân viên vận hành | Xem thông tin giao dịch | Cung cấp dữ liệu |
+| 5 | Nhân viên vận hành | Kiểm tra giao dịch | Xác định giao dịch có vấn đề nếu có |
+| 6 | Nhân viên vận hành | Thực hiện xử lý | Ghi nhận kết quả |
+
+---
+
+## 9.19. Quy trình quản lý quyền truy cập
+
+**Actor:** Nhân viên vận hành có quyền quản lý
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Truy cập Quản lý quyền truy cập | Kiểm tra quyền |
+| 2 | Hệ thống | Xác thực quyền | Cho phép hoặc từ chối truy cập |
+| 3 | Nhân viên vận hành | Xem tài khoản | Hiển thị danh sách |
+| 4 | Nhân viên vận hành | Chọn tài khoản | Hiển thị quyền hiện tại |
+| 5 | Nhân viên vận hành | Thay đổi quyền | Tiếp nhận thay đổi |
+| 6 | Hệ thống | Kiểm tra quyền thao tác | Xác nhận thao tác hợp lệ |
+| 7 | Hệ thống | Cập nhật quyền | Lưu quyền mới |
+| 8 | Hệ thống | Ghi nhận thay đổi | Lưu thông tin thay đổi quyền |
+
+---
+
+## 9.20. Quy trình theo dõi hoạt động kinh doanh
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Đăng nhập | Xác thực tài khoản |
+| 2 | Ban giám đốc | Truy cập Theo dõi hoạt động kinh doanh | Lấy dữ liệu hoạt động |
+| 3 | Hệ thống | Tổng hợp dữ liệu | Tạo dữ liệu tổng quan |
+| 4 | Hệ thống | Hiển thị thông tin | Cung cấp các chỉ số hoạt động |
+| 5 | Ban giám đốc | Xem thông tin | Theo dõi tình hình kinh doanh |
+| 6 | Ban giám đốc | Chọn khoảng thời gian nếu cần | Cập nhật dữ liệu |
+
+---
+
+## 9.21. Quy trình xem báo cáo hoạt động
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Chọn Xem báo cáo hoạt động | Lấy dữ liệu |
+| 2 | Hệ thống | Tổng hợp dữ liệu | Tạo báo cáo |
+| 3 | Hệ thống | Hiển thị báo cáo | Cung cấp thông tin hoạt động |
+| 4 | Ban giám đốc | Xem báo cáo | Theo dõi tình hình hoạt động |
+| 5 | Ban giám đốc | Chọn khoảng thời gian nếu cần | Cập nhật báo cáo |
+
+---
+
+## 9.22. Quy trình theo dõi doanh thu
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Chọn Theo dõi doanh thu | Lấy dữ liệu giao dịch |
+| 2 | Hệ thống | Tổng hợp dữ liệu giao dịch | Xác định dữ liệu doanh thu |
+| 3 | Hệ thống | Tính toán doanh thu | Tạo chỉ số doanh thu |
+| 4 | Hệ thống | Hiển thị doanh thu | Ban giám đốc xem kết quả |
+| 5 | Ban giám đốc | Chọn khoảng thời gian nếu cần | Cập nhật số liệu |
+
+---
+
+## 9.23. Quy trình theo dõi số lượng chuyến
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Chọn Theo dõi số lượng chuyến | Lấy dữ liệu chuyến |
+| 2 | Hệ thống | Tổng hợp dữ liệu | Xác định số lượng chuyến |
+| 3 | Hệ thống | Phân loại theo trạng thái | Xác định số chuyến theo trạng thái |
+| 4 | Hệ thống | Hiển thị số liệu | Ban giám đốc xem kết quả |
+| 5 | Ban giám đốc | Chọn khoảng thời gian nếu cần | Cập nhật số liệu |
+
+---
+
+## 9.24. Quy trình theo dõi tỷ lệ hoàn thành chuyến
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Chọn Theo dõi tỷ lệ hoàn thành chuyến | Lấy dữ liệu chuyến |
+| 2 | Hệ thống | Xác định tổng số chuyến | Tổng hợp số lượng chuyến |
+| 3 | Hệ thống | Xác định số chuyến hoàn thành | Tổng hợp chuyến hoàn thành |
+| 4 | Hệ thống | Tính tỷ lệ hoàn thành | Tạo chỉ số |
+| 5 | Hệ thống | Hiển thị kết quả | Ban giám đốc xem tỷ lệ |
+| 6 | Ban giám đốc | Phân tích kết quả | Đánh giá tình hình hoạt động |
+
+---
+
+## 9.25. Quy trình theo dõi tỷ lệ hủy chuyến
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Chọn Theo dõi tỷ lệ hủy chuyến | Lấy dữ liệu chuyến |
+| 2 | Hệ thống | Xác định tổng số chuyến | Tổng hợp dữ liệu |
+| 3 | Hệ thống | Xác định số chuyến bị hủy | Tổng hợp chuyến hủy |
+| 4 | Hệ thống | Tính tỷ lệ hủy | Tạo chỉ số |
+| 5 | Hệ thống | Hiển thị kết quả | Ban giám đốc xem tỷ lệ |
+| 6 | Ban giám đốc | Phân tích kết quả | Đánh giá tình hình hủy chuyến |
+
+---
+
+## 9.26. Quy trình theo dõi hiệu quả hoạt động của tài xế
+
+**Actor:** Ban giám đốc
+
+| Bước | Actor | Hành động | Hệ thống xử lý / Kết quả |
+|---|---|---|---|
+| 1 | Ban giám đốc | Chọn Theo dõi hiệu quả hoạt động của tài xế | Lấy dữ liệu tài xế |
+| 2 | Hệ thống | Tổng hợp dữ liệu hoạt động | Tổng hợp dữ liệu liên quan |
+| 3 | Hệ thống | Phân tích dữ liệu | Tạo các chỉ số hoạt động |
+| 4 | Hệ thống | Hiển thị kết quả | Hiển thị thông tin hiệu quả |
+| 5 | Ban giám đốc | Xem kết quả | Theo dõi hiệu quả tài xế |
+| 6 | Ban giám đốc | Chọn khoảng thời gian nếu cần | Cập nhật dữ liệu |
+
+---
+
+## 9.27. Quy trình nghiệp vụ tổng thể
+
+Quy trình nghiệp vụ cốt lõi của CAB System:
+
+```text
+Khách hàng
+    │
+    ▼
+Đăng nhập
+    │
+    ▼
+Đặt xe
+    │
+    ▼
+Tạo yêu cầu đặt xe
+    │
+    ▼
+Nhân viên vận hành tiếp nhận
+    │
+    ▼
+Phân công tài xế
+    │
+    ▼
+Tài xế xem chuyến
+    │
+    ▼
+Thực hiện chuyến
+    │
+    ├──────────────► Hủy chuyến
+    │
+    ▼
+Cập nhật trạng thái
+    │
+    ▼
+Hoàn thành chuyến
+    │
+    ▼
+Thanh toán
+    │
+    ▼
+Lưu giao dịch
+    │
+    ▼
+Đánh giá tài xế
+    │
+    ▼
+Lưu lịch sử chuyến
