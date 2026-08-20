@@ -290,6 +290,7 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Trả trạng thái gửi thông báo
 
 # Bước 7: Vẽ Use Case Diagram
+```mermaid
 flowchart LR
     %% Định dạng phong cách cho sơ đồ
     classDef actor fill:transparent,stroke:none,color:#0f172a,font-weight:bold,font-size:16px;
@@ -404,6 +405,7 @@ flowchart LR
     
     %% Tinh chỉnh màu nền hộp hệ thống
     style CAB fill:#f8fafc,stroke:#1e293b,stroke-width:2px,color:#0f172a,font-weight:bold
+```
 ```
 # Bước 8: Đặc tả Use Case
 
