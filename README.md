@@ -290,128 +290,120 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Trả trạng thái gửi thông báo
 
 # Bước 7: Vẽ Use Case Diagram
-```mermaid
 flowchart LR
+    %% Định dạng phong cách cho sơ đồ
+    classDef actor fill:transparent,stroke:none,color:#0f172a,font-weight:bold,font-size:16px;
+    classDef usecase fill:#ffffff,stroke:#334155,stroke-width:1.5px,color:#0f172a,font-size:14px;
 
-%% =========================
-%% ACTOR BÊN TRÁI
-%% =========================
+    %% --- ACTOR BÊN TRÁI ---
+    KH["👤 Khách hàng"]:::actor
+    TX["👤 Tài xế"]:::actor
 
-subgraph LEFT[" "]
-    direction TB
-    KH["👤 Khách hàng"]
-    TX["👤 Tài xế"]
-    VH["👤 Nhân viên vận hành"]
-end
+    %% --- HỆ THỐNG CHÍNH ---
+    subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
+        direction TB
+        
+        %% Cụm Use Case chung
+        UC1(["Quản lý tài khoản"]):::usecase
+        UC7(["Quản lý phương tiện"]):::usecase
+        
+        %% Cụm Khách hàng
+        UC2(["Đặt xe"]):::usecase
+        UC3(["Theo dõi chuyến đi"]):::usecase
+        UC4(["Thanh toán"]):::usecase
+        UC5(["Xem lịch sử chuyến đi"]):::usecase
+        UC6(["Đánh giá tài xế"]):::usecase
+        
+        %% Cụm Tài xế
+        UC8(["Quản lý trạng thái hoạt động"]):::usecase
+        UC9(["Quản lý chuyến được phân công"]):::usecase
+        UC10(["Cập nhật trạng thái chuyến"]):::usecase
+        UC11(["Xem lịch sử chuyến"]):::usecase
 
-%% =========================
-%% CAB SYSTEM
-%% =========================
+        %% Cụm Nhân viên vận hành
+        UC12(["Quản lý khách hàng"]):::usecase
+        UC13(["Quản lý tài xế"]):::usecase
+        UC14(["Quản lý chuyến đi"]):::usecase
+        UC15(["Theo dõi hoạt động tài xế"]):::usecase
+        UC16(["Quản lý giao dịch"]):::usecase
+        UC17(["Xử lý chuyến có vấn đề"]):::usecase
+        UC18(["Quản lý quyền truy cập"]):::usecase
+        
+        %% Cụm Ban giám đốc
+        UC19(["Theo dõi hoạt động kinh doanh"]):::usecase
+        UC20(["Xem báo cáo hoạt động"]):::usecase
+        
+        %% Các Use Case được Include (BGD)
+        UC21(["Theo dõi doanh thu"]):::usecase
+        UC22(["Theo dõi số lượng chuyến"]):::usecase
+        UC23(["Theo dõi tỷ lệ hoàn thành chuyến"]):::usecase
+        UC24(["Theo dõi tỷ lệ hủy chuyến"]):::usecase
+        UC25(["Theo dõi hiệu quả hoạt động của tài xế"]):::usecase
 
-subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
-    direction TB
+        %% --- QUAN HỆ CỦA CÁC USE CASE NỘI BỘ ---
+        
+        %% Extend (Mũi tên trỏ từ Extension về Base)
+        UC6 -.->|"<<extend>>"| UC5
+        UC17 -.->|"<<extend>>"| UC14
+        
+        %% Include từ Theo dõi hoạt động KD
+        UC19 -.->|"<<include>>"| UC21
+        UC19 -.->|"<<include>>"| UC22
+        UC19 -.->|"<<include>>"| UC23
+        UC19 -.->|"<<include>>"| UC24
+        UC19 -.->|"<<include>>"| UC25
+        
+        %% Include từ Xem báo cáo hoạt động
+        UC20 -.->|"<<include>>"| UC21
+        UC20 -.->|"<<include>>"| UC22
+        UC20 -.->|"<<include>>"| UC23
+        UC20 -.->|"<<include>>"| UC24
+        UC20 -.->|"<<include>>"| UC25
+    end
 
-    UC1(["Quản lý tài khoản"])
-    UC2(["Đặt xe"])
-    UC3(["Theo dõi chuyến đi"])
-    UC4(["Thanh toán"])
-    UC5(["Xem lịch sử chuyến đi"])
-    UC6(["Đánh giá tài xế"])
+    %% --- ACTOR BÊN PHẢI ---
+    NV["👤 Nhân viên vận hành"]:::actor
+    BGD["👤 Ban giám đốc"]:::actor
 
-    UC7(["Quản lý phương tiện"])
-    UC8(["Quản lý trạng thái hoạt động"])
-    UC9(["Quản lý chuyến được phân công"])
-    UC10(["Cập nhật trạng thái chuyến"])
-    UC11(["Xem lịch sử chuyến"])
+    %% --- LIÊN KẾT GIỮA ACTOR VÀ USE CASE ---
 
-    UC12(["Quản lý khách hàng"])
-    UC13(["Quản lý tài xế"])
-    UC14(["Quản lý phương tiện"])
-    UC15(["Quản lý chuyến đi"])
-    UC16(["Theo dõi hoạt động tài xế"])
-    UC17(["Quản lý giao dịch"])
-    UC18(["Xử lý chuyến có vấn đề"])
-    UC19(["Quản lý quyền truy cập"])
-
-    UC20(["Theo dõi hoạt động kinh doanh"])
-    UC21(["Xem báo cáo hoạt động"])
-    UC22(["Theo dõi doanh thu"])
-    UC23(["Theo dõi số lượng chuyến"])
-    UC24(["Theo dõi tỷ lệ hoàn thành chuyến"])
-    UC25(["Theo dõi tỷ lệ hủy chuyến"])
-    UC26(["Theo dõi hiệu quả hoạt động của tài xế"])
-
-    %% Quan hệ include
-    UC20 -.->|include| UC22
-    UC20 -.->|include| UC23
-    UC20 -.->|include| UC24
-    UC20 -.->|include| UC25
-    UC20 -.->|include| UC26
-
-    UC21 -.->|include| UC22
-    UC21 -.->|include| UC23
-    UC21 -.->|include| UC24
-    UC21 -.->|include| UC25
-    UC21 -.->|include| UC26
-
-    %% Quan hệ extend
-    UC6 -.->|extend| UC5
-    UC18 -.->|extend| UC15
-end
-
-%% =========================
-%% ACTOR BÊN PHẢI
-%% =========================
-
-subgraph RIGHT[" "]
-    direction TB
-    BGD["👤 Ban giám đốc"]
-    KH2[" "]
-    TX2[" "]
-    VH2[" "]
-end
-
-%% =========================
-%% KẾT NỐI ACTOR
-%% =========================
-
-KH --- UC1
-KH --- UC2
-KH --- UC3
-KH --- UC4
-KH --- UC5
-KH --- UC6
-
-TX --- UC7
-TX --- UC8
-TX --- UC9
-TX --- UC10
-TX --- UC11
-
-VH --- UC12
-VH --- UC13
-VH --- UC14
-VH --- UC15
-VH --- UC16
-VH --- UC17
-VH --- UC18
-VH --- UC19
-
-BGD --- UC20
-BGD --- UC21
-
-%% =========================
-%% STYLE
-%% =========================
-
-classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px,color:#111827
-classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px,color:#111827
-
-class KH,TX,VH,BGD actor
-class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26 usecase
-
-style LEFT fill:none,stroke:none
-style RIGHT fill:none,stroke:none
+    %% Khách hàng
+    KH --- UC1
+    KH --- UC2
+    KH --- UC3
+    KH --- UC4
+    KH --- UC5
+    KH --- UC6
+    
+    %% Tài xế
+    TX --- UC1
+    TX --- UC7
+    TX --- UC8
+    TX --- UC9
+    TX --- UC10
+    TX --- UC11
+    
+    %% Nhân viên vận hành (đẩy dây sang phải)
+    UC7 --- NV
+    UC12 --- NV
+    UC13 --- NV
+    UC14 --- NV
+    UC15 --- NV
+    UC16 --- NV
+    UC17 --- NV
+    UC18 --- NV
+    
+    %% Ban giám đốc (đẩy dây sang phải)
+    UC19 --- BGD
+    UC20 --- BGD
+    UC21 --- BGD
+    UC22 --- BGD
+    UC23 --- BGD
+    UC24 --- BGD
+    UC25 --- BGD
+    
+    %% Tinh chỉnh màu nền hộp hệ thống
+    style CAB fill:#f8fafc,stroke:#1e293b,stroke-width:2px,color:#0f172a,font-weight:bold
 ```
 # Bước 8: Đặc tả Use Case
 
