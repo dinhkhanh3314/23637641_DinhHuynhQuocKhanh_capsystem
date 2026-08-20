@@ -304,7 +304,7 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Theo dõi hiệu quả hoạt động của tài xế
 
 ## Bước 7. Use Case Diagram
-
+![Use Case Diagram](./UseCaseDiagram.svg)
 
 # Bước 8: Đặc tả Use Case
 ## 1. Khách hàng
