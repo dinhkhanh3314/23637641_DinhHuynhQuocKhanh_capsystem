@@ -307,130 +307,164 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 ```mermaid
 flowchart LR
+    %% Định dạng style cho Actor và Use Case
+    classDef actor fill:transparent,stroke:none,color:#0f172a,font-weight:bold,font-size:15px;
+    classDef usecase fill:#ffffff,stroke:#334155,stroke-width:1.5px,color:#0f172a,font-size:14px;
+    
+    %% --- CÁC ACTOR BÊN TRÁI ---
+    KH["👤 Khách hàng"]:::actor
+    TX["👤 Tài xế"]:::actor
 
-KH["👤 Khách hàng"]
-TX["👤 Tài xế"]
+    %% --- HỆ THỐNG ĐẶT XE CAB SYSTEM ---
+    subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
+        direction TB
+        
+        %% Chức năng dùng chung (Tài khoản & Xác thực)
+        subgraph COMMON[" "]
+            style COMMON fill:transparent,stroke:none
+            UC_Reg(["Đăng ký tài khoản"]):::usecase
+            UC_Login(["Đăng nhập"]):::usecase
+            UC_Logout(["Đăng xuất"]):::usecase
+            UC_ForgotPw(["Quên mật khẩu"]):::usecase
+            UC_Profile(["Quản lý thông tin cá nhân"]):::usecase
+        end
 
-subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
-    direction TB
+        %% Chức năng của Khách hàng
+        subgraph UC_KH[" "]
+            style UC_KH fill:transparent,stroke:none
+            UC_Book(["Đặt xe"]):::usecase
+            UC_TrackKH(["Theo dõi chuyến đi"]):::usecase
+            UC_Cancel(["Hủy chuyến"]):::usecase
+            UC_Pay(["Thanh toán"]):::usecase
+            UC_HistKH(["Xem lịch sử chuyến đi"]):::usecase
+            UC_DetailKH(["Xem chi tiết chuyến đi"]):::usecase
+            UC_Review(["Đánh giá tài xế"]):::usecase
+        end
 
-    UC01(["Đăng ký tài khoản"])
-    UC02(["Đăng nhập"])
-    UC03(["Đăng xuất"])
-    UC04(["Quên mật khẩu"])
-    UC05(["Quản lý thông tin cá nhân"])
+        %% Chức năng của Tài xế
+        subgraph UC_TX[" "]
+            style UC_TX fill:transparent,stroke:none
+            UC_VehTX(["Quản lý phương tiện"]):::usecase
+            UC_State(["Quản lý trạng thái hoạt động"]):::usecase
+            UC_Assigned(["Xem chuyến được phân công"]):::usecase
+            UC_UpdateTrip(["Cập nhật trạng thái chuyến"]):::usecase
+            UC_HistTX(["Xem lịch sử chuyến"]):::usecase
+        end
 
-    UC06(["Đặt xe"])
-    UC07(["Theo dõi chuyến đi"])
-    UC08(["Hủy chuyến"])
-    UC09(["Thanh toán"])
-    UC10(["Xem lịch sử chuyến đi"])
-    UC11(["Xem chi tiết chuyến đi"])
-    UC12(["Đánh giá tài xế"])
+        %% Chức năng của Nhân viên vận hành
+        subgraph UC_VH[" "]
+            style UC_VH fill:transparent,stroke:none
+            UC_MngKH(["Quản lý khách hàng"]):::usecase
+            UC_ViewKH(["Xem thông tin khách hàng"]):::usecase
+            
+            UC_MngTX(["Quản lý tài xế"]):::usecase
+            UC_ViewTX(["Xem thông tin tài xế"]):::usecase
+            
+            UC_MngVeh(["Quản lý phương tiện (Hệ thống)"]):::usecase
+            
+            UC_MngTrip(["Quản lý chuyến đi"]):::usecase
+            UC_ViewTrip(["Xem chi tiết chuyến đi (VH)"]):::usecase
+            UC_Issue(["Xử lý chuyến có vấn đề"]):::usecase
+            
+            UC_TrackTX(["Theo dõi hoạt động tài xế"]):::usecase
+            
+            UC_MngTrans(["Quản lý giao dịch"]):::usecase
+            UC_ViewTrans(["Xem chi tiết giao dịch"]):::usecase
+            
+            UC_Access(["Quản lý quyền truy cập"]):::usecase
+        end
 
-    UC13(["Quản lý phương tiện"])
-    UC14(["Quản lý trạng thái hoạt động"])
-    UC15(["Xem chuyến được phân công"])
-    UC16(["Cập nhật trạng thái chuyến"])
-    UC17(["Xem lịch sử chuyến"])
+        %% Chức năng của Ban giám đốc
+        subgraph UC_BGD[" "]
+            style UC_BGD fill:transparent,stroke:none
+            UC_Biz(["Theo dõi hoạt động kinh doanh"]):::usecase
+            UC_Report(["Xem báo cáo hoạt động"]):::usecase
+            UC_Rev(["Theo dõi doanh thu"]):::usecase
+            UC_Count(["Theo dõi số lượng chuyến"]):::usecase
+            UC_RateDone(["Theo dõi tỷ lệ hoàn thành chuyến"]):::usecase
+            UC_RateCancel(["Theo dõi tỷ lệ hủy chuyến"]):::usecase
+            UC_DriverPerf(["Theo dõi hiệu quả hoạt động của tài xế"]):::usecase
+        end
 
-    UC18(["Quản lý khách hàng"])
-    UC19(["Xem thông tin khách hàng"])
-    UC20(["Quản lý tài xế"])
-    UC21(["Xem thông tin tài xế"])
-    UC22(["Quản lý phương tiện"])
-    UC23(["Quản lý chuyến đi"])
-    UC24(["Xem chi tiết chuyến đi"])
-    UC25(["Theo dõi hoạt động tài xế"])
-    UC26(["Quản lý giao dịch"])
-    UC27(["Xem chi tiết giao dịch"])
-    UC28(["Xử lý chuyến có vấn đề"])
-    UC29(["Quản lý quyền truy cập"])
+        %% --- QUAN HỆ INCLUDE & EXTEND ---
+        
+        %% Mũi tên Extend (từ Use Case mở rộng về Use Case gốc)
+        UC_Cancel -.->|"<<extend>>"| UC_Book
+        UC_DetailKH -.->|"<<extend>>"| UC_HistKH
+        UC_Review -.->|"<<extend>>"| UC_HistKH
+        UC_Issue -.->|"<<extend>>"| UC_MngTrip
+        
+        %% Mũi tên Include (từ Use Case gốc ra Use Case chi tiết)
+        UC_MngKH -.->|"<<include>>"| UC_ViewKH
+        UC_MngTX -.->|"<<include>>"| UC_ViewTX
+        UC_MngTrip -.->|"<<include>>"| UC_ViewTrip
+        UC_MngTrans -.->|"<<include>>"| UC_ViewTrans
+        
+        UC_Biz -.->|"<<include>>"| UC_Rev
+        UC_Biz -.->|"<<include>>"| UC_Count
+        UC_Biz -.->|"<<include>>"| UC_RateDone
+        UC_Biz -.->|"<<include>>"| UC_RateCancel
+        UC_Biz -.->|"<<include>>"| UC_DriverPerf
+        
+        UC_Report -.->|"<<include>>"| UC_Rev
+        UC_Report -.->|"<<include>>"| UC_Count
+        UC_Report -.->|"<<include>>"| UC_RateDone
+        UC_Report -.->|"<<include>>"| UC_RateCancel
+        UC_Report -.->|"<<include>>"| UC_DriverPerf
+    end
 
-    UC30(["Theo dõi hoạt động kinh doanh"])
-    UC31(["Xem báo cáo hoạt động"])
-    UC32(["Theo dõi doanh thu"])
-    UC33(["Theo dõi số lượng chuyến"])
-    UC34(["Theo dõi tỷ lệ hoàn thành chuyến"])
-    UC35(["Theo dõi tỷ lệ hủy chuyến"])
-    UC36(["Theo dõi hiệu quả hoạt động của tài xế"])
+    %% --- CÁC ACTOR BÊN PHẢI ---
+    VH["👤 Nhân viên vận hành"]:::actor
+    BGD["👤 Ban giám đốc"]:::actor
 
-    UC30 -.->|include| UC32
-    UC30 -.->|include| UC33
-    UC30 -.->|include| UC34
-    UC30 -.->|include| UC35
-    UC30 -.->|include| UC36
+    %% --- MỐI LIÊN KẾT GIỮA ACTOR VÀ CHỨC NĂNG ---
 
-    UC31 -.->|include| UC32
-    UC31 -.->|include| UC33
-    UC31 -.->|include| UC34
-    UC31 -.->|include| UC35
-    UC31 -.->|include| UC36
+    %% Khách hàng
+    KH --- UC_Reg
+    KH --- UC_Login
+    KH --- UC_Logout
+    KH --- UC_ForgotPw
+    KH --- UC_Profile
+    KH --- UC_Book
+    KH --- UC_TrackKH
+    KH --- UC_Pay
+    KH --- UC_HistKH
 
-    UC12 -.->|extend| UC10
-    UC28 -.->|extend| UC23
-end
+    %% Tài xế
+    TX --- UC_Login
+    TX --- UC_Logout
+    TX --- UC_ForgotPw
+    TX --- UC_Profile
+    TX --- UC_VehTX
+    TX --- UC_State
+    TX --- UC_Assigned
+    TX --- UC_UpdateTrip
+    TX --- UC_HistTX
 
-VH["👤 Nhân viên vận hành"]
-BGD["👤 Ban giám đốc"]
+    %% Nhân viên vận hành
+    UC_Login --- VH
+    UC_Logout --- VH
+    UC_ForgotPw --- VH
+    UC_Profile --- VH
+    UC_MngKH --- VH
+    UC_MngTX --- VH
+    UC_MngVeh --- VH
+    UC_MngTrip --- VH
+    UC_TrackTX --- VH
+    UC_MngTrans --- VH
+    UC_Access --- VH
 
-KH --- UC01
-KH --- UC02
-KH --- UC03
-KH --- UC04
-KH --- UC05
-KH --- UC06
-KH --- UC07
-KH --- UC08
-KH --- UC09
-KH --- UC10
-KH --- UC11
-KH --- UC12
+    %% Ban giám đốc
+    UC_Login --- BGD
+    UC_Logout --- BGD
+    UC_ForgotPw --- BGD
+    UC_Profile --- BGD
+    UC_Biz --- BGD
+    UC_Report --- BGD
 
-TX --- UC02
-TX --- UC03
-TX --- UC04
-TX --- UC05
-TX --- UC13
-TX --- UC14
-TX --- UC15
-TX --- UC16
-TX --- UC17
-
-VH --- UC02
-VH --- UC03
-VH --- UC04
-VH --- UC05
-VH --- UC18
-VH --- UC19
-VH --- UC20
-VH --- UC21
-VH --- UC22
-VH --- UC23
-VH --- UC24
-VH --- UC25
-VH --- UC26
-VH --- UC27
-VH --- UC28
-VH --- UC29
-
-BGD --- UC02
-BGD --- UC03
-BGD --- UC04
-BGD --- UC05
-BGD --- UC30
-BGD --- UC31
-BGD --- UC32
-BGD --- UC33
-BGD --- UC34
-BGD --- UC35
-BGD --- UC36
-
-classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px
-classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px
-
-class KH,TX,VH,BGD actor
-class UC01,UC02,UC03,UC04,UC05,UC06,UC07,UC08,UC09,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26,UC27,UC28,UC29,UC30,UC31,UC32,UC33,UC34,UC35,UC36 usecase
+    %% Tinh chỉnh màu nền hộp hệ thống
+    style CAB fill:#f8fafc,stroke:#1e293b,stroke-width:2px,color:#0f172a,font-weight:bold
 ```
+
 # Bước 8: Đặc tả Use Case
 
