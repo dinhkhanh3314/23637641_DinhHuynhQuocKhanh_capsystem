@@ -293,24 +293,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 ```mermaid
 flowchart LR
 
-%% =========================
-%% ACTORS
-%% =========================
-
 KH["👤 Khách hàng"]
 TX["👤 Tài xế"]
 VH["👤 Nhân viên vận hành"]
-BGD["👤 Ban giám đốc"]
-TT["👤 Nhà cung cấp thanh toán"]
-TB["👤 Nhà cung cấp dịch vụ thông báo"]
-
-%% =========================
-%% CAB SYSTEM
-%% =========================
 
 subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
+    direction TB
 
-    %% Khách hàng
     UC1(["Quản lý tài khoản"])
     UC2(["Đặt xe"])
     UC3(["Theo dõi chuyến đi"])
@@ -318,14 +307,12 @@ subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
     UC5(["Xem lịch sử chuyến đi"])
     UC6(["Đánh giá tài xế"])
 
-    %% Tài xế
     UC7(["Quản lý phương tiện"])
     UC8(["Quản lý trạng thái hoạt động"])
     UC9(["Quản lý chuyến được phân công"])
     UC10(["Cập nhật trạng thái chuyến"])
     UC11(["Xem lịch sử chuyến"])
 
-    %% Nhân viên vận hành
     UC12(["Quản lý khách hàng"])
     UC13(["Quản lý tài xế"])
     UC14(["Quản lý phương tiện"])
@@ -335,7 +322,6 @@ subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
     UC18(["Xử lý chuyến có vấn đề"])
     UC19(["Quản lý quyền truy cập"])
 
-    %% Ban giám đốc
     UC20(["Theo dõi hoạt động kinh doanh"])
     UC21(["Xem báo cáo hoạt động"])
     UC22(["Theo dõi doanh thu"])
@@ -343,12 +329,9 @@ subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
     UC24(["Theo dõi tỷ lệ hoàn thành chuyến"])
     UC25(["Theo dõi tỷ lệ hủy chuyến"])
     UC26(["Theo dõi hiệu quả hoạt động của tài xế"])
-
 end
 
-%% =========================
-%% ACTOR - USE CASE
-%% =========================
+BGD["👤 Ban giám đốc"]
 
 KH --- UC1
 KH --- UC2
@@ -381,14 +364,26 @@ BGD --- UC24
 BGD --- UC25
 BGD --- UC26
 
-%% =========================
-%% STYLE
-%% =========================
+UC20 -.->|include| UC22
+UC20 -.->|include| UC23
+UC20 -.->|include| UC24
+UC20 -.->|include| UC25
+UC20 -.->|include| UC26
+
+UC21 -.->|include| UC22
+UC21 -.->|include| UC23
+UC21 -.->|include| UC24
+UC21 -.->|include| UC25
+UC21 -.->|include| UC26
+
+UC6 -.->|extend| UC5
+
+UC18 -.->|extend| UC15
 
 classDef actor fill:#ffffff,stroke:#111827,stroke-width:2px,color:#111827
 classDef usecase fill:#ffffff,stroke:#2563eb,stroke-width:1.5px,color:#111827
 
-class KH,TX,VH,BGD,TT,TB actor
+class KH,TX,VH,BGD actor
 class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13,UC14,UC15,UC16,UC17,UC18,UC19,UC20,UC21,UC22,UC23,UC24,UC25,UC26 usecase
 ```
 # Bước 8: Đặc tả Use Case
