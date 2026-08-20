@@ -305,166 +305,284 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 ## Bước 7. Use Case Diagram
 
-```mermaid
-flowchart LR
-    %% Định dạng style cho Actor và Use Case
-    classDef actor fill:transparent,stroke:none,color:#0f172a,font-weight:bold,font-size:15px;
-    classDef usecase fill:#ffffff,stroke:#334155,stroke-width:1.5px,color:#0f172a,font-size:14px;
-    
-    %% --- CÁC ACTOR BÊN TRÁI ---
-    KH["👤 Khách hàng"]:::actor
-    TX["👤 Tài xế"]:::actor
-
-    %% --- HỆ THỐNG ĐẶT XE CAB SYSTEM ---
-    subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
-        direction TB
-        
-        %% Chức năng dùng chung (Tài khoản & Xác thực)
-        subgraph COMMON[" "]
-            style COMMON fill:transparent,stroke:none
-            UC_Reg(["Đăng ký tài khoản"]):::usecase
-            UC_Login(["Đăng nhập"]):::usecase
-            UC_Logout(["Đăng xuất"]):::usecase
-            UC_ForgotPw(["Quên mật khẩu"]):::usecase
-            UC_Profile(["Quản lý thông tin cá nhân"]):::usecase
-        end
-
-        %% Chức năng của Khách hàng
-        subgraph UC_KH[" "]
-            style UC_KH fill:transparent,stroke:none
-            UC_Book(["Đặt xe"]):::usecase
-            UC_TrackKH(["Theo dõi chuyến đi"]):::usecase
-            UC_Cancel(["Hủy chuyến"]):::usecase
-            UC_Pay(["Thanh toán"]):::usecase
-            UC_HistKH(["Xem lịch sử chuyến đi"]):::usecase
-            UC_DetailKH(["Xem chi tiết chuyến đi"]):::usecase
-            UC_Review(["Đánh giá tài xế"]):::usecase
-        end
-
-        %% Chức năng của Tài xế
-        subgraph UC_TX[" "]
-            style UC_TX fill:transparent,stroke:none
-            UC_VehTX(["Quản lý phương tiện"]):::usecase
-            UC_State(["Quản lý trạng thái hoạt động"]):::usecase
-            UC_Assigned(["Xem chuyến được phân công"]):::usecase
-            UC_UpdateTrip(["Cập nhật trạng thái chuyến"]):::usecase
-            UC_HistTX(["Xem lịch sử chuyến"]):::usecase
-        end
-
-        %% Chức năng của Nhân viên vận hành
-        subgraph UC_VH[" "]
-            style UC_VH fill:transparent,stroke:none
-            UC_MngKH(["Quản lý khách hàng"]):::usecase
-            UC_ViewKH(["Xem thông tin khách hàng"]):::usecase
-            
-            UC_MngTX(["Quản lý tài xế"]):::usecase
-            UC_ViewTX(["Xem thông tin tài xế"]):::usecase
-            
-            UC_MngVeh(["Quản lý phương tiện (Hệ thống)"]):::usecase
-            
-            UC_MngTrip(["Quản lý chuyến đi"]):::usecase
-            UC_ViewTrip(["Xem chi tiết chuyến đi (VH)"]):::usecase
-            UC_Issue(["Xử lý chuyến có vấn đề"]):::usecase
-            
-            UC_TrackTX(["Theo dõi hoạt động tài xế"]):::usecase
-            
-            UC_MngTrans(["Quản lý giao dịch"]):::usecase
-            UC_ViewTrans(["Xem chi tiết giao dịch"]):::usecase
-            
-            UC_Access(["Quản lý quyền truy cập"]):::usecase
-        end
-
-        %% Chức năng của Ban giám đốc
-        subgraph UC_BGD[" "]
-            style UC_BGD fill:transparent,stroke:none
-            UC_Biz(["Theo dõi hoạt động kinh doanh"]):::usecase
-            UC_Report(["Xem báo cáo hoạt động"]):::usecase
-            UC_Rev(["Theo dõi doanh thu"]):::usecase
-            UC_Count(["Theo dõi số lượng chuyến"]):::usecase
-            UC_RateDone(["Theo dõi tỷ lệ hoàn thành chuyến"]):::usecase
-            UC_RateCancel(["Theo dõi tỷ lệ hủy chuyến"]):::usecase
-            UC_DriverPerf(["Theo dõi hiệu quả hoạt động của tài xế"]):::usecase
-        end
-
-        %% --- QUAN HỆ INCLUDE & EXTEND ---
-        
-        %% Mũi tên Extend (từ Use Case mở rộng về Use Case gốc)
-        UC_Cancel -.->|"<<extend>>"| UC_Book
-        UC_DetailKH -.->|"<<extend>>"| UC_HistKH
-        UC_Review -.->|"<<extend>>"| UC_HistKH
-        UC_Issue -.->|"<<extend>>"| UC_MngTrip
-        
-        %% Mũi tên Include (từ Use Case gốc ra Use Case chi tiết)
-        UC_MngKH -.->|"<<include>>"| UC_ViewKH
-        UC_MngTX -.->|"<<include>>"| UC_ViewTX
-        UC_MngTrip -.->|"<<include>>"| UC_ViewTrip
-        UC_MngTrans -.->|"<<include>>"| UC_ViewTrans
-        
-        UC_Biz -.->|"<<include>>"| UC_Rev
-        UC_Biz -.->|"<<include>>"| UC_Count
-        UC_Biz -.->|"<<include>>"| UC_RateDone
-        UC_Biz -.->|"<<include>>"| UC_RateCancel
-        UC_Biz -.->|"<<include>>"| UC_DriverPerf
-        
-        UC_Report -.->|"<<include>>"| UC_Rev
-        UC_Report -.->|"<<include>>"| UC_Count
-        UC_Report -.->|"<<include>>"| UC_RateDone
-        UC_Report -.->|"<<include>>"| UC_RateCancel
-        UC_Report -.->|"<<include>>"| UC_DriverPerf
-    end
-
-    %% --- CÁC ACTOR BÊN PHẢI ---
-    VH["👤 Nhân viên vận hành"]:::actor
-    BGD["👤 Ban giám đốc"]:::actor
-
-    %% --- MỐI LIÊN KẾT GIỮA ACTOR VÀ CHỨC NĂNG ---
-
-    %% Khách hàng
-    KH --- UC_Reg
-    KH --- UC_Login
-    KH --- UC_Logout
-    KH --- UC_ForgotPw
-    KH --- UC_Profile
-    KH --- UC_Book
-    KH --- UC_TrackKH
-    KH --- UC_Pay
-    KH --- UC_HistKH
-
-    %% Tài xế
-    TX --- UC_Login
-    TX --- UC_Logout
-    TX --- UC_ForgotPw
-    TX --- UC_Profile
-    TX --- UC_VehTX
-    TX --- UC_State
-    TX --- UC_Assigned
-    TX --- UC_UpdateTrip
-    TX --- UC_HistTX
-
-    %% Nhân viên vận hành
-    UC_Login --- VH
-    UC_Logout --- VH
-    UC_ForgotPw --- VH
-    UC_Profile --- VH
-    UC_MngKH --- VH
-    UC_MngTX --- VH
-    UC_MngVeh --- VH
-    UC_MngTrip --- VH
-    UC_TrackTX --- VH
-    UC_MngTrans --- VH
-    UC_Access --- VH
-
-    %% Ban giám đốc
-    UC_Login --- BGD
-    UC_Logout --- BGD
-    UC_ForgotPw --- BGD
-    UC_Profile --- BGD
-    UC_Biz --- BGD
-    UC_Report --- BGD
-
-    %% Tinh chỉnh màu nền hộp hệ thống
-    style CAB fill:#f8fafc,stroke:#1e293b,stroke-width:2px,color:#0f172a,font-weight:bold
-```
 
 # Bước 8: Đặc tả Use Case
+## 8. Đặc tả Use Case
 
+### 8.1. Actor: Khách hàng
+
+#### UC01 - Đăng ký tài khoản
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Tạo tài khoản để sử dụng dịch vụ đặt xe |
+| **Điều kiện trước** | Khách hàng chưa có tài khoản |
+| **Điều kiện sau** | Tài khoản khách hàng được tạo thành công |
+
+**Luồng chính:**
+
+1. Khách hàng chọn chức năng **Đăng ký tài khoản**.
+2. Hệ thống hiển thị biểu mẫu đăng ký.
+3. Khách hàng nhập thông tin đăng ký.
+4. Hệ thống kiểm tra tính hợp lệ của thông tin.
+5. Hệ thống kiểm tra tài khoản đã tồn tại hay chưa.
+6. Hệ thống tạo tài khoản.
+7. Hệ thống thông báo đăng ký thành công.
+
+**Luồng thay thế:**
+
+- Thông tin không hợp lệ → Hệ thống thông báo lỗi và yêu cầu nhập lại.
+- Tài khoản đã tồn tại → Hệ thống thông báo và yêu cầu sử dụng thông tin khác.
+
+---
+
+#### UC02 - Đăng nhập
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Xác thực người dùng và truy cập hệ thống |
+| **Điều kiện trước** | Khách hàng đã có tài khoản |
+| **Điều kiện sau** | Khách hàng đăng nhập thành công |
+
+**Luồng chính:**
+
+1. Khách hàng chọn chức năng **Đăng nhập**.
+2. Hệ thống hiển thị màn hình đăng nhập.
+3. Khách hàng nhập thông tin đăng nhập.
+4. Hệ thống kiểm tra thông tin.
+5. Hệ thống xác thực tài khoản.
+6. Hệ thống cho phép khách hàng truy cập các chức năng được cấp quyền.
+
+**Luồng thay thế:**
+
+- Thông tin đăng nhập không chính xác → Hệ thống thông báo lỗi.
+- Tài khoản không được phép truy cập → Hệ thống từ chối đăng nhập.
+
+---
+
+#### UC03 - Đăng xuất
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Kết thúc phiên sử dụng hệ thống |
+| **Điều kiện trước** | Khách hàng đang đăng nhập |
+| **Điều kiện sau** | Phiên đăng nhập được kết thúc |
+
+**Luồng chính:**
+
+1. Khách hàng chọn **Đăng xuất**.
+2. Hệ thống kết thúc phiên đăng nhập.
+3. Hệ thống chuyển khách hàng về màn hình đăng nhập.
+
+---
+
+#### UC04 - Quên mật khẩu
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Khôi phục quyền truy cập khi quên mật khẩu |
+| **Điều kiện trước** | Khách hàng đã có tài khoản |
+| **Điều kiện sau** | Mật khẩu được thay đổi thành công |
+
+**Luồng chính:**
+
+1. Khách hàng chọn **Quên mật khẩu**.
+2. Hệ thống yêu cầu thông tin xác thực.
+3. Khách hàng cung cấp thông tin cần thiết.
+4. Hệ thống kiểm tra thông tin.
+5. Hệ thống thực hiện xác thực.
+6. Khách hàng nhập mật khẩu mới.
+7. Hệ thống cập nhật mật khẩu.
+8. Hệ thống thông báo thay đổi mật khẩu thành công.
+
+**Luồng thay thế:**
+
+- Không tìm thấy tài khoản → Hệ thống thông báo lỗi.
+- Thông tin xác thực không hợp lệ → Hệ thống yêu cầu thực hiện lại.
+
+---
+
+#### UC05 - Quản lý thông tin cá nhân
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Xem và cập nhật thông tin cá nhân |
+| **Điều kiện trước** | Khách hàng đã đăng nhập |
+| **Điều kiện sau** | Thông tin cá nhân được cập nhật |
+
+**Luồng chính:**
+
+1. Khách hàng chọn **Thông tin cá nhân**.
+2. Hệ thống hiển thị thông tin hiện tại.
+3. Khách hàng chỉnh sửa thông tin.
+4. Hệ thống kiểm tra dữ liệu.
+5. Khách hàng xác nhận cập nhật.
+6. Hệ thống lưu thông tin mới.
+7. Hệ thống thông báo cập nhật thành công.
+
+---
+
+#### UC06 - Đặt xe
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Tạo yêu cầu đặt xe |
+| **Điều kiện trước** | Khách hàng đã đăng nhập |
+| **Điều kiện sau** | Yêu cầu đặt xe được tạo |
+
+**Luồng chính:**
+
+1. Khách hàng chọn **Đặt xe**.
+2. Hệ thống yêu cầu điểm đón và điểm đến.
+3. Khách hàng nhập điểm đón và điểm đến.
+4. Khách hàng chọn loại phương tiện.
+5. Hệ thống tiếp nhận yêu cầu đặt xe.
+6. Hệ thống tìm tài xế phù hợp.
+7. Hệ thống phân công tài xế.
+8. Hệ thống thông báo thông tin tài xế và chuyến đi cho khách hàng.
+
+**Luồng thay thế:**
+
+- Thông tin chuyến không hợp lệ → Hệ thống yêu cầu nhập lại.
+- Không tìm được tài xế → Hệ thống thông báo chưa tìm được tài xế phù hợp.
+- Không có phương tiện phù hợp → Hệ thống thông báo và yêu cầu lựa chọn lại.
+
+---
+
+#### UC07 - Theo dõi chuyến đi
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Theo dõi trạng thái chuyến đi |
+| **Điều kiện trước** | Khách hàng có chuyến đang được thực hiện |
+| **Điều kiện sau** | Khách hàng nhận được trạng thái hiện tại của chuyến |
+
+**Luồng chính:**
+
+1. Khách hàng chọn chuyến đang thực hiện.
+2. Hệ thống hiển thị thông tin chuyến.
+3. Hệ thống cập nhật trạng thái chuyến.
+4. Khách hàng theo dõi trạng thái hiện tại.
+5. Hệ thống tiếp tục cập nhật cho đến khi chuyến kết thúc.
+
+---
+
+#### UC08 - Hủy chuyến
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Hủy yêu cầu hoặc chuyến xe |
+| **Điều kiện trước** | Khách hàng có chuyến có thể hủy |
+| **Điều kiện sau** | Chuyến được cập nhật thành trạng thái hủy |
+
+**Luồng chính:**
+
+1. Khách hàng chọn chuyến cần hủy.
+2. Hệ thống kiểm tra trạng thái chuyến.
+3. Khách hàng chọn **Hủy chuyến**.
+4. Hệ thống yêu cầu xác nhận.
+5. Khách hàng xác nhận hủy.
+6. Hệ thống cập nhật trạng thái chuyến.
+7. Hệ thống thông báo kết quả.
+
+**Luồng thay thế:**
+
+- Chuyến không còn được phép hủy → Hệ thống thông báo.
+- Khách hàng không xác nhận → Chuyến được giữ nguyên.
+
+---
+
+#### UC09 - Thanh toán
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Thanh toán chi phí chuyến đi |
+| **Điều kiện trước** | Chuyến đã phát sinh chi phí cần thanh toán |
+| **Điều kiện sau** | Giao dịch được ghi nhận |
+
+**Luồng chính:**
+
+1. Khách hàng chọn **Thanh toán**.
+2. Hệ thống tính và hiển thị số tiền cần thanh toán.
+3. Khách hàng lựa chọn phương thức thanh toán.
+4. Khách hàng xác nhận thanh toán.
+5. Hệ thống xử lý giao dịch.
+6. Hệ thống nhận kết quả giao dịch.
+7. Hệ thống cập nhật trạng thái thanh toán.
+8. Hệ thống thông báo kết quả cho khách hàng.
+
+**Luồng thay thế:**
+
+- Giao dịch thất bại → Hệ thống thông báo thanh toán không thành công.
+- Giao dịch bị từ chối → Khách hàng có thể thực hiện lại hoặc chọn phương thức khác.
+
+---
+
+#### UC10 - Xem lịch sử chuyến đi
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Xem các chuyến đã thực hiện |
+| **Điều kiện trước** | Khách hàng đã đăng nhập |
+| **Điều kiện sau** | Danh sách lịch sử chuyến được hiển thị |
+
+**Luồng chính:**
+
+1. Khách hàng chọn **Lịch sử chuyến đi**.
+2. Hệ thống truy xuất lịch sử chuyến của khách hàng.
+3. Hệ thống hiển thị danh sách chuyến.
+4. Khách hàng có thể chọn một chuyến để xem chi tiết.
+
+---
+
+#### UC11 - Xem chi tiết chuyến đi
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Xem thông tin chi tiết của một chuyến |
+| **Điều kiện trước** | Chuyến tồn tại trong hệ thống |
+| **Điều kiện sau** | Thông tin chi tiết chuyến được hiển thị |
+
+**Luồng chính:**
+
+1. Khách hàng chọn một chuyến.
+2. Hệ thống truy xuất thông tin chuyến.
+3. Hệ thống hiển thị thông tin chi tiết.
+4. Khách hàng xem thông tin chuyến.
+
+---
+
+#### UC12 - Đánh giá tài xế
+
+| Thành phần | Nội dung |
+|---|---|
+| **Actor** | Khách hàng |
+| **Mục đích** | Đánh giá chất lượng chuyến đi và tài xế |
+| **Điều kiện trước** | Chuyến đã hoàn thành và chưa được đánh giá |
+| **Điều kiện sau** | Đánh giá được lưu vào hệ thống |
+
+**Luồng chính:**
+
+1. Khách hàng chọn chuyến đã hoàn thành.
+2. Khách hàng chọn **Đánh giá tài xế**.
+3. Hệ thống hiển thị biểu mẫu đánh giá.
+4. Khách hàng nhập mức đánh giá và nhận xét nếu có.
+5. Khách hàng xác nhận gửi đánh giá.
+6. Hệ thống lưu đánh giá.
+7. Hệ thống thông báo gửi đánh giá thành công.
+
+**Luồng thay thế:**
+
+- Chuyến đã được đánh giá → Hệ thống không cho phép đánh giá lại.
+- Thông tin đánh giá không hợp lệ → Hệ thống yêu cầu nhập lại.
