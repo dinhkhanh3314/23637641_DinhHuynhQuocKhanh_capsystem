@@ -304,122 +304,191 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Theo dõi hiệu quả hoạt động của tài xế
 
 # Bước 7: Vẽ Use Case Diagram
-```mermaid
-flowchart LR
-    %% Định dạng phong cách cho sơ đồ
-    classDef actor fill:transparent,stroke:none,color:#0f172a,font-weight:bold,font-size:16px;
-    classDef usecase fill:#ffffff,stroke:#334155,stroke-width:1.5px,color:#0f172a,font-size:14px;
+# Bước 7. Use Case Diagram
 
-    %% --- ACTOR BÊN TRÁI ---
-    KH["👤 Khách hàng"]:::actor
-    TX["👤 Tài xế"]:::actor
+Sơ đồ Use Case của CAB System – Nền tảng đặt xe:
 
-    %% --- HỆ THỐNG CHÍNH ---
-    subgraph CAB["CAB SYSTEM – NỀN TẢNG ĐẶT XE"]
-        direction TB
-        
-        %% Cụm Use Case chung
-        UC1(["Quản lý tài khoản"]):::usecase
-        UC7(["Quản lý phương tiện"]):::usecase
-        
-        %% Cụm Khách hàng
-        UC2(["Đặt xe"]):::usecase
-        UC3(["Theo dõi chuyến đi"]):::usecase
-        UC4(["Thanh toán"]):::usecase
-        UC5(["Xem lịch sử chuyến đi"]):::usecase
-        UC6(["Đánh giá tài xế"]):::usecase
-        
-        %% Cụm Tài xế
-        UC8(["Quản lý trạng thái hoạt động"]):::usecase
-        UC9(["Quản lý chuyến được phân công"]):::usecase
-        UC10(["Cập nhật trạng thái chuyến"]):::usecase
-        UC11(["Xem lịch sử chuyến"]):::usecase
+```plantuml
+@startuml
+left to right direction
 
-        %% Cụm Nhân viên vận hành
-        UC12(["Quản lý khách hàng"]):::usecase
-        UC13(["Quản lý tài xế"]):::usecase
-        UC14(["Quản lý chuyến đi"]):::usecase
-        UC15(["Theo dõi hoạt động tài xế"]):::usecase
-        UC16(["Quản lý giao dịch"]):::usecase
-        UC17(["Xử lý chuyến có vấn đề"]):::usecase
-        UC18(["Quản lý quyền truy cập"]):::usecase
-        
-        %% Cụm Ban giám đốc
-        UC19(["Theo dõi hoạt động kinh doanh"]):::usecase
-        UC20(["Xem báo cáo hoạt động"]):::usecase
-        
-        %% Các Use Case được Include (BGD)
-        UC21(["Theo dõi doanh thu"]):::usecase
-        UC22(["Theo dõi số lượng chuyến"]):::usecase
-        UC23(["Theo dõi tỷ lệ hoàn thành chuyến"]):::usecase
-        UC24(["Theo dõi tỷ lệ hủy chuyến"]):::usecase
-        UC25(["Theo dõi hiệu quả hoạt động của tài xế"]):::usecase
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+    BackgroundColor White
+    BorderColor #2563EB
+}
 
-        %% --- QUAN HỆ CỦA CÁC USE CASE NỘI BỘ ---
-        
-        %% Extend (Mũi tên trỏ từ Extension về Base)
-        UC6 -.->|"<<extend>>"| UC5
-        UC17 -.->|"<<extend>>"| UC14
-        
-        %% Include từ Theo dõi hoạt động KD
-        UC19 -.->|"<<include>>"| UC21
-        UC19 -.->|"<<include>>"| UC22
-        UC19 -.->|"<<include>>"| UC23
-        UC19 -.->|"<<include>>"| UC24
-        UC19 -.->|"<<include>>"| UC25
-        
-        %% Include từ Xem báo cáo hoạt động
-        UC20 -.->|"<<include>>"| UC21
-        UC20 -.->|"<<include>>"| UC22
-        UC20 -.->|"<<include>>"| UC23
-        UC20 -.->|"<<include>>"| UC24
-        UC20 -.->|"<<include>>"| UC25
-    end
+' =====================================================
+' ACTOR
+' =====================================================
 
-    %% --- ACTOR BÊN PHẢI ---
-    NV["👤 Nhân viên vận hành"]:::actor
-    BGD["👤 Ban giám đốc"]:::actor
+actor "Khách hàng" as KH
+actor "Tài xế" as TX
 
-    %% --- LIÊN KẾT GIỮA ACTOR VÀ USE CASE ---
+actor "Nhân viên vận hành" as VH
+actor "Ban giám đốc" as BGD
 
-    %% Khách hàng
-    KH --- UC1
-    KH --- UC2
-    KH --- UC3
-    KH --- UC4
-    KH --- UC5
-    KH --- UC6
-    
-    %% Tài xế
-    TX --- UC1
-    TX --- UC7
-    TX --- UC8
-    TX --- UC9
-    TX --- UC10
-    TX --- UC11
-    
-    %% Nhân viên vận hành (đẩy dây sang phải)
-    UC7 --- NV
-    UC12 --- NV
-    UC13 --- NV
-    UC14 --- NV
-    UC15 --- NV
-    UC16 --- NV
-    UC17 --- NV
-    UC18 --- NV
-    
-    %% Ban giám đốc (đẩy dây sang phải)
-    UC19 --- BGD
-    UC20 --- BGD
-    UC21 --- BGD
-    UC22 --- BGD
-    UC23 --- BGD
-    UC24 --- BGD
-    UC25 --- BGD
-    
-    %% Tinh chỉnh màu nền hộp hệ thống
-    style CAB fill:#f8fafc,stroke:#1e293b,stroke-width:2px,color:#0f172a,font-weight:bold
-```
+' =====================================================
+' CAB SYSTEM
+' =====================================================
+
+rectangle "CAB SYSTEM – NỀN TẢNG ĐẶT XE" {
+
+    ' =========================
+    ' XÁC THỰC
+    ' =========================
+
+    usecase "Đăng ký tài khoản" as UC01
+    usecase "Đăng nhập" as UC02
+    usecase "Đăng xuất" as UC03
+    usecase "Quên mật khẩu" as UC04
+    usecase "Quản lý thông tin cá nhân" as UC05
+
+    ' =========================
+    ' KHÁCH HÀNG
+    ' =========================
+
+    usecase "Đặt xe" as UC06
+    usecase "Theo dõi chuyến đi" as UC07
+    usecase "Hủy chuyến" as UC08
+    usecase "Thanh toán" as UC09
+    usecase "Xem lịch sử chuyến đi" as UC10
+    usecase "Xem chi tiết chuyến đi" as UC11
+    usecase "Đánh giá tài xế" as UC12
+
+    ' =========================
+    ' TÀI XẾ
+    ' =========================
+
+    usecase "Quản lý phương tiện" as UC13
+    usecase "Quản lý trạng thái hoạt động" as UC14
+    usecase "Xem chuyến được phân công" as UC15
+    usecase "Cập nhật trạng thái chuyến" as UC16
+    usecase "Xem lịch sử chuyến" as UC17
+
+    ' =========================
+    ' NHÂN VIÊN VẬN HÀNH
+    ' =========================
+
+    usecase "Quản lý khách hàng" as UC18
+    usecase "Xem thông tin khách hàng" as UC19
+    usecase "Quản lý tài xế" as UC20
+    usecase "Xem thông tin tài xế" as UC21
+    usecase "Quản lý phương tiện" as UC22
+    usecase "Quản lý chuyến đi" as UC23
+    usecase "Xem chi tiết chuyến đi" as UC24
+    usecase "Theo dõi hoạt động tài xế" as UC25
+    usecase "Quản lý giao dịch" as UC26
+    usecase "Xem chi tiết giao dịch" as UC27
+    usecase "Xử lý chuyến có vấn đề" as UC28
+    usecase "Quản lý quyền truy cập" as UC29
+
+    ' =========================
+    ' BAN GIÁM ĐỐC
+    ' =========================
+
+    usecase "Theo dõi hoạt động kinh doanh" as UC30
+    usecase "Xem báo cáo hoạt động" as UC31
+    usecase "Theo dõi doanh thu" as UC32
+    usecase "Theo dõi số lượng chuyến" as UC33
+    usecase "Theo dõi tỷ lệ hoàn thành chuyến" as UC34
+    usecase "Theo dõi tỷ lệ hủy chuyến" as UC35
+    usecase "Theo dõi hiệu quả hoạt động của tài xế" as UC36
+}
+
+' =====================================================
+' KHÁCH HÀNG
+' =====================================================
+
+KH --> UC01
+KH --> UC02
+KH --> UC03
+KH --> UC04
+KH --> UC05
+KH --> UC06
+KH --> UC07
+KH --> UC08
+KH --> UC09
+KH --> UC10
+KH --> UC11
+KH --> UC12
+
+' =====================================================
+' TÀI XẾ
+' =====================================================
+
+TX --> UC02
+TX --> UC03
+TX --> UC04
+TX --> UC05
+TX --> UC13
+TX --> UC14
+TX --> UC15
+TX --> UC16
+TX --> UC17
+
+' =====================================================
+' NHÂN VIÊN VẬN HÀNH
+' =====================================================
+
+VH --> UC02
+VH --> UC03
+VH --> UC04
+VH --> UC05
+VH --> UC18
+VH --> UC19
+VH --> UC20
+VH --> UC21
+VH --> UC22
+VH --> UC23
+VH --> UC24
+VH --> UC25
+VH --> UC26
+VH --> UC27
+VH --> UC28
+VH --> UC29
+
+' =====================================================
+' BAN GIÁM ĐỐC
+' =====================================================
+
+BGD --> UC02
+BGD --> UC03
+BGD --> UC04
+BGD --> UC05
+BGD --> UC30
+BGD --> UC31
+BGD --> UC32
+BGD --> UC33
+BGD --> UC34
+BGD --> UC35
+BGD --> UC36
+
+' =====================================================
+' INCLUDE
+' =====================================================
+
+UC30 ..> UC32 : <<include>>
+UC30 ..> UC33 : <<include>>
+UC30 ..> UC34 : <<include>>
+UC30 ..> UC35 : <<include>>
+UC30 ..> UC36 : <<include>>
+
+UC31 ..> UC32 : <<include>>
+UC31 ..> UC33 : <<include>>
+UC31 ..> UC34 : <<include>>
+UC31 ..> UC35 : <<include>>
+UC31 ..> UC36 : <<include>>
+
+' =====================================================
+' EXTEND
+' =====================================================
+
+UC12 ..> UC10 : <<extend>>
+UC28 ..> UC23 : <<extend>>
+
+@enduml
 ```
 # Bước 8: Đặc tả Use Case
 
