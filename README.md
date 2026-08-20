@@ -307,33 +307,19 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 
 # Bước 8: Đặc tả Use Case
-## 8. Đặc tả Use Case
-
 ### 8.1. Actor: Khách hàng
 
 #### UC01 - Đăng ký tài khoản
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Đăng ký tài khoản |
 | **Actor** | Khách hàng |
 | **Mục đích** | Tạo tài khoản để sử dụng dịch vụ đặt xe |
 | **Điều kiện trước** | Khách hàng chưa có tài khoản |
 | **Điều kiện sau** | Tài khoản khách hàng được tạo thành công |
-
-**Luồng chính:**
-
-1. Khách hàng chọn chức năng **Đăng ký tài khoản**.
-2. Hệ thống hiển thị biểu mẫu đăng ký.
-3. Khách hàng nhập thông tin đăng ký.
-4. Hệ thống kiểm tra tính hợp lệ của thông tin.
-5. Hệ thống kiểm tra tài khoản đã tồn tại hay chưa.
-6. Hệ thống tạo tài khoản.
-7. Hệ thống thông báo đăng ký thành công.
-
-**Luồng thay thế:**
-
-- Thông tin không hợp lệ → Hệ thống thông báo lỗi và yêu cầu nhập lại.
-- Tài khoản đã tồn tại → Hệ thống thông báo và yêu cầu sử dụng thông tin khác.
+| **Luồng chính** | 1. Khách hàng chọn **Đăng ký tài khoản**.<br>2. Hệ thống hiển thị biểu mẫu đăng ký.<br>3. Khách hàng nhập thông tin đăng ký.<br>4. Hệ thống kiểm tra tính hợp lệ của thông tin.<br>5. Hệ thống kiểm tra tài khoản đã tồn tại hay chưa.<br>6. Hệ thống tạo tài khoản.<br>7. Hệ thống thông báo đăng ký thành công. |
+| **Luồng thay thế / Ngoại lệ** | - Thông tin không hợp lệ → Hệ thống thông báo lỗi và yêu cầu nhập lại.<br>- Tài khoản đã tồn tại → Hệ thống thông báo và yêu cầu sử dụng thông tin khác. |
 
 ---
 
@@ -341,24 +327,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Đăng nhập |
 | **Actor** | Khách hàng |
-| **Mục đích** | Xác thực người dùng và truy cập hệ thống |
+| **Mục đích** | Xác thực tài khoản và truy cập hệ thống |
 | **Điều kiện trước** | Khách hàng đã có tài khoản |
 | **Điều kiện sau** | Khách hàng đăng nhập thành công |
-
-**Luồng chính:**
-
-1. Khách hàng chọn chức năng **Đăng nhập**.
-2. Hệ thống hiển thị màn hình đăng nhập.
-3. Khách hàng nhập thông tin đăng nhập.
-4. Hệ thống kiểm tra thông tin.
-5. Hệ thống xác thực tài khoản.
-6. Hệ thống cho phép khách hàng truy cập các chức năng được cấp quyền.
-
-**Luồng thay thế:**
-
-- Thông tin đăng nhập không chính xác → Hệ thống thông báo lỗi.
-- Tài khoản không được phép truy cập → Hệ thống từ chối đăng nhập.
+| **Luồng chính** | 1. Khách hàng chọn **Đăng nhập**.<br>2. Hệ thống hiển thị màn hình đăng nhập.<br>3. Khách hàng nhập thông tin đăng nhập.<br>4. Hệ thống kiểm tra thông tin.<br>5. Hệ thống xác thực tài khoản.<br>6. Hệ thống xác định quyền của khách hàng.<br>7. Hệ thống cho phép khách hàng truy cập các chức năng được cấp quyền. |
+| **Luồng thay thế / Ngoại lệ** | - Thông tin đăng nhập không chính xác → Hệ thống thông báo lỗi.<br>- Tài khoản không được phép truy cập → Hệ thống từ chối đăng nhập. |
 
 ---
 
@@ -366,16 +341,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Đăng xuất |
 | **Actor** | Khách hàng |
 | **Mục đích** | Kết thúc phiên sử dụng hệ thống |
 | **Điều kiện trước** | Khách hàng đang đăng nhập |
 | **Điều kiện sau** | Phiên đăng nhập được kết thúc |
-
-**Luồng chính:**
-
-1. Khách hàng chọn **Đăng xuất**.
-2. Hệ thống kết thúc phiên đăng nhập.
-3. Hệ thống chuyển khách hàng về màn hình đăng nhập.
+| **Luồng chính** | 1. Khách hàng chọn **Đăng xuất**.<br>2. Hệ thống kết thúc phiên đăng nhập.<br>3. Hệ thống chuyển khách hàng về màn hình đăng nhập. |
+| **Luồng thay thế / Ngoại lệ** | Không có. |
 
 ---
 
@@ -383,26 +355,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Quên mật khẩu |
 | **Actor** | Khách hàng |
-| **Mục đích** | Khôi phục quyền truy cập khi quên mật khẩu |
+| **Mục đích** | Khôi phục quyền truy cập khi khách hàng quên mật khẩu |
 | **Điều kiện trước** | Khách hàng đã có tài khoản |
-| **Điều kiện sau** | Mật khẩu được thay đổi thành công |
-
-**Luồng chính:**
-
-1. Khách hàng chọn **Quên mật khẩu**.
-2. Hệ thống yêu cầu thông tin xác thực.
-3. Khách hàng cung cấp thông tin cần thiết.
-4. Hệ thống kiểm tra thông tin.
-5. Hệ thống thực hiện xác thực.
-6. Khách hàng nhập mật khẩu mới.
-7. Hệ thống cập nhật mật khẩu.
-8. Hệ thống thông báo thay đổi mật khẩu thành công.
-
-**Luồng thay thế:**
-
-- Không tìm thấy tài khoản → Hệ thống thông báo lỗi.
-- Thông tin xác thực không hợp lệ → Hệ thống yêu cầu thực hiện lại.
+| **Điều kiện sau** | Mật khẩu mới được cập nhật thành công |
+| **Luồng chính** | 1. Khách hàng chọn **Quên mật khẩu**.<br>2. Hệ thống yêu cầu thông tin xác thực.<br>3. Khách hàng cung cấp thông tin cần thiết.<br>4. Hệ thống kiểm tra thông tin.<br>5. Hệ thống thực hiện xác thực.<br>6. Khách hàng nhập mật khẩu mới.<br>7. Hệ thống cập nhật mật khẩu.<br>8. Hệ thống thông báo thay đổi mật khẩu thành công. |
+| **Luồng thay thế / Ngoại lệ** | - Không tìm thấy tài khoản → Hệ thống thông báo lỗi.<br>- Thông tin xác thực không hợp lệ → Hệ thống yêu cầu thực hiện lại. |
 
 ---
 
@@ -410,20 +369,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Quản lý thông tin cá nhân |
 | **Actor** | Khách hàng |
 | **Mục đích** | Xem và cập nhật thông tin cá nhân |
 | **Điều kiện trước** | Khách hàng đã đăng nhập |
 | **Điều kiện sau** | Thông tin cá nhân được cập nhật |
-
-**Luồng chính:**
-
-1. Khách hàng chọn **Thông tin cá nhân**.
-2. Hệ thống hiển thị thông tin hiện tại.
-3. Khách hàng chỉnh sửa thông tin.
-4. Hệ thống kiểm tra dữ liệu.
-5. Khách hàng xác nhận cập nhật.
-6. Hệ thống lưu thông tin mới.
-7. Hệ thống thông báo cập nhật thành công.
+| **Luồng chính** | 1. Khách hàng chọn **Thông tin cá nhân**.<br>2. Hệ thống hiển thị thông tin hiện tại.<br>3. Khách hàng chỉnh sửa thông tin.<br>4. Hệ thống kiểm tra dữ liệu.<br>5. Khách hàng xác nhận cập nhật.<br>6. Hệ thống lưu thông tin mới.<br>7. Hệ thống thông báo cập nhật thành công. |
+| **Luồng thay thế / Ngoại lệ** | - Thông tin không hợp lệ → Hệ thống thông báo lỗi và yêu cầu nhập lại. |
 
 ---
 
@@ -431,27 +383,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Đặt xe |
 | **Actor** | Khách hàng |
 | **Mục đích** | Tạo yêu cầu đặt xe |
 | **Điều kiện trước** | Khách hàng đã đăng nhập |
-| **Điều kiện sau** | Yêu cầu đặt xe được tạo |
-
-**Luồng chính:**
-
-1. Khách hàng chọn **Đặt xe**.
-2. Hệ thống yêu cầu điểm đón và điểm đến.
-3. Khách hàng nhập điểm đón và điểm đến.
-4. Khách hàng chọn loại phương tiện.
-5. Hệ thống tiếp nhận yêu cầu đặt xe.
-6. Hệ thống tìm tài xế phù hợp.
-7. Hệ thống phân công tài xế.
-8. Hệ thống thông báo thông tin tài xế và chuyến đi cho khách hàng.
-
-**Luồng thay thế:**
-
-- Thông tin chuyến không hợp lệ → Hệ thống yêu cầu nhập lại.
-- Không tìm được tài xế → Hệ thống thông báo chưa tìm được tài xế phù hợp.
-- Không có phương tiện phù hợp → Hệ thống thông báo và yêu cầu lựa chọn lại.
+| **Điều kiện sau** | Yêu cầu đặt xe được tạo thành công |
+| **Luồng chính** | 1. Khách hàng chọn **Đặt xe**.<br>2. Hệ thống yêu cầu điểm đón và điểm đến.<br>3. Khách hàng nhập điểm đón và điểm đến.<br>4. Khách hàng chọn loại phương tiện.<br>5. Hệ thống tiếp nhận yêu cầu đặt xe.<br>6. Hệ thống tìm tài xế phù hợp.<br>7. Hệ thống phân công tài xế.<br>8. Hệ thống thông báo thông tin tài xế và chuyến đi cho khách hàng. |
+| **Luồng thay thế / Ngoại lệ** | - Thông tin chuyến không hợp lệ → Hệ thống yêu cầu nhập lại.<br>- Không tìm được tài xế → Hệ thống thông báo chưa tìm được tài xế phù hợp.<br>- Không có phương tiện phù hợp → Hệ thống thông báo và yêu cầu lựa chọn lại. |
 
 ---
 
@@ -459,18 +397,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Theo dõi chuyến đi |
 | **Actor** | Khách hàng |
-| **Mục đích** | Theo dõi trạng thái chuyến đi |
+| **Mục đích** | Theo dõi trạng thái hiện tại của chuyến đi |
 | **Điều kiện trước** | Khách hàng có chuyến đang được thực hiện |
 | **Điều kiện sau** | Khách hàng nhận được trạng thái hiện tại của chuyến |
-
-**Luồng chính:**
-
-1. Khách hàng chọn chuyến đang thực hiện.
-2. Hệ thống hiển thị thông tin chuyến.
-3. Hệ thống cập nhật trạng thái chuyến.
-4. Khách hàng theo dõi trạng thái hiện tại.
-5. Hệ thống tiếp tục cập nhật cho đến khi chuyến kết thúc.
+| **Luồng chính** | 1. Khách hàng chọn chuyến đang thực hiện.<br>2. Hệ thống hiển thị thông tin chuyến.<br>3. Hệ thống cập nhật trạng thái chuyến.<br>4. Khách hàng theo dõi trạng thái hiện tại.<br>5. Hệ thống tiếp tục cập nhật cho đến khi chuyến kết thúc. |
+| **Luồng thay thế / Ngoại lệ** | - Chuyến không còn tồn tại hoặc đã kết thúc → Hệ thống thông báo trạng thái cuối cùng của chuyến. |
 
 ---
 
@@ -478,25 +411,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Hủy chuyến |
 | **Actor** | Khách hàng |
-| **Mục đích** | Hủy yêu cầu hoặc chuyến xe |
-| **Điều kiện trước** | Khách hàng có chuyến có thể hủy |
+| **Mục đích** | Hủy yêu cầu hoặc chuyến xe đã đặt |
+| **Điều kiện trước** | Khách hàng có chuyến đang ở trạng thái cho phép hủy |
 | **Điều kiện sau** | Chuyến được cập nhật thành trạng thái hủy |
-
-**Luồng chính:**
-
-1. Khách hàng chọn chuyến cần hủy.
-2. Hệ thống kiểm tra trạng thái chuyến.
-3. Khách hàng chọn **Hủy chuyến**.
-4. Hệ thống yêu cầu xác nhận.
-5. Khách hàng xác nhận hủy.
-6. Hệ thống cập nhật trạng thái chuyến.
-7. Hệ thống thông báo kết quả.
-
-**Luồng thay thế:**
-
-- Chuyến không còn được phép hủy → Hệ thống thông báo.
-- Khách hàng không xác nhận → Chuyến được giữ nguyên.
+| **Luồng chính** | 1. Khách hàng chọn chuyến cần hủy.<br>2. Hệ thống kiểm tra trạng thái chuyến.<br>3. Khách hàng chọn **Hủy chuyến**.<br>4. Hệ thống yêu cầu xác nhận.<br>5. Khách hàng xác nhận hủy.<br>6. Hệ thống cập nhật trạng thái chuyến.<br>7. Hệ thống thông báo kết quả. |
+| **Luồng thay thế / Ngoại lệ** | - Chuyến không còn được phép hủy → Hệ thống thông báo.<br>- Khách hàng không xác nhận → Chuyến được giữ nguyên. |
 
 ---
 
@@ -504,26 +425,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Thanh toán |
 | **Actor** | Khách hàng |
 | **Mục đích** | Thanh toán chi phí chuyến đi |
 | **Điều kiện trước** | Chuyến đã phát sinh chi phí cần thanh toán |
 | **Điều kiện sau** | Giao dịch được ghi nhận |
-
-**Luồng chính:**
-
-1. Khách hàng chọn **Thanh toán**.
-2. Hệ thống tính và hiển thị số tiền cần thanh toán.
-3. Khách hàng lựa chọn phương thức thanh toán.
-4. Khách hàng xác nhận thanh toán.
-5. Hệ thống xử lý giao dịch.
-6. Hệ thống nhận kết quả giao dịch.
-7. Hệ thống cập nhật trạng thái thanh toán.
-8. Hệ thống thông báo kết quả cho khách hàng.
-
-**Luồng thay thế:**
-
-- Giao dịch thất bại → Hệ thống thông báo thanh toán không thành công.
-- Giao dịch bị từ chối → Khách hàng có thể thực hiện lại hoặc chọn phương thức khác.
+| **Luồng chính** | 1. Khách hàng chọn **Thanh toán**.<br>2. Hệ thống tính và hiển thị số tiền cần thanh toán.<br>3. Khách hàng lựa chọn phương thức thanh toán.<br>4. Khách hàng xác nhận thanh toán.<br>5. Hệ thống xử lý giao dịch.<br>6. Hệ thống nhận kết quả giao dịch.<br>7. Hệ thống cập nhật trạng thái thanh toán.<br>8. Hệ thống thông báo kết quả cho khách hàng. |
+| **Luồng thay thế / Ngoại lệ** | - Giao dịch thất bại → Hệ thống thông báo thanh toán không thành công.<br>- Giao dịch bị từ chối → Khách hàng có thể thực hiện lại hoặc chọn phương thức khác. |
 
 ---
 
@@ -531,17 +439,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Xem lịch sử chuyến đi |
 | **Actor** | Khách hàng |
 | **Mục đích** | Xem các chuyến đã thực hiện |
 | **Điều kiện trước** | Khách hàng đã đăng nhập |
 | **Điều kiện sau** | Danh sách lịch sử chuyến được hiển thị |
-
-**Luồng chính:**
-
-1. Khách hàng chọn **Lịch sử chuyến đi**.
-2. Hệ thống truy xuất lịch sử chuyến của khách hàng.
-3. Hệ thống hiển thị danh sách chuyến.
-4. Khách hàng có thể chọn một chuyến để xem chi tiết.
+| **Luồng chính** | 1. Khách hàng chọn **Lịch sử chuyến đi**.<br>2. Hệ thống truy xuất lịch sử chuyến của khách hàng.<br>3. Hệ thống hiển thị danh sách chuyến.<br>4. Khách hàng có thể chọn một chuyến để xem chi tiết. |
+| **Luồng thay thế / Ngoại lệ** | - Không có lịch sử chuyến → Hệ thống hiển thị thông báo chưa có dữ liệu. |
 
 ---
 
@@ -549,17 +453,13 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Xem chi tiết chuyến đi |
 | **Actor** | Khách hàng |
 | **Mục đích** | Xem thông tin chi tiết của một chuyến |
-| **Điều kiện trước** | Chuyến tồn tại trong hệ thống |
+| **Điều kiện trước** | Chuyến tồn tại và thuộc phạm vi được phép xem của khách hàng |
 | **Điều kiện sau** | Thông tin chi tiết chuyến được hiển thị |
-
-**Luồng chính:**
-
-1. Khách hàng chọn một chuyến.
-2. Hệ thống truy xuất thông tin chuyến.
-3. Hệ thống hiển thị thông tin chi tiết.
-4. Khách hàng xem thông tin chuyến.
+| **Luồng chính** | 1. Khách hàng chọn một chuyến.<br>2. Hệ thống kiểm tra quyền truy cập.<br>3. Hệ thống truy xuất thông tin chuyến.<br>4. Hệ thống hiển thị thông tin chi tiết chuyến. |
+| **Luồng thay thế / Ngoại lệ** | - Không tìm thấy chuyến → Hệ thống thông báo lỗi.<br>- Khách hàng không có quyền xem chuyến → Hệ thống từ chối truy cập. |
 
 ---
 
@@ -567,22 +467,10 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 | Thành phần | Nội dung |
 |---|---|
+| **Use Case** | Đánh giá tài xế |
 | **Actor** | Khách hàng |
-| **Mục đích** | Đánh giá chất lượng chuyến đi và tài xế |
-| **Điều kiện trước** | Chuyến đã hoàn thành và chưa được đánh giá |
+| **Mục đích** | Đánh giá chất lượng phục vụ của tài xế sau chuyến đi |
+| **Điều kiện trước** | Chuyến đã hoàn thành và khách hàng chưa đánh giá chuyến |
 | **Điều kiện sau** | Đánh giá được lưu vào hệ thống |
-
-**Luồng chính:**
-
-1. Khách hàng chọn chuyến đã hoàn thành.
-2. Khách hàng chọn **Đánh giá tài xế**.
-3. Hệ thống hiển thị biểu mẫu đánh giá.
-4. Khách hàng nhập mức đánh giá và nhận xét nếu có.
-5. Khách hàng xác nhận gửi đánh giá.
-6. Hệ thống lưu đánh giá.
-7. Hệ thống thông báo gửi đánh giá thành công.
-
-**Luồng thay thế:**
-
-- Chuyến đã được đánh giá → Hệ thống không cho phép đánh giá lại.
-- Thông tin đánh giá không hợp lệ → Hệ thống yêu cầu nhập lại.
+| **Luồng chính** | 1. Khách hàng chọn chuyến đã hoàn thành.<br>2. Khách hàng chọn **Đánh giá tài xế**.<br>3. Hệ thống hiển thị biểu mẫu đánh giá.<br>4. Khách hàng nhập mức đánh giá và nhận xét nếu có.<br>5. Khách hàng xác nhận gửi đánh giá.<br>6. Hệ thống kiểm tra thông tin đánh giá.<br>7. Hệ thống lưu đánh giá.<br>8. Hệ thống thông báo gửi đánh giá thành công. |
+| **Luồng thay thế / Ngoại lệ** | - Chuyến đã được đánh giá → Hệ thống không cho phép đánh giá lại.<br>- Thông tin đánh giá không hợp lệ → Hệ thống yêu cầu nhập lại. |
