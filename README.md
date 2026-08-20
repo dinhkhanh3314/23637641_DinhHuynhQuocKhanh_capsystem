@@ -1268,3 +1268,108 @@ Lưu giao dịch
     │
     ▼
 Lưu lịch sử chuyến
+```
+#Bước 10. Phân tích quy tắc nghiệp vụ
+
+## 10.1. Quy tắc quản lý tài khoản
+
+| Quy tắc nghiệp vụ | Đối tượng áp dụng |
+|---|---|
+| Mỗi tài khoản phải có thông tin đăng nhập hợp lệ để sử dụng hệ thống. | Tất cả người dùng |
+| Thông tin tài khoản phải được xác thực trước khi người dùng truy cập các chức năng yêu cầu đăng nhập. | Tất cả người dùng |
+| Một tài khoản chỉ được sử dụng theo đúng vai trò được cấp. | Tất cả người dùng |
+| Người dùng chỉ được truy cập các chức năng phù hợp với quyền của mình. | Tất cả người dùng |
+| Người dùng có thể đăng xuất khỏi hệ thống sau khi hoàn thành phiên làm việc. | Tất cả người dùng |
+| Khi người dùng quên mật khẩu, hệ thống phải hỗ trợ quy trình khôi phục mật khẩu. | Tất cả người dùng |
+| Thông tin cá nhân chỉ được thay đổi bởi chính người dùng hoặc người có quyền quản lý phù hợp. | Tất cả người dùng |
+
+---
+
+## 10.2. Quy tắc đăng ký tài khoản khách hàng
+
+| Quy tắc nghiệp vụ | Đối tượng áp dụng |
+|---|---|
+| Khách hàng phải cung cấp đầy đủ các thông tin bắt buộc khi đăng ký. | Khách hàng |
+| Hệ thống phải kiểm tra thông tin đăng ký trước khi tạo tài khoản. | Hệ thống |
+| Không được tạo tài khoản trùng với thông tin định danh đã tồn tại trong hệ thống. | Hệ thống |
+| Chỉ tài khoản đăng ký thành công mới được sử dụng để đăng nhập. | Khách hàng |
+
+---
+
+## 10.3. Quy tắc đặt xe
+
+| Quy tắc nghiệp vụ | Đối tượng áp dụng |
+|---|---|
+| Khách hàng phải đăng nhập trước khi thực hiện đặt xe. | Khách hàng |
+| Một yêu cầu đặt xe phải có điểm đón và điểm đến. | Khách hàng |
+| Khách hàng phải lựa chọn loại phương tiện khi đặt xe. | Khách hàng |
+| Hệ thống phải kiểm tra tính hợp lệ của thông tin đặt xe trước khi tạo yêu cầu. | Hệ thống |
+| Mỗi yêu cầu đặt xe phải được gắn với một khách hàng cụ thể. | Hệ thống |
+| Mỗi yêu cầu đặt xe phải có trạng thái để theo dõi quá trình xử lý. | Hệ thống |
+| Yêu cầu đặt xe chưa được phân công phải ở trạng thái chờ phân công. | Hệ thống |
+| Một chuyến chỉ được thực hiện khi yêu cầu đặt xe đã được tiếp nhận và xử lý hợp lệ. | Hệ thống |
+| Thông tin chuyến phải được lưu lại để phục vụ theo dõi và tra cứu lịch sử. | Hệ thống |
+
+---
+
+## 10.4. Quy tắc phân công tài xế
+
+| Quy tắc nghiệp vụ | Đối tượng áp dụng |
+|---|---|
+| Mỗi chuyến cần được phân công tài xế trước khi tài xế thực hiện chuyến. | Nhân viên vận hành |
+| Tài xế được phân công phải tồn tại trong hệ thống. | Hệ thống |
+| Tài xế được phân công phải phù hợp với loại phương tiện được yêu cầu. | Nhân viên vận hành |
+| Tài xế không ở trạng thái có thể nhận chuyến không được phân công cho chuyến mới. | Hệ thống |
+| Khi tài xế được phân công, thông tin tài xế phải được liên kết với chuyến. | Hệ thống |
+| Sau khi phân công thành công, trạng thái chuyến phải được cập nhật. | Hệ thống |
+| Tài xế phải nhận được thông tin về chuyến được phân công. | Hệ thống |
+| Khách hàng phải có thể biết chuyến đã được phân công tài xế. | Hệ thống |
+
+---
+
+## 10.5. Quy tắc trạng thái tài xế
+
+| Quy tắc nghiệp vụ | Đối tượng áp dụng |
+|---|---|
+| Tài xế phải có trạng thái hoạt động để hệ thống quản lý khả năng nhận chuyến. | Tài xế |
+| Tài xế có thể cập nhật trạng thái hoạt động của mình. | Tài xế |
+| Trạng thái hoạt động của tài xế phải được lưu trên hệ thống. | Hệ thống |
+| Nhân viên vận hành có quyền theo dõi trạng thái hoạt động của tài xế. | Nhân viên vận hành |
+| Hệ thống phải sử dụng trạng thái tài xế khi thực hiện phân công chuyến. | Hệ thống |
+
+---
+
+## 10.6. Quy tắc thực hiện chuyến
+
+| Quy tắc nghiệp vụ | Đối tượng áp dụng |
+|---|---|
+| Chỉ tài xế được phân công mới được thực hiện chuyến. | Tài xế |
+| Tài xế phải cập nhật trạng thái chuyến trong quá trình thực hiện. | Tài xế |
+| Mỗi chuyến phải có trạng thái hiện tại để các bên liên quan theo dõi. | Hệ thống |
+| Khi trạng thái chuyến thay đổi, hệ thống phải lưu trạng thái mới. | Hệ thống |
+| Khách hàng phải có thể xem trạng thái hiện tại của chuyến. | Khách hàng |
+| Nhân viên vận hành phải có thể theo dõi trạng thái chuyến. | Nhân viên vận hành |
+| Chuyến chỉ được chuyển sang trạng thái hoàn thành khi quá trình thực hiện chuyến kết thúc. | Tài xế / Hệ thống |
+| Chuyến đã hoàn thành phải được lưu vào lịch sử chuyến đi. | Hệ thống |
+
+---
+
+## 10.7. Quy tắc trạng thái chuyến
+
+Chuỗi trạng thái nghiệp vụ cơ bản:
+
+```text
+Chờ phân công
+      │
+      ▼
+Đã phân công
+      │
+      ▼
+Tài xế đang đến
+      │
+      ▼
+Đang thực hiện chuyến
+      │
+      ▼
+Hoàn thành
+```
