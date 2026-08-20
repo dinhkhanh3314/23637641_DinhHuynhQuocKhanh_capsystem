@@ -240,37 +240,61 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 # Bước 6: Yêu cầu chức năng
 
-## Khách hàng
+# Bước 6. Yêu cầu chức năng
 
-- Quản lý tài khoản
+## 1. Khách hàng
+
+- Đăng ký tài khoản
+- Đăng nhập
+- Đăng xuất
+- Quên mật khẩu
+- Quản lý thông tin cá nhân
 - Đặt xe
 - Theo dõi chuyến đi
+- Hủy chuyến
 - Thanh toán
 - Xem lịch sử chuyến đi
+- Xem chi tiết chuyến đi
 - Đánh giá tài xế
 
-## Tài xế
+## 2. Tài xế
 
-- Quản lý tài khoản
+- Đăng nhập
+- Đăng xuất
+- Quên mật khẩu
+- Quản lý thông tin cá nhân
 - Quản lý phương tiện
 - Quản lý trạng thái hoạt động
-- Quản lý chuyến được phân công
+- Xem chuyến được phân công
 - Cập nhật trạng thái chuyến
 - Xem lịch sử chuyến
+- Xem chi tiết chuyến đi
 
-## Nhân viên vận hành
+## 3. Nhân viên vận hành
 
+- Đăng nhập
+- Đăng xuất
+- Quên mật khẩu
+- Quản lý thông tin cá nhân
 - Quản lý khách hàng
+- Xem thông tin khách hàng
 - Quản lý tài xế
+- Xem thông tin tài xế
 - Quản lý phương tiện
 - Quản lý chuyến đi
+- Xem chi tiết chuyến đi
 - Theo dõi hoạt động tài xế
 - Quản lý giao dịch
+- Xem chi tiết giao dịch
 - Xử lý chuyến có vấn đề
 - Quản lý quyền truy cập
 
-## Ban giám đốc
+## 4. Ban giám đốc
 
+- Đăng nhập
+- Đăng xuất
+- Quên mật khẩu
+- Quản lý thông tin cá nhân
 - Theo dõi hoạt động kinh doanh
 - Xem báo cáo hoạt động
 - Theo dõi doanh thu
@@ -278,16 +302,6 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 - Theo dõi tỷ lệ hoàn thành chuyến
 - Theo dõi tỷ lệ hủy chuyến
 - Theo dõi hiệu quả hoạt động của tài xế
-
-## Nhà cung cấp thanh toán
-
-- Xử lý thanh toán điện tử
-- Trả kết quả giao dịch
-
-## Nhà cung cấp dịch vụ thông báo
-
-- Cung cấp dịch vụ gửi thông báo
-- Trả trạng thái gửi thông báo
 
 # Bước 7: Vẽ Use Case Diagram
 ```mermaid
