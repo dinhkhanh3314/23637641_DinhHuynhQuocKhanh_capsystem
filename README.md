@@ -73,23 +73,23 @@ Giá trị cốt lõi của hệ thống là hỗ trợ Công ty ABC vận hành
 
 | Stakeholder | Vai trò trong hệ thống |
 |---|---|
-| Ban giám đốc | Chủ sở hữu sản phẩm, quyết định mục tiêu, định hướng và các vấn đề quan trọng của CAB System |
-| Khách hàng | Người sử dụng CAB System để yêu cầu và sử dụng dịch vụ đặt xe |
-| Tài xế | Người cung cấp dịch vụ vận chuyển thông qua CAB System |
-| Nhân viên vận hành | Người trực tiếp quản lý và giám sát hoạt động của hệ thống |
-| Nhà cung cấp thanh toán bên ngoài | Đối tác cung cấp dịch vụ xử lý thanh toán điện tử |
-| Nhà cung cấp dịch vụ thông báo | Đối tác cung cấp dịch vụ gửi thông báo cho người dùng hệ thống |
+| Ban giám đốc | Chủ sở hữu sản phẩm, quyết định mục tiêu và định hướng của CAB System |
+| Khách hàng | Người sử dụng dịch vụ đặt xe |
+| Tài xế | Người cung cấp dịch vụ vận chuyển |
+| Nhân viên vận hành | Người quản lý và giám sát hoạt động đặt xe |
+| Nhà cung cấp thanh toán bên ngoài | Đối tác xử lý thanh toán điện tử |
+| Nhà cung cấp dịch vụ thông báo | Đối tác hỗ trợ gửi thông báo |
 
 ## 2. Phân tích mức độ ảnh hưởng và quan tâm
 
 | Stakeholder | Power | Interest | Lý do |
 |---|---|---|---|
-| Ban giám đốc | Cao | Cao | Có quyền quyết định và chịu trách nhiệm về kết quả của sản phẩm |
-| Nhân viên vận hành | Cao | Cao | Là nhóm trực tiếp vận hành, quản lý và giám sát hoạt động đặt xe |
-| Khách hàng | Thấp | Cao | Sử dụng trực tiếp sản phẩm và chịu ảnh hưởng trực tiếp từ trải nghiệm đặt xe |
-| Tài xế | Thấp | Cao | Sử dụng trực tiếp hệ thống để tiếp nhận và thực hiện chuyến |
-| Nhà cung cấp thanh toán bên ngoài | Cao | Thấp | Có ảnh hưởng đến khả năng thanh toán nhưng không tham gia trực tiếp vào hoạt động đặt xe |
-| Nhà cung cấp dịch vụ thông báo | Thấp | Thấp | Hỗ trợ một thành phần của hệ thống và ít ảnh hưởng đến quyết định nghiệp vụ |
+| Ban giám đốc | Cao | Cao | Có quyền quyết định và chịu trách nhiệm về sản phẩm |
+| Nhân viên vận hành | Cao | Cao | Trực tiếp quản lý và giám sát hoạt động đặt xe |
+| Khách hàng | Thấp | Cao | Sử dụng trực tiếp sản phẩm |
+| Tài xế | Thấp | Cao | Sử dụng trực tiếp hệ thống để nhận và thực hiện chuyến |
+| Nhà cung cấp thanh toán bên ngoài | Cao | Thấp | Có ảnh hưởng đến hoạt động thanh toán nhưng không tham gia trực tiếp vào quy trình đặt xe |
+| Nhà cung cấp dịch vụ thông báo | Thấp | Thấp | Hỗ trợ một phần hoạt động của hệ thống |
 
 ## 3. Stakeholder Matrix
 
@@ -98,13 +98,22 @@ quadrantChart
     title Stakeholder Matrix - Power / Interest
     x-axis "Interest thấp" --> "Interest cao"
     y-axis "Power thấp" --> "Power cao"
-
     "Nhà cung cấp dịch vụ thông báo": [0.25, 0.25]
     "Khách hàng": [0.85, 0.30]
     "Tài xế": [0.80, 0.35]
     "Nhà cung cấp thanh toán": [0.30, 0.80]
     "Nhân viên vận hành": [0.85, 0.85]
     "Ban giám đốc": [0.90, 0.90]
+```
+
+## 4. Chiến lược quản lý Stakeholder
+
+| Nhóm | Stakeholder | Chiến lược |
+|---|---|---|
+| Power cao – Interest cao | Ban giám đốc, Nhân viên vận hành | Quản lý chặt chẽ, trao đổi thường xuyên và tham gia vào các quyết định quan trọng |
+| Power thấp – Interest cao | Khách hàng, Tài xế | Duy trì sự tham gia, thường xuyên thu thập nhu cầu và phản hồi |
+| Power cao – Interest thấp | Nhà cung cấp thanh toán bên ngoài | Duy trì sự hài lòng và phối hợp khi có vấn đề liên quan đến tích hợp |
+| Power thấp – Interest thấp | Nhà cung cấp dịch vụ thông báo | Theo dõi và phối hợp khi phát sinh vấn đề |
 
 ## Bước 3. Mục đích nghiệp vụ
 - Xây dựng nền tảng CAB mới để khắc phục những hạn chế của hệ thống hiện tại.
