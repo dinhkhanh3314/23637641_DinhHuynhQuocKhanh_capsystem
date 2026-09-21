@@ -306,7 +306,7 @@ CAB System được xây dựng nhằm giải quyết các hạn chế của h�
 
 ## Bước 7. Use Case Diagram
 
-![Use Case Diagram](./UseCaseDiagram.svg)
+![Use Case Diagram](IMG/UseCaseDiagram.svg)
 
 # Bước 8: Đặc tả Use Case
 
