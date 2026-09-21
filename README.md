@@ -1382,7 +1382,7 @@ Hoàn thành
 
 ```mermaid
 flowchart TB
-    subgraph ClientLayer ["Client Layer (App / Web)"]
+    subgraph ClientLayer ["Client Layer (Application / Web)"]
         Web[Customer App / Driver App / Admin Dashboard]
     end
 
@@ -1394,28 +1394,28 @@ flowchart TB
 
     subgraph MicroservicesGrid ["Microservices Architecture (7 Services)"]
 
-        IAM_Service["1. IAM Service<br>(/auth, /users, /access)"]
+        IAM_Service["1. Identity & Access Management Service<br>(/auth, /users, /access)"]
         Trip_Service["2. Trip & Dispatching Service<br>(/rides, /operations/problem-rides)"]
-        Fleet_Service["3. Fleet & Driver Service<br>(/drivers, /vehicles, /operations/drivers)"]
+        Fleet_Service["3. Fleet & Driver Operations Service<br>(/drivers, /vehicles, /operations/drivers)"]
         Billing_Service["4. Billing & Payment Service<br>(/payments, /transactions)"]
-        Customer_Service["5. Customer Service<br>(/customers, /rides/{id}/rating)"]
+        Customer_Service["5. Customer Engagement Service<br>(/customers, /rides/{id}/rating)"]
         Analytics_Service["6. Analytics & Reporting Service<br>(/reports)"]
-        Notification_Service["7. Notification Service<br>(Internal Async Worker)"]
+        Notification_Service["7. Notification Service<br>(Internal Asynchronous Worker)"]
 
         %% Databases for Database-per-service pattern
-        IAM_DB[(IAM DB)]
-        Trip_DB[(Trip DB)]
-        Fleet_DB[(Fleet DB)]
-        Billing_DB[(Billing DB)]
-        Cust_DB[(Customer DB)]
-        DW[(Data Warehouse)]
+        IAM_Database[(Identity & Access Database)]
+        Trip_Database[(Trip Database)]
+        Fleet_Database[(Fleet & Driver Database)]
+        Billing_Database[(Billing & Payment Database)]
+        Customer_Database[(Customer Engagement Database)]
+        Data_Warehouse[(Analytics Data Warehouse)]
 
-        IAM_Service -.- IAM_DB
-        Trip_Service -.- Trip_DB
-        Fleet_Service -.- Fleet_DB
-        Billing_Service -.- Billing_DB
-        Customer_Service -.- Cust_DB
-        Analytics_Service -.- DW
+        IAM_Service -.- IAM_Database
+        Trip_Service -.- Trip_Database
+        Fleet_Service -.- Fleet_Database
+        Billing_Service -.- Billing_Database
+        Customer_Service -.- Customer_Database
+        Analytics_Service -.- Data_Warehouse
     end
 
     %% Gateway Routing Mapping
@@ -1442,12 +1442,12 @@ flowchart TB
 
     %% Consumers
     Broker -.->|Consume Events for SMS/Push| Notification_Service
-    Broker ==>|CDC / Batch Data Sync| Analytics_Service
+    Broker ==>|Change Data Capture / Batch Data Sync| Analytics_Service
 
     %% External Systems
     subgraph External ["External Services"]
         ExtPayment[Payment Gateway]
-        ExtSMS[SMS / Push Provider]
+        ExtSMS[SMS & Push Notification Provider]
     end
 
     Billing_Service -->|Process Payment| ExtPayment
@@ -1459,8 +1459,8 @@ flowchart TB
     classDef generic fill:#d9edf7,stroke:#5bc0de,stroke-width:2px,color:#333;
     classDef infra fill:#f5f5f5,stroke:#999,stroke-width:1px,color:#333;
 
-    class Trip_Service,Trip_DB core;
-    class Fleet_Service,Fleet_DB,Customer_Service,Cust_DB,Analytics_Service,DW support;
-    class IAM_Service,IAM_DB,Billing_Service,Billing_DB,Notification_Service generic;
+    class Trip_Service,Trip_Database core;
+    class Fleet_Service,Fleet_Database,Customer_Service,Customer_Database,Analytics_Service,Data_Warehouse support;
+    class IAM_Service,IAM_Database,Billing_Service,Billing_Database,Notification_Service generic;
     class Gateway,Broker infra;
 ```
