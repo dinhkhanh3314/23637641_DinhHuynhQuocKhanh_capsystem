@@ -1394,13 +1394,13 @@ flowchart TB
 
     subgraph MicroservicesGrid ["Microservices Architecture (7 Services)"]
 
-        IAM_Service["1. IAM Service\n(/auth, /users, /access)"]
-        Trip_Service["2. Trip & Dispatching Service\n(/rides, /operations/problem-rides)"]
-        Fleet_Service["3. Fleet & Driver Service\n(/drivers, /vehicles, /operations/drivers)"]
-        Billing_Service["4. Billing & Payment Service\n(/payments, /transactions)"]
-        Customer_Service["5. Customer Service\n(/customers, /rides/{id}/rating)"]
-        Analytics_Service["6. Analytics & Reporting Service\n(/reports)"]
-        Notification_Service["7. Notification Service\n(Internal Async Worker)"]
+        IAM_Service["1. IAM Service<br>(/auth, /users, /access)"]
+        Trip_Service["2. Trip & Dispatching Service<br>(/rides, /operations/problem-rides)"]
+        Fleet_Service["3. Fleet & Driver Service<br>(/drivers, /vehicles, /operations/drivers)"]
+        Billing_Service["4. Billing & Payment Service<br>(/payments, /transactions)"]
+        Customer_Service["5. Customer Service<br>(/customers, /rides/{id}/rating)"]
+        Analytics_Service["6. Analytics & Reporting Service<br>(/reports)"]
+        Notification_Service["7. Notification Service<br>(Internal Async Worker)"]
 
         %% Databases for Database-per-service pattern
         IAM_DB[(IAM DB)]
